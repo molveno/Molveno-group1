@@ -1,4 +1,3 @@
-import com.hotelmolveno.user.Guest;
 
 /**
  * Molveno World Program!
@@ -7,20 +6,20 @@ import com.hotelmolveno.user.Guest;
 
 
 public class App {
-    String MessageFromMain = "message from main";
 
 
-    public static void main(String[] args) {
-        System.out.println(Room);
+    public static String Main(String[] args) {
+        String messageFromMain = "message from main";
+
+        System.out.println();
     }
 
-
     public String getMessageFromMain() {
-        return MessageFromMain;
+        return messageFromMain;
     }
 
     public void setMessageFromMain(String messageFromMain) {
-        MessageFromMain = messageFromMain;
+        messageFromMain = messageFromMain;
     }
 
 }
