@@ -10,14 +10,14 @@ public class EmployeeTest {
     private Employee employee;
 
     @Before
-    public void setup() {
+    public void setup(){
         this.employee = new Employee();
     }
 
     @Test
-    public void testSetID() {
-        this.guest.setID(5);
-        Assert.assertEquals(5, guest.getID());
+    public void testSetGet(){
+        this.employee.setEmployeeNumber(7);
+        Assert.assertEquals(7, employee.getEmployeeNumber());
     }
 }
 
