@@ -1,4 +1,4 @@
-package com.hotelmolveno.rooms;
+package com.hotelmolveno.hotel;
 
 
 
@@ -10,7 +10,12 @@ public class LuxuryRoom extends Room{
         this.ratePercentage = setID;
     }
 
-    LuxuryRoom newLux = new LuxuryRoom(10);
+    @Override
+    public void showMessage(){
+       // super.showMessage();
+        System.out.println("Welcome to your luxury room");
+    }
+
 
     public double getRatePercentage() {
         return ratePercentage;
@@ -20,12 +25,7 @@ public class LuxuryRoom extends Room{
         this.ratePercentage = ratePercentage;
     }
 
-    public LuxuryRoom getNewLux() {
-        return newLux;
-    }
 
-    public void setNewLux(LuxuryRoom newLux) {
-        this.newLux = newLux;
-    }
+
 }
 

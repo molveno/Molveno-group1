@@ -1,8 +1,9 @@
-package com.hotelmolveno.rooms;
+package com.hotelmolveno.hotel;
 
 public class Room {
     protected int roomID = 0;
     protected boolean reserved = false;
+    //protected String message = "";
 
     public Room(){
     }
@@ -12,6 +13,10 @@ public class Room {
         this.reserved = setReserved;
     }
 
+
+    public void showMessage(){
+        System.out.println("Welcome to your base room");
+    }
 
     public int getRoomID() {
         return roomID;
@@ -28,5 +33,12 @@ public class Room {
     public void setReserved(boolean reserved) {
         this.reserved = reserved;
     }
+
+
+    public void getMainRoomMessage(){
+        System.out.println("Message from main room");
+    }
+
+
 }
 

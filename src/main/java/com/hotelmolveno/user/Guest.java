@@ -1,4 +1,4 @@
-package com.hotelmolveno.rooms;
+package com.hotelmolveno.user;
 
 public class Guest {
 
