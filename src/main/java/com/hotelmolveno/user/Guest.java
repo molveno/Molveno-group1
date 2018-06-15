@@ -7,6 +7,10 @@ public class Guest {
     private String lastName;
     private long bankNR;
 
+    public void reserveRoom() {
+        
+    }
+
     public Guest(int setID){
         this.ID = setID;
     }
