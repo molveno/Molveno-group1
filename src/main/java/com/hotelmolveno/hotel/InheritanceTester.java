@@ -1,7 +1,5 @@
 package com.hotelmolveno.hotel;
 
-import com.hotelmolveno.hotel.LuxuryRoom;
-import com.hotelmolveno.hotel.Room;
 
 public class InheritanceTester {
 
