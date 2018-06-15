@@ -18,8 +18,8 @@ public class GuestTest {
 
     @Test
     public void testSetID(){
-        this.guest.setID(5);
-        Assert.assertEquals(5, guest.getID());
+        this.guest.setId(5);
+        Assert.assertEquals(5, guest.getId());
     }
 
 

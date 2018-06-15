@@ -2,7 +2,7 @@ package com.hotelmolveno.user;
 
 public class Guest {
 
-    private int ID;
+    private int id;
     private String firstName;
     private String lastName;
     private long bankNR;
@@ -12,15 +12,15 @@ public class Guest {
     }
 
     public Guest(int setID){
-        this.ID = setID;
+        this.id = setID;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
