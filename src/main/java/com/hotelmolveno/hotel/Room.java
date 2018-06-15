@@ -5,21 +5,16 @@ import java.util.List;
 public class Room {
     protected int roomID = 0;
     protected boolean reserved = false;
-    //protected String message = "";
+    protected String employee = "";
 
     private List guests;
 
-    public Room(){
+    public Room(){ //main constructor
     }
 
-    public Room(int setRoomID, boolean setReserved){
+    public Room(int setRoomID, boolean setReserved){ //second constructor
         this.roomID = setRoomID;
         this.reserved = setReserved;
-    }
-
-
-    public void showMessage(){
-        System.out.println("Welcome to your base room");
     }
 
     public int getRoomID() {
@@ -30,7 +25,7 @@ public class Room {
         this.roomID = roomID;
     }
 
-    public boolean getReserved() {
+    public boolean isReserved() {
         return reserved;
     }
 
@@ -38,15 +33,20 @@ public class Room {
         this.reserved = reserved;
     }
 
-
-    public void getMainRoomMessage(){
-        System.out.println("Message from main room");
+    public String getEmployee() {
+        return employee;
     }
 
+    public void setEmployee(String employee) {
+        this.employee = employee;
+    }
 
-    public  void setGuests(List guests) {
+    public List getGuests() {
+        return guests;
+    }
+
+    public void setGuests(List guests) {
         this.guests = guests;
     }
-
 }
 
