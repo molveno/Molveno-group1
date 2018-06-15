@@ -1,7 +1,7 @@
 package com.hotelmolveno.restaurant;
 
 import com.hotelmolveno.restaurant.Dish;
-
+import com.hotelmolveno.restaurant.Ingredient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,17 +9,30 @@ public class Menu {
 
     public String menuList = "Menu list of dishes";
 
-    private List <Dish> menuList2 = new ArrayList<Dish>();
-
-    public Menu(String menuList) {
-        this.menuList = menuList;
+    public Menu() { //base constructor
+    }
+    public Menu(String getMenuList) { //setter
+        this.menuList = getMenuList;
     }
 
-    public String getMenuList() {
+    public String getMenuList() {//getter
         return menuList;
     }
 
-    public void setMenuList(String menuList) {
-        this.menuList = menuList;
+    Menu newDish = new Dish();
+
+    public Menu getNewDish() {
+        return newDish;
     }
+
+    public void setNewDish(Menu newDish) {
+        this.newDish = newDish;
+    }
+
 }
+
+
+
+
+
+//private List <Dish> menuList2 = new ArrayList<Dish>();

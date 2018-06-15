@@ -1,9 +1,13 @@
 package com.hotelmolveno.hotel;
 
+import java.util.List;
+
 public class Room {
     protected int roomID = 0;
     protected boolean reserved = false;
     //protected String message = "";
+
+    private List guests;
 
     public Room(){
     }
@@ -39,6 +43,10 @@ public class Room {
         System.out.println("Message from main room");
     }
 
+
+    public  void setGuests(List guests) {
+        this.guests = guests;
+    }
 
 }
 
