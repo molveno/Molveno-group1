@@ -2,22 +2,17 @@ package com.hotelmolveno.user;
 
 public class Guest {
 
-    private int ID;
+    private static int ID;
     private String firstName;
     private String lastName;
-    private long bankNR;
+    private String address;
+    private String postalCode;
+    private String town;
+    private String country;
+    private String telephoneNumber;
+    private String emailAddress;
 
-    public Guest(int setID){
-        this.ID = setID;
-    }
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -35,11 +30,58 @@ public class Guest {
         this.lastName = lastName;
     }
 
-    public long getBankNR() {
-        return bankNR;
+    public String getAddress() {
+        return address;
     }
 
-    public void setBankNR(long bankNR) {
-        this.bankNR = bankNR;
+    public void setAddress(String address) {
+        this.address = address;
     }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+
+
+
+
+
+
 }
