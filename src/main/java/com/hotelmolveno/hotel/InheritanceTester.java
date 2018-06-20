@@ -4,7 +4,7 @@ package com.hotelmolveno.hotel;
 public class InheritanceTester {
 
     public static void main(String[] args) {
-        Room room1 = new Room(0, false);
+        Room room1 = new Room(0);
         room1.getMainRoomMessage();
         room1.showMessage();
 

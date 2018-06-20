@@ -6,7 +6,7 @@ public class LuxuryRoom extends Room{
     private double ratePercentage = 25.0;
 
     public LuxuryRoom(int setID){
-        super(0, false);
+        super(0);
         this.ratePercentage = setID;
     }
 

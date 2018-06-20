@@ -10,9 +10,9 @@ public class Room {
 
     private List guests;
 
-    public Room(int setRoomID, boolean setReserved) {
+    public Room(int setRoomID) {
         this.roomID = setRoomID;
-        this.reserved = setReserved;
+        // this.reserved = setReserved; // add later
     }
 
     public void showMessage() {
@@ -51,6 +51,15 @@ public class Room {
 
     public void setNumberOfGuests(int numberOfGuests) {
         this.numberOfGuests = numberOfGuests;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomID=" + roomID +
+                ", reserved=" + reserved +
+                ", numberOfGuests=" + numberOfGuests +
+                '}';
     }
 }
 

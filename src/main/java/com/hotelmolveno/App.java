@@ -9,7 +9,7 @@ import com.hotelmolveno.user.Guest;
 public class App{
 
     public static void main(String[]args){
-    Room newRoom = new Room(0, false);
+    Room newRoom = new Room(0);
     newRoom.setReserved(true);
     System.out.println(newRoom.getRoomID());
 
