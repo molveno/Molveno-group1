@@ -2,6 +2,9 @@ package com.hotelmolveno.hotel;
 
 import java.util.Scanner;
 
+import static com.hotelmolveno.hotel.Hotel.addRoomToList;
+import static com.hotelmolveno.hotel.Hotel.rooms;
+
 
 public class RoomMakerApp {
 
@@ -62,6 +65,11 @@ public class RoomMakerApp {
 //once finished
             // reader.close();
             System.out.println("You entered room number " + Integer.toString(x));
+            Room room = new Room(x);
+            room.setRoomID(x);
+            System.out.println(room);
+            addRoomToList(room);
+            System.out.println(rooms);
 
     }
 }
