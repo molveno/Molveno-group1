@@ -12,7 +12,7 @@ public class Guest {
     private String telephoneNumber;
     private String emailAddress;
 
-
+    public Guest(String lastName){};
 
     public String getFirstName() {
         return firstName;
