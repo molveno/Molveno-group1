@@ -5,10 +5,12 @@ import java.util.Scanner;
 
 public class RoomMakerApp {
 
-    boolean state = true;
+    static boolean state = true;
 
-    public static void main(String[] args) {
-        printMenu();
+    public static void main(String[] args)  {
+        while(state) {
+            printMenu();
+        }
     }
 
     public static void printMenu() {
@@ -39,6 +41,7 @@ public class RoomMakerApp {
                     break; //
                 case 3:
                     System.out.println("You choose to quit");
+                    state = false;
                     break;
             }
 
@@ -57,7 +60,7 @@ public class RoomMakerApp {
             System.out.println("Enter a room number: ");
             int x = reader.nextInt();
 //once finished
-            reader.close();
+            // reader.close();
             System.out.println("You entered room number " + Integer.toString(x));
 
     }
