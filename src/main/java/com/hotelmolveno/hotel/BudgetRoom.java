@@ -5,7 +5,7 @@ public class BudgetRoom extends Room{
 private boolean tvAvailable;
 
     public BudgetRoom(int setRoomID, boolean setReserved, boolean tvAvailable) {
-        super(setRoomID, setReserved);
+        super(setRoomID);
         this.tvAvailable = tvAvailable;
     }
 
