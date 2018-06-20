@@ -1,102 +1,49 @@
 package com.hotelmolveno.user;
 
-public class Guest {
+import java.util.ArrayList;
 
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String postalCode;
-    private String town;
-    private String country;
-    private String telephoneNumber;
-    private String emailAddress;
+public class Guest extends User {
 
-    public void reserveRoom() {
-        
+    private static int guestID = 0;
+
+    public Guest(String firstName, String lastName, String address, String postalCode, String city, String country, String telephoneNumber, String emailAddress) {
+        super(firstName, lastName, address, postalCode, city, country, telephoneNumber, emailAddress);  //constructor
     }
 
-    public Guest(int setID){
-        this.id = setID;
-    }
-    public Guest(String lastName){};
+    private static ArrayList<User> userList = new ArrayList<>();    //initiate empty arrayList
 
-    public int getId() {
-        return id;
+    public Guest() {
+        super();
     }
 
-    public void setId(int id) {
-        this.id = id;
+    //method to add users
+    public static void addNewUser(String firstName, String lastName, String address, String postalCode, String city, String country, String telephoneNumber, String emailAddress) {
+
+        User newUser = new Guest();
+        ((Guest) newUser).setGuestID(guestID++);
+        newUser.setFirstName(firstName);
+        newUser.setLastName(lastName);
+        newUser.setAddress(address);
+        newUser.setPostalCode(postalCode);
+        newUser.setCity(city);
+        newUser.setCountry(country);
+        newUser.setTelephoneNumber(telephoneNumber);
+        newUser.setEmailAddress(emailAddress);
+        userList.add(newUser);
     }
 
-    public String getFirstName() {
-        return firstName;
+    public static void printUsers() {
+        for (User listUsers : userList) {
+            System.out.println(listUsers);
+        }
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public int getGuestID() {
+        return guestID;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setGuestID(int guestID) {
+        this.guestID = guestID;
     }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public String getTown() {
-        return town;
-    }
-
-    public void setTown(String town) {
-        this.town = town;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-
-
-
-
-
 
 }
