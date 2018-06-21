@@ -60,13 +60,23 @@ public class RoomMakerApp {
 
     public static void roomMaker() { // method to run if employee chooses to make a room
             Scanner reader = new Scanner(System.in);  // Reading from System.in
-            System.out.println("Enter a room number: ");
+
+            System.out.println("Enter a room ID: ");
             int x = reader.nextInt();
-//once finished
-            // reader.close();
-            System.out.println("You entered room number " + Integer.toString(x));
-            Room room = new Room(x);
+            System.out.println("You entered room ID " + Integer.toString(x));
+
+        System.out.println("Enter a room number: ");
+        int chosenRoomNumber = reader.nextInt();
+        System.out.println("You entered room number " + Integer.toString(chosenRoomNumber));
+
+        System.out.println("How many guests fit in the room? ");
+        int roomCapacity = reader.nextInt();
+        System.out.println("The capacity of the room is " + Integer.toString(roomCapacity));
+
+            Room room = new Room(x, chosenRoomNumber, roomCapacity);
             room.setRoomID(x);
+            room.setRoomNumber(chosenRoomNumber);
+            room.setNumberOfGuests(roomCapacity);
             System.out.println(room);
             addRoomToList(room);
             System.out.println(rooms);

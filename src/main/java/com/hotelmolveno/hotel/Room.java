@@ -3,17 +3,35 @@ package com.hotelmolveno.hotel;
 import java.util.List;
 
 public class Room {
-    protected int roomID = 0;
-    protected boolean reserved = false;
+    protected int roomID;
+    protected int roomNumber;
+    protected boolean reserved;
     protected int numberOfGuests;
-    //protected String message = "";
+    protected double price;
 
-    private List guests;
-
-    public Room(int setRoomID) {
+    public Room(int setRoomID, int roomNumber, int numberOfGuests) {
         this.roomID = setRoomID;
         // this.reserved = setReserved; // add later
     }
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    private List guests;
+
+
 
     public void showMessage() {
         System.out.println("Welcome to your base room");
@@ -57,9 +75,13 @@ public class Room {
     public String toString() {
         return "Room{" +
                 "roomID=" + roomID +
+                ", roomNumber=" + roomNumber +
                 ", reserved=" + reserved +
                 ", numberOfGuests=" + numberOfGuests +
+                ", price=" + price +
                 '}';
     }
 }
+
+
 
