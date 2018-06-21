@@ -1,5 +1,7 @@
 package com.hotelmolveno.hotel;
 
+
+/*
 import java.util.Scanner;
 
 import static com.hotelmolveno.hotel.Hotel.addRoomToList;
@@ -109,5 +111,5 @@ public class RoomMakerApp {
     }
 }
 
-
+*/
 
