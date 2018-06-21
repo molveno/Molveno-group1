@@ -41,6 +41,7 @@ public class RoomMakerApp {
                 break; //
             case 2:
                 System.out.println("You choose to alter a room");
+                roomChanger();
                 break; //
             case 3:
                 System.out.println("You choose to quit");
@@ -84,6 +85,28 @@ public class RoomMakerApp {
         addRoomToList(room);
         System.out.println(rooms);
 
+    }
+    public static void roomChanger() {
+        Scanner reader = new Scanner(System.in);  // Reading from System.in
+
+        System.out.println("Enter the room ID: ");
+        int x = reader.nextInt();
+        System.out.println("You entered room ID " + Integer.toString(x));
+
+        for (Room r : rooms) {
+            System.out.println(r);
+            if(r.roomID == x) {
+                System.out.println("A room with room ID " + x + " exists");
+                System.out.println("What is the new price of the room? (use comma) ");
+                double roomPrice = reader.nextDouble();
+                System.out.println("The price of the room is " + Double.toString(roomPrice));
+                r.setPrice(roomPrice);
+                System.out.println(r);
+            } else {
+                System.out.println("A room with room ID " + x + " does not exist");
+            }
+
+        }
     }
 }
 
