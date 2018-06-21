@@ -11,6 +11,9 @@ public class RoomMakerApp {
     static boolean state = true;
 
     public static void main(String[] args) {
+        defaultRoomMaker();
+        System.out.println(rooms);
+
         while (state) {
             printMenu();
         }
@@ -54,6 +57,20 @@ public class RoomMakerApp {
 
 
         }
+
+    }
+
+    public static void defaultRoomMaker () { // method to make a few rooms when initializing the app
+        Room a = new Room(1, 11, 2, 99.99);
+        Room b = new Room(2, 12, 2, 99.99);
+        Room c = new Room(3, 13, 2, 99.99);
+        Room d = new Room(4, 14, 2, 99.99);
+
+        rooms.add(a);
+        rooms.add(b);
+        rooms.add(c);
+        rooms.add(d);
+
 
     }
 
