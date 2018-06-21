@@ -9,7 +9,7 @@ public class Room {
     protected int numberOfGuests;
     protected double price;
 
-    public Room(int setRoomID, int roomNumber, int numberOfGuests) {
+    public Room(int setRoomID, int roomNumber, int numberOfGuests, double price) {
         this.roomID = setRoomID;
         // this.reserved = setReserved; // add later
     }
