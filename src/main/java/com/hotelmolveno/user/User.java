@@ -1,6 +1,6 @@
 package com.hotelmolveno.user;
 
-import static com.sun.org.apache.bcel.internal.generic.InstructionConstants.bla;
+
 
 public abstract class User { // abstract class: there are no actual users, only guests and employees
     private String firstName;
