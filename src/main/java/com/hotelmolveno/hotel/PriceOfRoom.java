@@ -92,6 +92,6 @@ public class RoomMakerApp {
         StandardRoom HigherSeason = BudLo + BudLo/4
         LuxeryRoom HigherSeason = BudLo + BudLo/3
 
-        
+
         */
 

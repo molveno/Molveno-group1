@@ -10,7 +10,6 @@ public class RoomMakerApp {
 
     static boolean state = true;
 
-    public static void main(String[] args) {
         while (state) {
             printMenu();
         }
