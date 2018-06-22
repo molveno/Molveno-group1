@@ -1,6 +1,7 @@
 package com.hotelmolveno.user;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Guest extends User {
 
@@ -10,7 +11,7 @@ public class Guest extends User {
         super(firstName, lastName, address, postalCode, city, country, telephoneNumber, emailAddress);  //constructor
     }
 
-    private static ArrayList<User> userList = new ArrayList<>();    //initiate empty arrayList
+    private static List<User> userList = new ArrayList<>();    //initiate empty arrayList
 
     public Guest() {
         super();
@@ -20,7 +21,7 @@ public class Guest extends User {
     public static void addNewUser(String firstName, String lastName, String address, String postalCode, String city, String country, String telephoneNumber, String emailAddress) {
 
         User newUser = new Guest();
-        ((Guest) newUser).setGuestID(guestID++);
+//        ((Guest) newUser).setGuestID(guestID++);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setAddress(address);
@@ -32,7 +33,7 @@ public class Guest extends User {
         userList.add(newUser);
     }
 
-    public static void printUsers() {
+    public static void getUsers() {
         for (User listUsers : userList) {
             System.out.println(listUsers);
         }

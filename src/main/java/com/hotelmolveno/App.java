@@ -1,8 +1,11 @@
 package com.hotelmolveno;
 
 import com.hotelmolveno.hotel.Room;
+import com.hotelmolveno.reservation.ReservationRoom;
 import com.hotelmolveno.user.Employee;
 import com.hotelmolveno.user.Guest;
+
+import static com.hotelmolveno.hotel.Hotel.addRoomToList;
 
 // is this now on release branch?
 
@@ -17,12 +20,88 @@ public class App{
         Employee.addNewUser("Alex", "Davidson", "Camblesteet","583492","New York", "US", "+13958543284","alex@gmail.com");
         Employee.addNewUser("Jack", "Davidson", "Camblesteet","583492","New York", "US", "+13958543284","jack@gmail.com");
         Employee.addNewUser("Steve", "Davidson", "Camblesteet","583492","New York", "US", "+13958543284","steve@gmail.com");
-
         Guest.addNewUser("Gerard", "Joling", "Camblesteet","583492","New York", "US", "+13958543284","steve@gmail.com");
+        Guest.getUsers();
+
+        ReservationRoom reservation = new ReservationRoom();
 
 
-        Employee.printUsers();
-        Guest.printUsers();
-       }
-}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//    public static final ImpossibleToDevideByZeroException e = new ImpossibleToDevideByZeroException();
+//
+//    public static void main(String[]args) throws ImpossibleToDevideByZeroException {
+//
+//    public static CalculateResult calculateNumbers(int a, int b){
+//        System.out.println("FOUND ERROR");
+//        CalculateResult c = new CalculateResult();
+//        try{
+//            c.result = a/b;
+//        }
+//
+//        catch(ArithmeticException e){
+//            c.e = new ImpossibleToDevideByZeroException();
+//        }
+//        return c;
+//    }
+//}
+//
+//class CalculateResult {
+//    int result;
+//    Exception e;
+//
+//    @Override
+//    public String toString() {
+//        return "CalculateResult{" +
+//                "result=" + result +
+//                '}';
+//    }
+//}

@@ -34,9 +34,13 @@ public class Room {
         this.price = price;
     }
 
+    public Room() {
+
+    }
+
     private List guests;
 
-
+    
 
     public void showMessage() {
         System.out.println("Welcome to your base room");

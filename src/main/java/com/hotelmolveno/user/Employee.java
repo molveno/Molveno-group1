@@ -3,6 +3,7 @@ package com.hotelmolveno.user;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Employee extends User{
 
 //    private int employeeID;
@@ -18,6 +19,7 @@ public class Employee extends User{
     }
 
     //method to add users
+
     public static void addNewUser(String firstName, String lastName, String address, String postalCode, String city, String country, String telephoneNumber, String emailAddress){
 
         User newUser = new Employee();
@@ -32,7 +34,7 @@ public class Employee extends User{
         userList.add(newUser);
     }
 
-    public static void printUsers() {
+    public static void getUsers() {
         for (User listUsers : userList) {
             System.out.println(listUsers);
         }
