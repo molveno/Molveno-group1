@@ -11,7 +11,6 @@ public class RoomMakerApp {
 
     public static void main(String[] args) {
         defaultRoomMaker();
-        System.out.println(rooms);
 
         while (state) {
             printMenu();
@@ -97,7 +96,6 @@ public class RoomMakerApp {
         room.setPrice(roomPrice);
         System.out.println(room);
         addRoomToList(room);
-        System.out.println(rooms);
 
     }
 
