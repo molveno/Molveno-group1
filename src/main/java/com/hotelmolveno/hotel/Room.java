@@ -40,7 +40,6 @@ public class Room {
 
     private List guests;
 
-    
 
     public void showMessage() {
         System.out.println("Welcome to your base room");
