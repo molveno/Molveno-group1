@@ -1,12 +1,8 @@
 package com.hotelmolveno.hotel;
 
-
-
 import java.util.Scanner;
-
 import static com.hotelmolveno.hotel.Hotel.addRoomToList;
 import static com.hotelmolveno.hotel.Hotel.rooms;
-
 
 public class RoomMakerApp {
 
@@ -30,8 +26,6 @@ public class RoomMakerApp {
     }
 
     public static void userChoice() {
-
-
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         System.out.println("Enter a number: ");
         int x = reader.nextInt();
