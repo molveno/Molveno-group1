@@ -15,6 +15,10 @@ public class Room {
         // this.reserved = setReserved; // add later
     }
 
+    public Room() {
+
+    }
+
     public void showMessage() {
         System.out.println("Welcome to your base room");
     }
