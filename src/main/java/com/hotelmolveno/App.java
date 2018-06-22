@@ -11,17 +11,10 @@ import static com.hotelmolveno.hotel.Hotel.addRoomToList;
 
 public class App{
 
-    public static void main(String[]args) throws ImpossibleToDevideByZeroException {
-//        Room newRoom = new Room(0);
-//        newRoom.setReserved(true);
-        int x = 0;
-
-        Room room = new Room();
-        room.setRoomID(x++);
-        room.setNumberOfGuests(4);
-        System.out.println(room);
-        addRoomToList(room);
-
+    public static void main(String[]args){
+    Room newRoom = new Room( 0, 4, 100.0);
+    newRoom.setReserved(true);
+    System.out.println(newRoom.getRoomID());
 
         Employee.addNewUser("Dave", "Davidson", "Camblesteet","583492","New York", "US", "+13958543284","dave@gmail.com");
         Employee.addNewUser("Alex", "Davidson", "Camblesteet","583492","New York", "US", "+13958543284","alex@gmail.com");
