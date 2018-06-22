@@ -63,10 +63,10 @@ public class RoomMakerApp {
     }
 
     public static void defaultRoomMaker () { // method to make a few rooms when initializing the app
-        Room a = new Room(1, 11, 2, 99.99);
-        Room b = new Room(2, 12, 2, 99.99);
-        Room c = new Room(3, 13, 2, 99.99);
-        Room d = new Room(4, 14, 2, 99.99);
+        Room a = new Room(11, 2, 99.99);
+        Room b = new Room(12, 2, 99.99);
+        Room c = new Room(13, 2, 99.99);
+        Room d = new Room(14, 2, 99.99);
 
         rooms.add(a);
         rooms.add(b);
@@ -78,10 +78,6 @@ public class RoomMakerApp {
 
     public static void roomMaker() { // method to run if employee chooses to make a room
         Scanner reader = new Scanner(System.in);  // Reading from System.in
-
-        System.out.println("Enter a room ID: ");
-        int x = reader.nextInt();
-        System.out.println("You entered room ID " + Integer.toString(x));
 
         System.out.println("Enter a room number: ");
         int chosenRoomNumber = reader.nextInt();
@@ -95,8 +91,7 @@ public class RoomMakerApp {
         double roomPrice = reader.nextDouble();
         System.out.println("The price of the room is " + Double.toString(roomPrice));
 
-        Room room = new Room(x, chosenRoomNumber, roomCapacity, roomPrice);
-        room.setRoomID(x);
+        Room room = new Room(chosenRoomNumber, roomCapacity, roomPrice);
         room.setRoomNumber(chosenRoomNumber);
         room.setNumberOfGuests(roomCapacity);
         room.setPrice(roomPrice);

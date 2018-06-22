@@ -3,14 +3,16 @@ package com.hotelmolveno.hotel;
 import java.util.List;
 
 public class Room {
-    protected int roomID;
+    protected static int nextRoomID = 0;
+    protected int roomID = 0;
     protected int roomNumber;
     protected boolean reserved;
     protected int numberOfGuests;
     protected double price;
 
-    public Room(int setRoomID, int setRoomNumber, int setNumberOfGuests, double setPrice) {
-        this.roomID = setRoomID;
+    public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
+        this.roomID = nextRoomID;
+        nextRoomID++;
         this.roomNumber = setRoomNumber;
         this.numberOfGuests = setNumberOfGuests;
         this.price = setPrice;
