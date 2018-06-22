@@ -79,6 +79,11 @@ public class RoomMakerApp {
         System.out.println("Enter a room number: ");
         int chosenRoomNumber = reader.nextInt();
         System.out.println("You entered room number " + Integer.toString(chosenRoomNumber));
+        boolean roomAlreadyExists = roomNumberCheck(chosenRoomNumber);
+
+        if (roomAlreadyExists) {
+            roomMaker();
+        }
 
         System.out.println("How many guests fit in the room? ");
         int roomCapacity = reader.nextInt();
@@ -123,6 +128,21 @@ public class RoomMakerApp {
         for (Room r : rooms) {
             System.out.println(r);
         }
+    }
+
+    public static boolean roomNumberCheck(int roomNumber) {
+        for (Room r : rooms) {
+
+            if (r.roomNumber == roomNumber) {
+                System.out.println("A room with room number " + roomNumber + " already exists");
+                System.out.println(r);
+                return true;
+            }
+
+
+            }
+        return false;
+
     }
 }
 

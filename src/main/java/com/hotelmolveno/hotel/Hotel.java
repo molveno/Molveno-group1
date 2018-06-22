@@ -12,7 +12,7 @@ public class Hotel {
         rooms.add(room);
     }
 
-    public
+    // public
 
 }
 
