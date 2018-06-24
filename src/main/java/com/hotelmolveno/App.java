@@ -10,9 +10,9 @@ public class App {
     private static int counterEmployee = 0;
     private static int counterReservation = 0;
 
-    public static void main(String[] args) {
+    public static void main(String[]args){
 
-        RoomMakerApp.main(null);                   // LOAD MAIN PROGRAM \\
+        RoomMakerApp.main(null);                   //######### LOAD MAIN PROGRAM #########\\
 
 //        RoomMakerApp.defaultRoomMaker();              //INIT
 //        Employee.initiateTestEmployee();              //INIT

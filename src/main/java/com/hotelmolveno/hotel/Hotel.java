@@ -10,7 +10,7 @@ public class Hotel {
     public static void addRoomToList(Room room) {
         rooms.add(room);
     }
-    //public
+    // public
 }
 
 
