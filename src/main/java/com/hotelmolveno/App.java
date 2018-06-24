@@ -1,99 +1,57 @@
 package com.hotelmolveno;
 
-import com.hotelmolveno.hotel.Room;
-import com.hotelmolveno.reservation.ReservationRoom;
-import com.hotelmolveno.user.Employee;
-import com.hotelmolveno.user.Guest;
-
-import static com.hotelmolveno.hotel.Hotel.addRoomToList;
-import static com.hotelmolveno.hotel.Hotel.rooms;
+import com.hotelmolveno.hotel.RoomMakerApp;
 
 // is this now on release branch?
+// no, development branch  << hielke 22-6-2018 14:46 >>
 
-public class App{
+public class App {
+    private static int counterGuest = 99;
+    private static int counterEmployee = 0;
+    private static int counterReservation = 0;
 
-    public static void main(String[]args){
-//    Room newRoom = new Room( 0, 4, 100.0);
-//    newRoom.setReserved(true);
-//    System.out.println(newRoom.getRoomID());
+    public static void main(String[] args) {
 
-        Employee.addNewUser("Dave", "Davidson", "Camblesteet","583492","New York", "US", "+13958543284","dave@gmail.com");
-        Employee.addNewUser("Alex", "Davidson", "Camblesteet","583492","New York", "US", "+13958543284","alex@gmail.com");
-        Employee.addNewUser("Jack", "Davidson", "Camblesteet","583492","New York", "US", "+13958543284","jack@gmail.com");
-        Employee.addNewUser("Steve", "Davidson", "Camblesteet","583492","New York", "US", "+13958543284","steve@gmail.com");
-        Guest.addNewUser("Gerard", "Joling", "Camblesteet","583492","New York", "US", "+13958543284","steve@gmail.com");
+        RoomMakerApp.main(null);                   // LOAD MAIN PROGRAM \\
 
-        Room a = new Room(11, 2, 99.99);
-        Room b = new Room(12, 2, 99.99);
-        Room c = new Room(13, 2, 99.99);
-        Room d = new Room(14, 2, 99.99);
-
-        rooms.add(a);
-        rooms.add(b);
-        rooms.add(c);
-        rooms.add(d);
-
-        Guest.getUsers();
-
-
-
-
-
-
-
-        ReservationRoom reservation = new ReservationRoom();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//        RoomMakerApp.defaultRoomMaker();              //INIT
+//        Employee.initiateTestEmployee();              //INIT
+//        Guest.initiateTestGuests();                   //INIT
+//        ReservationRoom.initiateTestReservations();   //INIT
 //
+//        Employee.getUsers();                          //PRINT EMPLOYEES
+//        Guest.getUsers();                             //PRINT GUESTS
+//        RoomMakerApp.roomPrinter();                   //PRINT ROOMS
+
+    }//end-of-main
+
+    public static int getCounterGuest() {
+        return counterGuest;
+    }
+
+    public static void setCounterGuest() {
+        App.counterGuest++;
+    }
+
+    public static int getCounterEmployee() {
+        return counterEmployee;
+    }
+
+    public static void setCounterEmployee() {
+        App.counterEmployee++;
+    }
+
+    public static int getCounterReservation() {
+        return counterReservation;
+    }
+
+    public static void setCounterReservation() {
+        App.counterReservation++;
+    }
+}//end-of-app
+
+
+//  EXCEPTION SAMPLE CODE  \\
 //    public static final ImpossibleToDevideByZeroException e = new ImpossibleToDevideByZeroException();
 //
 //    public static void main(String[]args) throws ImpossibleToDevideByZeroException {

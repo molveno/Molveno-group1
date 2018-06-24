@@ -1,11 +1,11 @@
 package com.hotelmolveno.hotel;
 
-public class BudgetRoom extends Room{
+public class BudgetRoom extends Room {
 
-private boolean tvAvailable;
+    private boolean tvAvailable;
 
     public BudgetRoom(int setRoomID, boolean setReserved, boolean tvAvailable) {
-        super( 0, 4, 100.0);
+        super(0, 4, 100.0);
         this.tvAvailable = tvAvailable;
     }
 

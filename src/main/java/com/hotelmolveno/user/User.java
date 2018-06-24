@@ -1,6 +1,8 @@
 package com.hotelmolveno.user;
 
 public abstract class User { // abstract class: there are no actual users, only guests and employees
+    private int guestID;
+    private int EmployeeID;
     private String firstName;
     private String lastName;
     private String address;
@@ -27,7 +29,9 @@ public abstract class User { // abstract class: there are no actual users, only 
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
+                "GuestID=" + getGuestID() +
+                "EmployeeID=" + getEmployeeID() +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", postalCode='" + postalCode + '\'' +
@@ -36,6 +40,22 @@ public abstract class User { // abstract class: there are no actual users, only 
                 ", telephoneNumber='" + telephoneNumber + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 '}';
+    }
+
+    public int getGuestID() {
+        return guestID;
+    }
+
+    public void setGuestID(int guestID) {
+        this.guestID = guestID;
+    }
+
+    public int getEmployeeID() {
+        return EmployeeID;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        EmployeeID = employeeID;
     }
 
     public String getFirstName() {

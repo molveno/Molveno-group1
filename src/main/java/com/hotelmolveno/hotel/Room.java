@@ -18,6 +18,7 @@ public class Room {
         this.price = setPrice;
         // this.reserved = setReserved; // add later
     }
+
     public int getRoomNumber() {
         return roomNumber;
     }
