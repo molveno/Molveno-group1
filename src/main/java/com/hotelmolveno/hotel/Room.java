@@ -3,46 +3,22 @@ package com.hotelmolveno.hotel;
 import java.util.List;
 
 public class Room {
-    protected static int nextRoomID = 0;
     protected int roomID = 0;
-    protected int roomNumber;
-    protected boolean reserved;
-    protected int numberOfGuests;
-    protected double price;
-
-    public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
-        this.roomID = nextRoomID;
-        nextRoomID++;
-        this.roomNumber = setRoomNumber;
-        this.numberOfGuests = setNumberOfGuests;
-        this.price = setPrice;
-        // this.reserved = setReserved; // add later
-    }
-
-    public int getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public Room() {
-
-    }
+    protected boolean reserved = false;
+    //protected String message = "";
 
     private List guests;
 
+    public Room(){
+    }
 
-    public void showMessage() {
+    public Room(int setRoomID, boolean setReserved){
+        this.roomID = setRoomID;
+        this.reserved = setReserved;
+    }
+
+
+    public void showMessage(){
         System.out.println("Welcome to your base room");
     }
 
@@ -63,34 +39,14 @@ public class Room {
     }
 
 
-    public void getMainRoomMessage() {
+    public void getMainRoomMessage(){
         System.out.println("Message from main room");
     }
 
 
-    public void setGuests(List guests) {
+    public  void setGuests(List guests) {
         this.guests = guests;
     }
 
-    public int getNumberOfGuests() {
-        return numberOfGuests;
-    }
-
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
-    }
-
-    @Override
-    public String toString() {
-        return "Room{" +
-                "roomID = " + roomID +
-                ", roomNumber = " + roomNumber +
-                ", reserved = " + reserved +
-                ", numberOfGuests = " + numberOfGuests +
-                ", price = " + price +
-                '}';
-    }
 }
-
-
 
