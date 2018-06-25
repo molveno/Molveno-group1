@@ -9,6 +9,11 @@ import java.util.Scanner;
 import static com.hotelmolveno.hotel.Hotel.addRoomToList;
 import static com.hotelmolveno.hotel.Hotel.rooms;
 
+/*
+
+This app enables the user to make, alter and view rooms, guests & reservations in the console
+ */
+
 public class RoomMakerApp {
 
     static boolean state = true;
