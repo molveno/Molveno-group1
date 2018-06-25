@@ -1,12 +1,10 @@
 package com.hotelmolveno.hotel;
 
-import com.hotelmolveno.hotel.LuxuryRoom;
-import com.hotelmolveno.hotel.Room;
 
 public class InheritanceTester {
 
     public static void main(String[] args) {
-        Room room1 = new Room();
+        Room room1 = new Room(0, 4, 100.0);
         room1.getMainRoomMessage();
         room1.showMessage();
 
