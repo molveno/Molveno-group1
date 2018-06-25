@@ -82,7 +82,7 @@ public class RoomMakerApp {
                 break;
             case 6:
                 System.out.println("You choose to remove a Guest record");
-                System.out.println("\n\n------------ NOT IMPLEMENTED YET ------------\n\n");
+                Guest.delGuestFromList();
                 break;
             case 7:
                 System.out.println("You choose to print an overview of all Guest records");

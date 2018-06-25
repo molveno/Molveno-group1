@@ -2,10 +2,8 @@ package com.hotelmolveno.user;
 
 import com.hotelmolveno.App;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 import static com.hotelmolveno.reservation.ReservationRoom.reservationRoomList;
 
@@ -86,6 +84,24 @@ public class Guest extends User {
             System.out.println(listUsers);
         }
     }
+
+
+    public static void delGuestFromList() {
+        Scanner input = new Scanner(System.in);
+        int i = 0;
+        System.out.println("Enter firstname: ");
+        String firstName = input.nextLine();
+
+            for(User userRecord : userListGuest) {
+            if (userRecord.getFirstName().equals(firstName) == true) {
+                System.out.print(userRecord.getFirstName() + "\t Found! ");
+                break;
+            }
+            i++;
+        }
+        userListGuest.remove(i);
+    }
+
 
     public static void searchGuests(String firstName) {
 
