@@ -139,7 +139,6 @@ public class RoomMakerApp {
         rooms.add(h);
         rooms.add(i);
         rooms.add(j);
-
     }
 
     public static void roomMaker() { // method to run if employee chooses to make a room
