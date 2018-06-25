@@ -1,3 +1,6 @@
+
+//test
+
 package com.hotelmolveno.hotel;
 
 import com.hotelmolveno.reservation.ReservationRoom;
