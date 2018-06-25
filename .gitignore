@@ -55,4 +55,9 @@ fabric.properties
 .idea
 *.iml
 target/
+<<<<<<< HEAD
 src/main/java/com/television/
+=======
+src/main/java/wrapper/
+src/main/java/com/hotelmolveno/user/TestApp.java
+>>>>>>> develop

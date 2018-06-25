@@ -3,50 +3,115 @@ package com.hotelmolveno.hotel;
 import java.util.List;
 
 public class Room {
+    protected static int nextRoomID = 0;
     protected int roomID = 0;
     protected boolean reserved = false;
     protected String employee = "";
+    protected int roomNumber;
+    protected int numberOfGuests;
+    protected double price;
+
+    public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
+        this.roomID = nextRoomID;
+        nextRoomID++;
+        this.roomNumber = setRoomNumber;
+        this.numberOfGuests = setNumberOfGuests;
+        this.price = setPrice;
+        // this.reserved = setReserved; // add later
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+
+//    public Room(){ //main constructor
+//    }
+
+    public Room(int setRoomID, boolean setReserved) { //second constructor
+        this.roomID = setRoomID;
+        this.reserved = setReserved;
+    }
+
+//    public double getPrice() {
+//        return price;
+//    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+//    public Room() {
+//
+//    }
 
     private List guests;
 
-    public Room(){ //main constructor
-    }
 
-    public Room(int setRoomID, boolean setReserved){ //second constructor
-        this.roomID = setRoomID;
-        this.reserved = setReserved;
+    public void showMessage() {
+        System.out.println("Welcome to your base room");
     }
 
     public int getRoomID() {
         return roomID;
     }
 
-    public void setRoomID(int roomID) {
-        this.roomID = roomID;
-    }
+//    public void setRoomID(int roomID) {
+//        this.roomID = roomID;
+//    }
+//
+//    public boolean isReserved() {
+//        return reserved;
+//    }
+//
+//    public void setReserved(boolean reserved) {
+//        this.reserved = reserved;
+//    }
+//
+//    public String getEmployee() {
+//        return employee;
+//    }
+//
+//    public void setEmployee(String employee) {
+//        this.employee = employee;
+//
+        public void getMainRoomMessage() {
+            System.out.println("Message from main room");
+        }
+//
+//        public List getGuests() {
+//            return guests;
+//        }
+//
+//        public void setGuests(List guests){
+//            this.guests = guests;
+//        }
+//
+//        public int getNumberOfGuests() {
+//            return numberOfGuests;
+//        }
+//
+        public void setNumberOfGuests ( int numberOfGuests){
+            this.numberOfGuests = numberOfGuests;
+        }
+//    }
 
-    public boolean isReserved() {
-        return reserved;
-    }
-
-    public void setReserved(boolean reserved) {
-        this.reserved = reserved;
-    }
-
-    public String getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(String employee) {
-        this.employee = employee;
-    }
-
-    public List getGuests() {
-        return guests;
-    }
-
-    public void setGuests(List guests) {
-        this.guests = guests;
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomID = " + roomID +
+                ", roomNumber = " + roomNumber +
+                ", reserved = " + reserved +
+                ", numberOfGuests = " + numberOfGuests +
+                ", price = " + price +
+                '}';
     }
 }
+
+
+
 
