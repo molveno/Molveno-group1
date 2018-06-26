@@ -3,14 +3,11 @@ package com.hotelmolveno.hotel;
 import com.hotelmolveno.reservation.ReservationRoom;
 import com.hotelmolveno.user.Employee;
 import com.hotelmolveno.user.Guest;
-
 import java.util.Scanner;
-
 import static com.hotelmolveno.hotel.Hotel.addRoomToList;
 import static com.hotelmolveno.hotel.Hotel.rooms;
 
 /*
-
 This app enables the user to make, alter and view rooms, guests & reservations in the console
  */
 

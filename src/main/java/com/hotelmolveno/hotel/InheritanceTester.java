@@ -8,8 +8,8 @@ public class InheritanceTester {
         room1.getMainRoomMessage();
         room1.showMessage();
 
-        Room newLuxRoom = new LuxuryRoom(0);
-        newLuxRoom.showMessage();
+        //Room newLuxRoom = new LuxuryRoom(0);
+        //newLuxRoom.showMessage();
 
 
 

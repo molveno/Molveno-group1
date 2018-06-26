@@ -35,12 +35,6 @@ public class Room {
         this.price = price;
     }
 
-    public Room() {
-
-    }
-
-    private List guests;
-
 
     public void showMessage() {
         System.out.println("Welcome to your base room");
@@ -68,13 +62,13 @@ public class Room {
     }
 
 
-    public void setGuests(List guests) {
-        this.guests = guests;
-    }
-
-    public int getNumberOfGuests() {
-        return numberOfGuests;
-    }
+//    public void setGuests(List guests) {
+//        this.guests = guests;
+//    }
+//
+//    public int getNumberOfGuests() {
+//        return numberOfGuests;
+//    }
 
     public void setNumberOfGuests(int numberOfGuests) {
         this.numberOfGuests = numberOfGuests;

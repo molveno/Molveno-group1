@@ -93,7 +93,7 @@ public class Guest extends User {
         String firstName = input.nextLine();
 
             for(User userRecord : userListGuest) {
-            if (userRecord.getFirstName().equals(firstName) == true) {
+            if (userRecord.getFirstName().equals(firstName)) {
                 System.out.print(userRecord.getFirstName() + "\t Found! ");
                 break;
             }
@@ -115,7 +115,6 @@ public class Guest extends User {
                         System.out.println("");
                     }
 
-//                        for()
                     break;
                 }
             }
