@@ -106,7 +106,7 @@ public class Guest extends User {
     public static void searchGuests(String firstName) {
 
         for (User myList : userListGuest) {                                                  //ITERATE THROUGH GUEST LIST
-            if (myList.getFirstName() == firstName) {
+            if (myList.getFirstName().equals(firstName)) {
                 System.out.print(myList.getFirstName() + "\t User exists. ");
                 for (Map.Entry<Integer, Integer> entry : reservationRoomList.entrySet()) {    //ITERATE THROUGH RESERVATION LIST
                     if (entry.getKey() == myList.getGuestID()) {

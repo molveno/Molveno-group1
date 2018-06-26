@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Room {
     protected static int nextRoomID = 0;
-    protected int roomID = 0;
+    protected int roomID;
     protected int roomNumber;
     protected boolean reserved;
     protected int numberOfGuests;

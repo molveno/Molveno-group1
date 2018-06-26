@@ -112,7 +112,7 @@ public class RoomMakerApp {
                 break;
 
         }
-        if (x >= 1 || x <= 12) { // if user enters a number not in the menu:
+        if (x < 1 || x > 12) { // if user enters a number not in the menu:
             System.out.println("\nPlease choose an option number between: 1 and 12");
 
         }

@@ -50,7 +50,7 @@ public class Employee extends User {
     public static void searchEmployee(String firstName) {
 
         for (User myList : userListEmployee) {                                                  //ITERATE THROUGH GUEST LIST
-            if (myList.getFirstName() == firstName) {
+            if (myList.getFirstName().equals(firstName)) {
                 System.out.print(myList.getFirstName() + "\t User exists. ");
                 for (Map.Entry<Integer, Integer> entry : reservationRoomList.entrySet()) {    //ITERATE THROUGH RESERVATION LIST
                     if (entry.getKey() == myList.getEmployeeID()) {
