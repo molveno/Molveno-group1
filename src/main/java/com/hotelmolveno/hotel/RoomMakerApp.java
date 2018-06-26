@@ -19,19 +19,30 @@ public class RoomMakerApp {
         System.out.println("\n##############################");
         System.out.println("#  Welcome to Hotel Molveno  #");
         System.out.println("##############################");
-        defaultRoomMaker();
-        Employee.initiateTestEmployee();            //INIT
-        Guest.initiateTestGuests();                 //INIT
-        ReservationRoom.initiateTestReservations(); //INIT
 
-//        System.out.println(rooms);
+        RoomMakerApp roomMakerApp = new RoomMakerApp();
+        roomMakerApp.defaultRoomMaker();
+
+        // defaultRoomMaker();
+        Employee employee = new Employee();
+        employee.initiateTestEmployee();
+
+        // Employee.initiateTestEmployee();
+
+        Guest guest = new Guest();
+        guest.initiateTestGuests();
+        //Guest.initiateTestGuests();
+        ReservationRoom reservationRoom = new ReservationRoom();
+        reservationRoom.initiateTestReservations();
+
+        // ReservationRoom.initiateTestReservations();
 
         while (state) {
-            printMenu();
+            roomMakerApp.printMenu();
         }
     }
 
-    public static void printMenu() {
+    public void printMenu() {
         System.out.println("\nWhat would you like to do?");
         System.out.println("-------------------------------------------------");
         System.out.println("| 1. Make a room" + "\t\t\t\t\t\t\t\t|");
