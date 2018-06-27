@@ -20,9 +20,6 @@ public class RoomMakerApp {
         System.out.println("#  Welcome to Hotel Molveno  #");
         System.out.println("##############################\n");
 
-        Employee.initiateTestEmployee();            //INIT
-        Guest.initiateTestGuests();                 //INIT
-        ReservationRoom.initiateTestReservations(); //INIT
 
         RoomMakerApp roomMakerApp = new RoomMakerApp();
         roomMakerApp.defaultRoomMaker();
@@ -130,7 +127,7 @@ public class RoomMakerApp {
 
             default:
                 System.out.println("Please choose a number between 1 and 12");
-=======
+
 
         }
        
