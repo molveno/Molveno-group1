@@ -2,12 +2,12 @@ package com.hotelmolveno.user;
 
 import com.hotelmolveno.App;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 import static com.hotelmolveno.reservation.ReservationRoom.reservationRoomList;
 
 public class Guest extends User {
+
 
     public static List<User> userListGuest = new ArrayList<>();    //initiate empty arrayList
 
@@ -90,10 +90,10 @@ public class Guest extends User {
         Scanner input = new Scanner(System.in);
         int i = 0;
         System.out.println("Enter firstname: ");
-        String firstName = input.nextLine();
+        String firstNameIn = input.nextLine();
 
-            for(User userRecord : userListGuest) {
-            if (userRecord.getFirstName().equals(firstName) == true) {
+        for (User userRecord : userListGuest) {
+            if (userRecord.getFirstName().equals(firstNameIn) == true) {
                 System.out.print(userRecord.getFirstName() + "\t Found! ");
                 break;
             }
@@ -118,6 +118,52 @@ public class Guest extends User {
 //                        for()
                     break;
                 }
+            }
+        }
+    }
+
+
+    public static void guestChanger() {
+        final Scanner reader = new Scanner(System.in);  // Reading from System.in
+
+        System.out.println("Enter the guest ID number: ");
+        int x = reader.nextInt();
+        System.out.println("You entered guest ID number " + Integer.toString(x));
+        start:
+        for (User newUser : userListGuest) {
+            if (newUser.getGuestID() == x) {
+                System.out.println("A guest with ID number " + x + " exists. Adujsting user, please provide");
+                System.out.println("Firstname: ");
+                String firstName = reader.next();
+                System.out.println("Lastname: ");
+                String lastName = reader.next();
+                System.out.println("Address: ");
+                String address = reader.next();
+                System.out.println("Postalcode: ");
+                String postalCode = reader.next();
+                System.out.println("City: ");
+                String city = reader.next();
+                System.out.println("Country: ");
+                String country = reader.next();
+                System.out.println("Telephone number: ");
+                String telephoneNumber = reader.next();
+                System.out.println("Lastely, enter an e-mail address: ");
+                String emailAddress = reader.next();
+
+                newUser.setFirstName(firstName);
+                newUser.setLastName(lastName);
+                newUser.setAddress(address);
+                newUser.setPostalCode(postalCode);
+                newUser.setCity(city);
+                newUser.setCountry(country);
+                newUser.setTelephoneNumber(telephoneNumber);
+                newUser.setEmailAddress(emailAddress);
+
+                System.out.printf(String.valueOf(newUser));
+                System.out.println("Save the following change? ");
+                String y = reader.next();
+                if (y.equals("y") == false) continue start;
+                System.out.println("Record saved");
             }
         }
     }

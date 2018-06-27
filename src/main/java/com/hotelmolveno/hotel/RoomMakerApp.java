@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import static com.hotelmolveno.hotel.Hotel.addRoomToList;
 import static com.hotelmolveno.hotel.Hotel.rooms;
+import static com.hotelmolveno.user.Guest.guestChanger;
 
 public class RoomMakerApp {
 
@@ -78,7 +79,7 @@ public class RoomMakerApp {
                 break;
             case 5:
                 System.out.println("You choose to alter Guest record");
-                System.out.println("\n\n------------ NOT IMPLEMENTED YET ------------\n\n");
+                guestChanger();
                 break;
             case 6:
                 System.out.println("You choose to remove a Guest record");

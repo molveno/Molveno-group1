@@ -1,6 +1,8 @@
 package com.hotelmolveno.hotel;
 
 
+import com.hotelmolveno.user.Guest;
+
 public class InheritanceTester {
 
     public static void main(String[] args) {
