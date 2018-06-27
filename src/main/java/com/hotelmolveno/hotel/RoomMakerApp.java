@@ -21,9 +21,9 @@ public class RoomMakerApp {
         System.out.println("##############################\n");
 
 
-        Employee.initiateTestEmployee();            //INIT
-        Guest.initiateTestGuests();                 //INIT
-        ReservationRoom.initiateTestReservations(); //INIT
+//        Employee.initiateTestEmployee();            //INIT
+//        Guest.initiateTestGuests();                 //INIT
+//        ReservationRoom.initiateTestReservations(); //INIT
 
         RoomMakerApp roomMakerApp = new RoomMakerApp();
         roomMakerApp.defaultRoomMaker();
