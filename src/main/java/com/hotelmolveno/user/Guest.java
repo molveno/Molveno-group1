@@ -102,6 +102,59 @@ public class Guest extends User {
         userListGuest.remove(i);
     }
 
+    public static void changeGuestFromList() {
+        Scanner input = new Scanner(System.in);
+        int i = 0;
+        System.out.println("Enter firstname: ");
+        String firstName = input.nextLine();
+
+        for(User userRecord : userListGuest) {
+            if (userRecord.getFirstName().equals(firstName) == true) {
+                User newUser = userRecord;
+                System.out.print("\n" + userRecord.getFirstName() + "\t Found! \n");
+                Scanner addGuest = new Scanner(System.in);
+
+                System.out.println("Changing new user, please provide the firstname: ");
+                String firstName1 = addGuest.nextLine();
+                System.out.println("Lastname: ");
+                String lastName = addGuest.nextLine();
+                System.out.println("Address: ");
+                String address = addGuest.nextLine();
+                System.out.println("Postalcode: ");
+                String postalCode = addGuest.nextLine();
+
+                System.out.println("City: ");
+                String city = addGuest.nextLine();
+                System.out.println("Country: ");
+                String country = addGuest.nextLine();
+                System.out.println("Telephone number: ");
+                String telephoneNumber = addGuest.nextLine();
+                System.out.println("Lastely, enter an e-mail address: ");
+                String emailAddress = addGuest.nextLine();
+
+//                User newUser = new Guest();
+                //App.setCounterGuest();
+                //userRecord.setGuestID(App.getCounterGuest());
+                userRecord.setFirstName(firstName1);
+                userRecord.setLastName(lastName);
+                userRecord.setAddress(address);
+                userRecord.setPostalCode(postalCode);
+                userRecord.setCity(city);
+                userRecord.setCountry(country);
+                userRecord.setTelephoneNumber(telephoneNumber);
+                userRecord.setEmailAddress(emailAddress);
+//                userListGuest.add(newUser);
+
+                System.out.println("\nUser details have been changed");
+
+                break;
+            }
+            i++;
+        }
+        userListGuest.remove(i);
+    }
+
+
 
     public static void searchGuests(String firstName) {
 
