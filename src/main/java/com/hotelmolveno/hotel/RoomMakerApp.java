@@ -128,10 +128,13 @@ public class RoomMakerApp {
                 System.out.println("You choose to quit");
                 state = false;
                 break;
+
             default:
                 System.out.println("Please choose a number between 1 and 12");
-        }
+=======
 
+        }
+       
     }
 
     public void defaultRoomMaker() { // method to make a few rooms when initializing the app
