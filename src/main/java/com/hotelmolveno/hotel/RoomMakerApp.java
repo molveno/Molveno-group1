@@ -6,14 +6,11 @@ package com.hotelmolveno.hotel;
 import com.hotelmolveno.reservation.ReservationRoom;
 import com.hotelmolveno.user.Employee;
 import com.hotelmolveno.user.Guest;
-
 import java.util.Scanner;
-
 import static com.hotelmolveno.hotel.Hotel.addRoomToList;
 import static com.hotelmolveno.hotel.Hotel.rooms;
 
 /*
-
 This app enables the user to make, alter and view rooms, guests & reservations in the console
  */
 
@@ -25,19 +22,34 @@ public class RoomMakerApp {
         System.out.println("\n##############################");
         System.out.println("#  Welcome to Hotel Molveno  #");
         System.out.println("##############################\n");
-        defaultRoomMaker();
+
         Employee.initiateTestEmployee();            //INIT
         Guest.initiateTestGuests();                 //INIT
         ReservationRoom.initiateTestReservations(); //INIT
 
-//        System.out.println(rooms);
+        RoomMakerApp roomMakerApp = new RoomMakerApp();
+        roomMakerApp.defaultRoomMaker();
+
+        // defaultRoomMaker();
+        Employee employee = new Employee();
+        employee.initiateTestEmployee();
+
+        // Employee.initiateTestEmployee();
+
+        Guest guest = new Guest();
+        guest.initiateTestGuests();
+        //Guest.initiateTestGuests();
+        ReservationRoom reservationRoom = new ReservationRoom();
+        reservationRoom.initiateTestReservations();
+
+        // ReservationRoom.initiateTestReservations();
 
         while (state) {
-            printMenu();
+            roomMakerApp.printMenu();
         }
     }
 
-    public static void printMenu() {
+    public void printMenu() {
         System.out.println("\nWhat would you like to do?");
         System.out.println("-------------------------------------------------");
         System.out.println("| 1. Make a room" + "\t\t\t\t\t\t\t\t|");
@@ -56,10 +68,11 @@ public class RoomMakerApp {
         System.out.println("-------------------------------------------------");
         System.out.println("12. Quit");
 
-        userChoice();
+        RoomMakerApp roomMakerApp = new RoomMakerApp();
+        roomMakerApp.userChoice();
     }
 
-    public static void userChoice() {
+    public void userChoice() {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         System.out.println("\nEnter a number [1-12]: ");
         int x = reader.nextInt();
@@ -110,20 +123,23 @@ public class RoomMakerApp {
                 break;
             case 11:
                 System.out.println("You choose to print an overview of all Guest reservations");
-                ReservationRoom.getReservationRoomList();
+                ReservationRoom reservationRoom = new ReservationRoom();
+                reservationRoom.getReservationRoomList();
                 break;
             case 12:
                 System.out.println("You choose to quit");
                 state = false;
                 break;
 
+            default:
+                System.out.println("Please choose a number between 1 and 12");
+=======
+
         }
-        if (x < 1 || x > 12){ // if user enters a number not in the menu:
-            System.out.println("\nPlease choose an option number between: 1 and 12");
-        }
+       
     }
 
-    public static void defaultRoomMaker() { // method to make a few rooms when initializing the app
+    public void defaultRoomMaker() { // method to make a few rooms when initializing the app
         Room a = new Room(11, 2, 99.99);
         Room b = new Room(12, 2, 99.99);
         Room c = new Room(13, 2, 99.99);
@@ -148,7 +164,7 @@ public class RoomMakerApp {
 
     }
 
-    public static void roomMaker() { // method to run if employee chooses to make a room
+    public void roomMaker() { // method to run if employee chooses to make a room
         Scanner reader = new Scanner(System.in);  // Reading from System.in
 
         System.out.println("Enter a room number: ");
@@ -177,7 +193,7 @@ public class RoomMakerApp {
 
     }
 
-    public static void roomChanger() {
+    public void roomChanger() {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
 
         System.out.println("Enter the room number: ");
@@ -199,13 +215,13 @@ public class RoomMakerApp {
 
     }
 
-    public static void roomPrinter() {
+    public void roomPrinter() {
         for (Room r : rooms) {
             System.out.println(r);
         }
     }
 
-    public static boolean roomNumberCheck(int roomNumber) {
+    public boolean roomNumberCheck(int roomNumber) {
         for (Room r : rooms) {
 
             if (r.roomNumber == roomNumber) {

@@ -93,7 +93,7 @@ public class Guest extends User {
         String firstName = input.nextLine();
 
             for(User userRecord : userListGuest) {
-            if (userRecord.getFirstName().equals(firstName) == true) {
+            if (userRecord.getFirstName().equals(firstName)) {
                 System.out.print(userRecord.getFirstName() + "\t Found! ");
                 break;
             }
@@ -159,7 +159,7 @@ public class Guest extends User {
     public static void searchGuests(String firstName) {
 
         for (User myList : userListGuest) {                                                  //ITERATE THROUGH GUEST LIST
-            if (myList.getFirstName() == firstName) {
+            if (myList.getFirstName().equals(firstName)) {
                 System.out.print(myList.getFirstName() + "\t User exists. ");
                 for (Map.Entry<Integer, Integer> entry : reservationRoomList.entrySet()) {    //ITERATE THROUGH RESERVATION LIST
                     if (entry.getKey() == myList.getGuestID()) {
@@ -168,7 +168,6 @@ public class Guest extends User {
                         System.out.println("");
                     }
 
-//                        for()
                     break;
                 }
             }
