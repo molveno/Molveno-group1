@@ -18,7 +18,12 @@ public class RoomMakerApp {
     public static void main(String[] args) {
         System.out.println("\n##############################");
         System.out.println("#  Welcome to Hotel Molveno  #");
-        System.out.println("##############################");
+        System.out.println("##############################\n");
+
+
+        Employee.initiateTestEmployee();            //INIT
+        Guest.initiateTestGuests();                 //INIT
+        ReservationRoom.initiateTestReservations(); //INIT
 
         RoomMakerApp roomMakerApp = new RoomMakerApp();
         roomMakerApp.defaultRoomMaker();
@@ -92,7 +97,7 @@ public class RoomMakerApp {
                 break;
             case 5:
                 System.out.println("You choose to alter Guest record");
-                System.out.println("\n\n------------ NOT IMPLEMENTED YET ------------\n\n");
+                Guest.changeGuestFromList();
                 break;
             case 6:
                 System.out.println("You choose to remove a Guest record");
@@ -127,12 +132,6 @@ public class RoomMakerApp {
                 System.out.println("Please choose a number between 1 and 12");
         }
 
-        // replaced tis if statement with default in switch case!
-//        if (x < 1 || x > 12) { // if user enters a number not in the menu:
-//            System.out.println("\nPlease choose an option number between: 1 and 12");
-//
-//        }
-
     }
 
     public void defaultRoomMaker() { // method to make a few rooms when initializing the app
@@ -142,10 +141,10 @@ public class RoomMakerApp {
         Room d = new Room(14, 2, 99.99);
         Room e = new Room(15, 2, 99.99);
         Room f = new Room(16, 2, 99.99);
-        Room g = new Room(16, 2, 99.99);
-        Room h = new Room(16, 2, 99.99);
-        Room i = new Room(16, 2, 99.99);
-        Room j = new Room(16, 2, 99.99);
+        Room g = new Room(17, 2, 99.99);
+        Room h = new Room(18, 2, 99.99);
+        Room i = new Room(19, 2, 99.99);
+        Room j = new Room(20, 2, 99.99);
 
         rooms.add(a);
         rooms.add(b);
