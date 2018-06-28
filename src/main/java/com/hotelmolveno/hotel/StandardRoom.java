@@ -5,7 +5,7 @@ public class StandardRoom extends Room {
 private boolean balconyAvailable;
 
     public StandardRoom(int setRoomID, boolean setReserved, boolean balconyAvailable) {
-        super(0, 4, 100.0);
+//        super(0, 4, 100);
         this.balconyAvailable = balconyAvailable;
     }
 
@@ -23,3 +23,8 @@ private boolean balconyAvailable;
 //test
 
 
+//test2
+
+//test3
+
+//test4
