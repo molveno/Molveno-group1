@@ -42,7 +42,8 @@ public class ReservationRoom {
     public static void addToReservationRoomList() {
         Scanner newUser = new Scanner(System.in);
         Guest.getGuestList();
-        RoomMakerApp.roomPrinter();
+        RoomMakerApp roomMakerApp = new RoomMakerApp();
+        roomMakerApp.roomPrinter();
         System.out.print("\nAdding Reservation, enter roomID:[1-100] ");
         int roomID = newUser.nextInt();
         System.out.print("enter guestID: ");
@@ -51,7 +52,7 @@ public class ReservationRoom {
         ReservationRoom.setReservationRoomList(Hotel.rooms.get(roomID).getRoomID(), Guest.userListGuest.get(guestID).getGuestID());
     }
 
-    public static void getReservationRoomList() {
+    public void getReservationRoomList() {
         int c = 0, d = 0;
         System.out.println("");
         for (Map.Entry<Integer, Integer> entry : reservationRoomList.entrySet()) {                          //ITERATE THROUGH RESERVATION LIST
