@@ -1,3 +1,6 @@
+
+//test
+
 package com.hotelmolveno.hotel;
 
 import com.hotelmolveno.reservation.ReservationRoom;
@@ -19,6 +22,10 @@ public class RoomMakerApp {
         System.out.println("#  Welcome to Hotel Molveno  #");
         System.out.println("##############################\n");
 
+
+//        Employee.initiateTestEmployee();            //INIT
+//        Guest.initiateTestGuests();                 //INIT
+//        ReservationRoom.initiateTestReservations(); //INIT
 
         RoomMakerApp roomMakerApp = new RoomMakerApp();
         roomMakerApp.defaultRoomMaker();

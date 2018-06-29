@@ -18,7 +18,6 @@ public class ReservationRoom {
 
     public static Map<Integer, Integer> reservationRoomList = new HashMap<>();
 
-
     public static void setReservationRoomList(int roomID, int userID) {
         reservationRoomList.put(roomID, userID);
         App.setCounterReservation();
