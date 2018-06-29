@@ -61,17 +61,12 @@ public class Room {
         System.out.println("Message from main room");
     }
 
-
-//    public void setGuests(List guests) {
-//        this.guests = guests;
-//    }
-//
-//    public int getNumberOfGuests() {
-//        return numberOfGuests;
-//    }
-
     public void setNumberOfGuests(int numberOfGuests) {
         this.numberOfGuests = numberOfGuests;
+    }
+
+    public int getNumberOfGuests() {
+        return this.numberOfGuests;
     }
 
     @Override

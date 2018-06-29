@@ -1,11 +1,13 @@
+
+//test
+
 package com.hotelmolveno.hotel;
 
 import com.hotelmolveno.reservation.ReservationRoom;
 import com.hotelmolveno.user.Employee;
 import com.hotelmolveno.user.Guest;
 import java.util.Scanner;
-import static com.hotelmolveno.hotel.Hotel.addRoomToList;
-import static com.hotelmolveno.hotel.Hotel.rooms;
+
 
 /*
 This app enables the user to make, alter and view rooms, guests & reservations in the console
@@ -131,7 +133,7 @@ public class RoomMakerApp {
 
             default:
                 System.out.println("Please choose a number between 1 and 12");
-=======
+
 
         }
        
@@ -149,16 +151,18 @@ public class RoomMakerApp {
         Room i = new Room(19, 2, 99.99);
         Room j = new Room(20, 2, 99.99);
 
-        rooms.add(a);
-        rooms.add(b);
-        rooms.add(c);
-        rooms.add(d);
-        rooms.add(e);
-        rooms.add(f);
-        rooms.add(g);
-        rooms.add(h);
-        rooms.add(i);
-        rooms.add(j);
+        Hotel molveno = new Hotel();
+
+        molveno.addRoomToList(a);
+        molveno.addRoomToList(b);
+        molveno.addRoomToList(c);
+        molveno.addRoomToList(d);
+       molveno.addRoomToList(e);
+        molveno.addRoomToList(f);
+        molveno.addRoomToList(g);
+        molveno.addRoomToList(h);
+        molveno.addRoomToList(i);
+        molveno.addRoomToList(j);
 
     }
 
@@ -187,7 +191,9 @@ public class RoomMakerApp {
         room.setNumberOfGuests(roomCapacity);
         room.setPrice(roomPrice);
         System.out.println(room);
-        addRoomToList(room);
+
+        Hotel molveno = new Hotel();
+        molveno.addRoomToList(room);
 
     }
 
@@ -198,7 +204,8 @@ public class RoomMakerApp {
         int x = reader.nextInt();
         System.out.println("You entered room number " + Integer.toString(x));
 
-        for (Room r : rooms) {
+        Hotel molveno = new Hotel();
+        for (Room r : molveno.rooms) {
 
             if (r.roomNumber == x) {
                 System.out.println("A room with room number " + x + " exists");
@@ -214,13 +221,16 @@ public class RoomMakerApp {
     }
 
     public void roomPrinter() {
-        for (Room r : rooms) {
+        Hotel hotel = new Hotel();
+
+        for (Room r : hotel.rooms) {
             System.out.println(r);
         }
     }
 
     public boolean roomNumberCheck(int roomNumber) {
-        for (Room r : rooms) {
+        Hotel hotel = new Hotel();
+        for (Room r : hotel.rooms) {
 
             if (r.roomNumber == roomNumber) {
                 System.out.println("A room with room number " + roomNumber + " already exists");
