@@ -1,8 +1,9 @@
 package com.hotelmolveno.hotel;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Room {
+public class Room implements Serializable {
     protected static int nextRoomID = 0;
     protected int roomID;
     protected int roomNumber;

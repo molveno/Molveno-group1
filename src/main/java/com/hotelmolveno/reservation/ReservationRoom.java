@@ -27,12 +27,12 @@ public class ReservationRoom {
     public static void initiateTestReservations() {
         Hotel Hotel = new Hotel();
 
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(0).getRoomID(), Guest.userListGuest.get(0).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(1).getRoomID(), Guest.userListGuest.get(1).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(2).getRoomID(), Guest.userListGuest.get(2).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(3).getRoomID(), Guest.userListGuest.get(3).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(4).getRoomID(), Guest.userListGuest.get(4).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(5).getRoomID(), Guest.userListGuest.get(5).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(0).getRoomID(), Guest.userListGuest.get(0).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(1).getRoomID(), Guest.userListGuest.get(1).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(2).getRoomID(), Guest.userListGuest.get(2).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(3).getRoomID(), Guest.userListGuest.get(3).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(4).getRoomID(), Guest.userListGuest.get(4).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(5).getRoomID(), Guest.userListGuest.get(5).getGuestID());
 //        ReservationRoom.setReservationRoomList(new Integer(Hotel.rooms.get(5).getRoomID()), new Integer(Guest.userListGuest.get(5).getGuestID()));            //CURRENTLY NOT USED AT ALL\\
 //        ReservationRoom.setReservationRoomList(new Integer(Hotel.rooms.get(0).getRoomID()), new Integer(Employee.userListEmployee.get(0).getEmployeeID()));
 //        ReservationRoom.setReservationRoomList(new Integer(Hotel.rooms.get(1).getRoomID()), new Integer(Employee.userListEmployee.get(1).getEmployeeID()));
