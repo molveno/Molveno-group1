@@ -1,7 +1,12 @@
 package com.hotelmolveno.finance;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bill {
 
+    private static int nextBillNumber = 1;
+    private int BillNumber;
     private double roomCost;
     private double restaurantCost;
     private double barCost;
@@ -9,9 +14,13 @@ public class Bill {
     private double totalCost;
     private double remainingAmount;
     private Payment paymentDone;
-    int userID;
 
 
+
+    public Bill() {
+        this.BillNumber = nextBillNumber;
+        nextBillNumber++;
+            }
 
     public double calculateTotalCost(){
        totalCost = roomCost + restaurantCost + barCost + otherCost;
@@ -24,6 +33,35 @@ public class Bill {
         return remainingAmount;
 }
 
+
+    public static List<Bill> bills = new ArrayList<>();
+
+    public static void addBillToList(Bill bill) {
+        bills.add(bill);
+    }
+
+
+
+
+
+
+
+
+    public static int getNextBillNumber() {
+        return nextBillNumber;
+    }
+
+    public static void setNextBillNumber(int nextBillNumber) {
+        Bill.nextBillNumber = nextBillNumber;
+    }
+
+    public int getBillNumber() {
+        return BillNumber;
+    }
+
+    public void setBillNumber(int billNumber) {
+        BillNumber = billNumber;
+    }
 
     public double getRoomCost() {
         return roomCost;
@@ -81,11 +119,4 @@ public class Bill {
         this.paymentDone = paymentDone;
     }
 
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
 }

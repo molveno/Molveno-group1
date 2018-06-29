@@ -2,18 +2,23 @@ package com.hotelmolveno.finance;
 
 public class Payment {
 
-    public static int invoiceNumber = 0;
-    public long id;
-    double paymentAmount;
+    private static int nextInvoiceNumber = 1;
+    private int InvoiceNumber;
+    private double paymentAmount;
 
 
 
-    public long getId() {
-        return id;
+    public Payment(double paymentAmount) {
+        this.InvoiceNumber = nextInvoiceNumber;
+        nextInvoiceNumber++;
+        this.paymentAmount = paymentAmount;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public int getInvoiceNumber() {
+        return InvoiceNumber;
+    }
+    public void setInvoiceNumber(int invoiceNumber) {
+        InvoiceNumber = invoiceNumber;
     }
 
     public double getPaymentAmount() {
@@ -24,32 +29,31 @@ public class Payment {
         this.paymentAmount = paymentAmount;
     }
 
-    public Payment(double paymentAmount) {
-        this.paymentAmount = paymentAmount;
-           }
-
-    public static int getInvoiceNumber() {
-        return invoiceNumber;
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "InvoiceNumber=" + InvoiceNumber +
+                ", paymentAmount=" + paymentAmount +
+                '}';
     }
-
-    public static void setInvoiceNumber(int invoiceNumber) {
-        Payment.invoiceNumber = invoiceNumber;
-    }
-
-    public double getPayment() {
-        return paymentAmount;
-    }
-    public void setPayment(double payment) {
-        this.paymentAmount = payment;
-    }
-
-
 
     public static void main(String[] args) {
-        Payment payment1 = new Payment (100.00);
-       // Payment.setId(++Payment.invoiceNumber);
-        System.out.println(payment1.getPaymentAmount());
+        Payment payment1 = new Payment(100.00);
+        Payment payment2 = new Payment(200);
+        Payment payment3 = new Payment(300);
 
+        Bill bill1 = new Bill();
+        Bill bill2 = new Bill();
+        Bill bill3 = new Bill();
+
+        bill1.setBarCost(100);
+        bill1.setRestaurantCost(200);
+        bill1.calculateTotalCost();
+
+        System.out.println(payment1);
+        System.out.println(payment2);
+        System.out.println(payment3);
+        System.out.println(bill1.getTotalCost());
         }
     }
 
