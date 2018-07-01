@@ -26,22 +26,6 @@ public abstract class User { // abstract class: there are no actual users, only 
     public User() {
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "GuestID=" + getGuestID() +
-                "EmployeeID=" + getEmployeeID() +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", city='" + city + '\'' +
-                ", country='" + country + '\'' +
-                ", telephoneNumber='" + telephoneNumber + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                '}';
-    }
-
     public int getGuestID() {
         return guestID;
     }
@@ -121,4 +105,21 @@ public abstract class User { // abstract class: there are no actual users, only 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "GuestID=" + guestID + '\'' +
+                ", EmployeeID=" + EmployeeID + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", telephoneNumber='" + telephoneNumber + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                '}';
+    }
+
 }
