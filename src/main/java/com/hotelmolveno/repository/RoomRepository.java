@@ -3,53 +3,60 @@ package com.hotelmolveno.repository;
 import com.hotelmolveno.hotel.Room;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 @Repository
 public class RoomRepository {
 
+    // in real live we would have a real DB here .... like Oracle, MySQL or Postgres
 
-    private static int counter = 0;
-    private Map<Integer, Room> rooms = new HashMap<>();
 
-    public Iterable<Room> findAll() {
-        Iterable<Room> result = this.rooms.values();
+    private static int lastId = 0;
 
-        return result;
+    private Map <Integer, Room> rooms = new HashMap<>();  // this you might see as a mock db
+
+    @PostConstruct
+    public void addSomeRoomsToGetStarted() {
+        for(int i = 0;i<5;i++) {
+            Room room = new Room();
+            room.setRoomNumber(i);
+            room.setReserved(false);
+
+            this.save(room);
+        }
     }
 
-    public Room save(Room roomToBeSaved) {
+    public void save(Room newRoom) {
+        newRoom.setRoomID(++lastId);
+        this.rooms.put(newRoom.getRoomID(), newRoom);
 
-        counter++;
-        this.rooms.put(counter, roomToBeSaved);
-        roomToBeSaved.setRoomID(counter);
-        Room savedRoom = this.rooms.get(counter);
-
-        return savedRoom;
     }
 
-    public Room update(int id, Room input) {
-
-        Room output = this.rooms.get(id);
-
-        output.setRoomID(input.getRoomID());
-        output.setRoomNumber(input.getRoomNumber());
-        output.setNumberOfGuests(input.getNumberOfGuests());
-        output.setPrice(input.getPrice());
-
-        // and so on ... if you have more fields
-
-        return output;
-    }
-
-    public void delete(int id) {
-        this.rooms.remove(id);
+    public Collection<Room> findAll() {
+        return this.rooms.values();
     }
 
     public Room findById(int id) {
 
-        Room result = this.rooms.get(id);
-        return result;
+        Room found = this.rooms.get(id);
+
+        return found;
+    }
+
+    public void deleteById(long id) {
+
+        this.rooms.remove(id);
+    }
+
+    public Room update(int id, Room update) {
+        Room victim = this.findById(id);
+
+        victim.setReserved(update.getReserved());
+        victim.setRoomNumber(update.getRoomNumber());
+
+        return victim;
     }
 }

@@ -11,6 +11,11 @@ public class Room implements Serializable {
     protected int numberOfGuests;
     protected double price;
 
+    public Room() {
+        this.roomID = nextRoomID;
+        nextRoomID++;
+    }
+
     public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
         this.roomID = nextRoomID;
         nextRoomID++;
