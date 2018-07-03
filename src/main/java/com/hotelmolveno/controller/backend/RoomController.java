@@ -25,14 +25,14 @@ public class RoomController {
     }
 
     @GetMapping
-    public Collection<Room> list() {
+    public Iterable<Room> list() {
         return this.roomRepository.findAll();
     }
 
     @GetMapping("{id}")
     public Room findById(@PathVariable int id) {
 
-        Room result = this.roomRepository.findById(id);
+        Room result = this.roomRepository.findById(id).get();
 
         return result;
     }
@@ -45,7 +45,16 @@ public class RoomController {
     @PutMapping(value = "{id}")
     public Room update(@PathVariable int id, @RequestBody Room input) {
 
-        return this.roomRepository.update(id, input);
+        Room output = this.roomRepository.findById(id).get();
+
+//        output.setRoomID(input.getRoomID());
+        output.setRoomNumber(input.getRoomNumber());
+        output.setNumberOfGuests(input.getNumberOfGuests());
+        output.setPrice(input.getPrice());
+        output.setReserved(input.getReserved());
+
+
+        return this.roomRepository.save(output);
 
     }
 

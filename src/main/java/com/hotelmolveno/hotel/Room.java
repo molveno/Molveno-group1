@@ -1,19 +1,29 @@
 package com.hotelmolveno.hotel;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.List;
 
+@Entity
 public class Room implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected int roomID; // this field is now the ID (key for DB)
+
     protected static int nextRoomID = 0;
-    protected int roomID;
+
     protected int roomNumber;
     protected boolean reserved;
     protected int numberOfGuests;
     protected double price;
 
+
     public Room() {
-        this.roomID = nextRoomID;
-        nextRoomID++;
+
     }
 
     public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
