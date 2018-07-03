@@ -37,4 +37,16 @@ public class RoomController {
         return result;
     }
 
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable int id) {
+        this.roomRepository.deleteById(id);
+    }
+
+    @PutMapping(value = "{id}")
+    public Room update(@PathVariable int id, @RequestBody Room input) {
+
+        return this.roomRepository.update(id, input);
+
+    }
+
 }

@@ -3,9 +3,10 @@ package com.hotelmolveno.hotel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.hotelmolveno") // vragen aan Raymond
+// @ComponentScan(basePackages = "com.hotelmolveno") // vragen aan Raymond
 public class RoomSpringBoot {
 
     public static void main(String[] args) {

@@ -46,7 +46,7 @@ public class RoomRepository {
         return found;
     }
 
-    public void deleteById(long id) {
+    public void deleteById(int id) {
 
         this.rooms.remove(id);
     }
