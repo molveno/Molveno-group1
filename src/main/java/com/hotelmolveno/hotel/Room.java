@@ -4,25 +4,17 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class Room {
-    protected static int nextRoomID = 0;
-//<<<<<<< HEAD
-//    protected int roomID;
-//    protected int roomNumber;
-//=======
-    protected static int nextNumberID = 12;
-    protected int roomID = 0;
-    protected int roomNumber = 11;
-//>>>>>>> hbosch
-    protected boolean reserved;
-    protected int numberOfGuests;
-    protected double price;
-    protected double reservationPeriodHr;     //start -/- end date\\
-    protected Date reservationStartDate;  //date of new booking\\
-    protected Date reservationEndDate;    //end + start date\\
+    private int roomID = 0;
+    private int roomNumber = 11;
+    private boolean reserved;
+    private int numberOfGuests;
+    private double price;
+    private double reservationPeriodHr;
+    private Date reservationStartDate;  //date of new booking\\
+    private Date reservationEndDate;    //end = startDate + PeriodHr\\
 
-    public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
-        this.roomID = nextRoomID;
-        nextRoomID++;
+    public Room(int roomID, int setRoomNumber, int setNumberOfGuests, double setPrice) {
+        this.roomID = roomID;
         this.roomNumber = setRoomNumber;
         this.numberOfGuests = setNumberOfGuests;
         this.price = setPrice;
@@ -94,40 +86,39 @@ public class Room {
         Calendar cal = Calendar.getInstance();
         Date x = cal.getTime();
         Date y = reservationStartDate;
-        double diff = -1;
+        double diff;
         final int SECOND = 1000;        // no. of ms in a second
         final int MINUTE = SECOND * 60; // no. of ms in a minute
         final int HOUR = MINUTE * 60;   // no. of ms in an hour
         final int DAY = HOUR * 24;      // no. of ms in a day
         final int WEEK = DAY * 7;       // no. of ms in a week
+        diff = ChronoUnit.MILLIS.between(x.toInstant(), y.toInstant());
+        int days = (int) ((diff % WEEK) / DAY);
 
         if(reserved != true) {
             return "Room {" +
-                    "ID:" + roomID +
-                    ", Nr = " + roomNumber +
-//                  ", reserved = " + reserved +
+                    "id:" + roomID +
+                    ", NR: " + roomNumber +
                     ", " + numberOfGuests + " person room" +
-//                  ", START: " + reservationStartDate.getTime() +
-//                  ", END: " + reservationEndDate.getTime() +
-//                  ", Remaining: " + getCalcTime() +
                     '}';
         }else{
-            return "Room {" +
-                    "ID:" + roomID +
-                    ", Nr = " + roomNumber +
+            return "\n\t\t\tRoom {" +
+                    "id:" + roomID +
+                    ", NR: " + roomNumber +
 //                  ", reserved = " + reserved +
                     ", " + numberOfGuests + " person room" +
+                    ", Period: " + reservationPeriodHr/24 +
                     ", \n\t\t\tSTART: " + reservationStartDate +
                     ", END: " + reservationEndDate +
-                    ", Remaining: " + getCalcTime() +
+                    ", Available after: " + getCalcTime() +
                     '}' + "\n";
         }
     }
 
     public String getCalcTime() {
-        double remaining = -1;
-        Calendar cal1 = Calendar.getInstance();
-        Date newDate = reservationStartDate;
+        double remaining;
+        Calendar cal = Calendar.getInstance();
+        Date newDate = cal.getTime();
         Date resDate = reservationEndDate;
 
         remaining = ChronoUnit.MILLIS.between(newDate.toInstant(), resDate.toInstant());

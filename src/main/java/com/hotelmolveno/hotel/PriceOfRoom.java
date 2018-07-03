@@ -13,7 +13,7 @@ public class PriceOfRoom {
         return public void setPriceOfLuxeryRoom;
 }}
 
-public class RoomMakerApp {
+public class RoomMaker {
 
     static boolean state = true;
 
