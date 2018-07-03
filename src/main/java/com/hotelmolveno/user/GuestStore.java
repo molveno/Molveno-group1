@@ -77,9 +77,17 @@ public class GuestStore extends User {
     }
 
     public List<User> getGuests() {
-        for(User users : guests){
-            System.out.println(users);
+        System.out.println("\n----------------------------------------------------------------------------------------------------");
+
+        for (User guests : guests) {
+            System.out.println(guests);
         }
+        System.out.println("----------------------------------------------------------------------------------------------------");
+
+        return guests;
+    }
+
+    public List<User> getGuestsList() {
         return guests;
     }
 
@@ -90,7 +98,7 @@ public class GuestStore extends User {
         System.out.println("Enter firstname: ");
         String firstNameIn = input.nextLine();
 
-        for(User listUsers : getGuestList()){
+        for (User listUsers : getGuestList()) {
             if (listUsers.getFirstName().equals(firstNameIn)) {
                 break;
             }
@@ -105,7 +113,7 @@ public class GuestStore extends User {
         System.out.println("Enter firstname: ");
         String firstName = input.nextLine();
 
-        for(User listUsers : getGuestList()){
+        for (User listUsers : getGuestList()) {
             if (listUsers.getFirstName().equals(firstName)) {
                 User newUser = listUsers;
                 System.out.print("\n" + listUsers.getFirstName() + "\t Found! \n");
@@ -169,7 +177,7 @@ public class GuestStore extends User {
         int x = reader.nextInt();
         System.out.println("You entered guest ID number " + Integer.toString(x));
         for (User newUser : guests) {
-            if(newUser.getGuestID() == x) {
+            if (newUser.getGuestID() == x) {
                 System.out.println("A guest with ID number " + x + " exists. Adujsting user, please provide");
                 System.out.print("Firstname: ");
                 String firstName = reader.next();

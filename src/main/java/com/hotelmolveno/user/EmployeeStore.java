@@ -16,10 +16,12 @@ public class EmployeeStore extends User {
     }
 
     public void getEmployeeList() {
-        for(User users : employees){
+        System.out.println("\n----------------------------------------------------------------------------------------------------");
+
+        for (User users : employees) {
             System.out.println(users);
         }
-//        return employees;
+        System.out.println("----------------------------------------------------------------------------------------------------");
     }
 
     public void addNewEmployee() {
@@ -80,7 +82,7 @@ public class EmployeeStore extends User {
     }
 
     public List<User> getEmployees() {
-        for(User employees : employees){
+        for (User employees : employees) {
             System.out.println(employees);
         }
         return employees;
@@ -93,7 +95,7 @@ public class EmployeeStore extends User {
         System.out.println("Enter firstname: ");
         String firstNameIn = input.nextLine();
 
-        for(User listUsers : getEmployees()){
+        for (User listUsers : getEmployees()) {
             if (listUsers.getFirstName().equals(firstNameIn)) {
                 break;
             }
@@ -108,7 +110,7 @@ public class EmployeeStore extends User {
         System.out.println("Enter firstname: ");
         String firstName = input.nextLine();
 
-        for(User listUsers : getEmployees()){
+        for (User listUsers : getEmployees()) {
             if (listUsers.getFirstName().equals(firstName)) {
                 User newUser = listUsers;
                 System.out.print("\n" + listUsers.getFirstName() + "\t Found! \n");
@@ -155,7 +157,7 @@ public class EmployeeStore extends User {
         int x = reader.nextInt();
         System.out.println("You entered employees ID number " + Integer.toString(x));
         for (User newUser : employees) {
-            if(newUser.getEmployeeID() == x) {
+            if (newUser.getEmployeeID() == x) {
                 System.out.println("A employees with ID number " + x + " exists. Adujsting user, please provide");
                 System.out.print("Firstname: ");
                 String firstName = reader.next();

@@ -14,7 +14,7 @@ public class AppController {
     private GuestStore guestStore = new GuestStore();                   //NEW UNIQUE GUEST-STORE
     private EmployeeStore employeeStore = new EmployeeStore();          //NEW UNIQUE EMPLOYEE-STORE
     private ReservationStore reservationStore = new ReservationStore(); //NEW UNIQUE RESERVATION-STORE
-    
+
     private boolean state = true;
 
     public void run() {

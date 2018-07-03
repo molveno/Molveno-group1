@@ -31,15 +31,15 @@ public class ReservationStore {
 
     public void initiateTestReservations(RoomStore roomStore, GuestStore guestStore) {
         List<Room> rooms = roomStore.getRooms();
-        List<User> users = guestStore.getGuests();
+        List<User> users = guestStore.getGuestList();
         Calendar cal1 = Calendar.getInstance();
         cal1.getTime();
-        cal1.add(Calendar.DAY_OF_MONTH,7);
+        cal1.add(Calendar.DAY_OF_MONTH, 7);
         Date x = cal1.getTime();
         Calendar cal2 = Calendar.getInstance();
         cal2.getTime();
-        rooms.get(0).setReservationPeriodHr((8*24));
-        cal2.add(Calendar.DAY_OF_MONTH, (7+8));
+        rooms.get(0).setReservationPeriodHr((8 * 24));
+        cal2.add(Calendar.DAY_OF_MONTH, (7 + 8));
         cal2.set(Calendar.HOUR_OF_DAY, 13);
         cal2.set(Calendar.MINUTE, 0);
         Date y = cal2.getTime();
@@ -47,15 +47,33 @@ public class ReservationStore {
         rooms.get(0).setReservationEndDate(y);
         rooms.get(0).setReserved(true);
         setReservationRoomList(rooms.get(0).getRoomID(), users.get(0).getGuestID());
+
+        Calendar cal3 = Calendar.getInstance();
+        cal3.getTime();
+        cal3.add(Calendar.DAY_OF_MONTH, 14);
+        Date x2 = cal3.getTime();
+        Calendar cal4 = Calendar.getInstance();
+        cal4.getTime();
+        rooms.get(5).setReservationPeriodHr((14 * 24));
+        cal4.add(Calendar.DAY_OF_MONTH, (14 + 14));
+        cal4.set(Calendar.HOUR_OF_DAY, 13);
+        cal4.set(Calendar.MINUTE, 0);
+        Date y2 = cal4.getTime();
+        rooms.get(5).setReservationStartDate(x2);
+        rooms.get(5).setReservationEndDate(y2);
+        rooms.get(5).setReserved(true);
+        setReservationRoomList(rooms.get(5).getRoomID(), users.get(5).getGuestID());
+
+
 //NEED-FIX
     }
 
-public void addToReservationRoomList(RoomStore roomStore, GuestStore guestStore) {
-    List<Room> rooms = roomStore.getRooms();
-    List<User> users = guestStore.getGuests();
+    public void addToReservationRoomList(RoomStore roomStore, GuestStore guestStore) {
+        List<Room> rooms = roomStore.getRooms();
+        List<User> users = guestStore.getGuests();
 
         Scanner newUser = new Scanner(System.in);
-        RoomStore roomStore1= new RoomStore();
+        RoomStore roomStore1 = new RoomStore();
         System.out.println("Available rooms: ");
         int maxRooms = 0;
         int firstRN = 0;
@@ -97,13 +115,13 @@ public void addToReservationRoomList(RoomStore roomStore, GuestStore guestStore)
             }
         }
 
-whenAvailable:
+        whenAvailable:
         for (Room x : rooms) {
             if (rooms.get(roomID).getReserved()) {
                 System.out.println("\n----------------------------------------------------------------------------------------------------");
                 System.out.println("Room is not available, select other room id.");
                 System.out.println("----------------------------------------------------------------------------------------------------");
-            this.addToReservationRoomList(roomStore1, guestStore);
+                this.addToReservationRoomList(roomStore1, guestStore);
             } else {
                 if (true) {
 
@@ -187,10 +205,10 @@ whenAvailable:
         }
     }
 
-//    public void getReservationRoomList(List<Room> room, List<User> user) {
-public void getReservationRoomList(RoomStore roomStore, GuestStore guestStore) {
-    List<Room> rooms = roomStore.getRooms();
-    List<User> users = guestStore.getGuests();
+    //    public void getReservationRoomList(List<Room> room, List<User> user) {
+    public void getReservationRoomList(RoomStore roomStore, GuestStore guestStore) {
+        List<Room> rooms = roomStore.getRooms();
+        List<User> users = guestStore.getGuests();
         int c = 0, d = 0;
         System.out.println("\n----------------------------------------------------------------------------------------------------");
         for (Map.Entry<Integer, Integer> entry : reservations.entrySet()) {                          //ITERATE THROUGH RESERVATION LIST key=room value=guest
@@ -242,7 +260,7 @@ public void getReservationRoomList(RoomStore roomStore, GuestStore guestStore) {
                             if (users.get(d).getFirstName().equals(firstName)) {
                                 System.out.println(firstName + " found, continue altering record... \n");
                                 it.remove();    //REMOVING RESERVATION
-                            roomStore.removeOrAlterRoom(key, 0); //DEFAULTING ROOM DETAILS
+                                roomStore.removeOrAlterRoom(key, 0); //DEFAULTING ROOM DETAILS
                                 System.out.println("Reservation for " + firstName + " removed");
                             } else {
                                 System.out.println("----------------------------------------------------------------------------------------------------");
@@ -261,10 +279,10 @@ public void getReservationRoomList(RoomStore roomStore, GuestStore guestStore) {
         }
     }
 
-//    public void alterReservationFromRoomList(List<Room> rooms, List<User> users) {
+    //    public void alterReservationFromRoomList(List<Room> rooms, List<User> users) {
     public void alterReservationFromRoomList(RoomStore roomStore, GuestStore guestStore) {
-            List<Room> rooms = roomStore.getRooms();
-            List<User> users = guestStore.getGuests();
+        List<Room> rooms = roomStore.getRooms();
+        List<User> users = guestStore.getGuests();
         int a = 0;
         boolean e = false;
         this.getReservationRoomList(roomStore, guestStore);

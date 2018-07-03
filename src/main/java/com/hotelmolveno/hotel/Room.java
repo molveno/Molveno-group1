@@ -21,12 +21,12 @@ public class Room {
         reservationPeriodHr = 0;
         Calendar cal1 = Calendar.getInstance();
         cal1.getTime();
-        cal1.set(Calendar.YEAR,1);
-        cal1.set(Calendar.MONTH,0);
-        cal1.set(Calendar.DAY_OF_MONTH,0);
-        cal1.set(Calendar.HOUR_OF_DAY,0);
-        cal1.set(Calendar.MINUTE,0);
-        cal1.set(Calendar.SECOND,0);
+        cal1.set(Calendar.YEAR, 1);
+        cal1.set(Calendar.MONTH, 0);
+        cal1.set(Calendar.DAY_OF_MONTH, 0);
+        cal1.set(Calendar.HOUR_OF_DAY, 0);
+        cal1.set(Calendar.MINUTE, 0);
+        cal1.set(Calendar.SECOND, 0);
         reservationEndDate = cal1.getTime();
         reservationStartDate = cal1.getTime();
     }
@@ -95,19 +95,19 @@ public class Room {
         diff = ChronoUnit.MILLIS.between(x.toInstant(), y.toInstant());
         int days = (int) ((diff % WEEK) / DAY);
 
-        if(reserved != true) {
+        if (reserved != true) {
             return "Room {" +
                     "id:" + roomID +
                     ", NR: " + roomNumber +
                     ", " + numberOfGuests + " person room" +
                     '}';
-        }else{
+        } else {
             return "\n\t\t\tRoom {" +
                     "id:" + roomID +
                     ", NR: " + roomNumber +
 //                  ", reserved = " + reserved +
                     ", " + numberOfGuests + " person room" +
-                    ", Period: " + reservationPeriodHr/24 +
+                    ", Booked for: " + (reservationPeriodHr / 24) + " days" +
                     ", \n\t\t\tSTART: " + reservationStartDate +
                     ", END: " + reservationEndDate +
                     ", Available after: " + getCalcTime() +
@@ -135,7 +135,7 @@ public class Room {
         int minutes = (int) ((remaining % HOUR) / MINUTE);
         int seconds = (int) ((remaining % MINUTE) / SECOND);
 
-        String ret = ("weeks:" + weeks + " days:" +days + " [" +hours + ":" +minutes + ":" +seconds+"]");
+        String ret = ("weeks:" + weeks + " days:" + days + " [" + hours + ":" + minutes + ":" + seconds + "]");
 
         return (ret);
     }

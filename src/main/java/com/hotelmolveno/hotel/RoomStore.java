@@ -137,17 +137,22 @@ public class RoomStore {
         for (Room r : rooms) {
             Date y = r.getReservationStartDate();
             diff = ChronoUnit.MILLIS.between(x.toInstant(), y.toInstant());
+            int weeks = (int) (diff / WEEK);
             int days = (int) ((diff % WEEK) / DAY);
+            int hours = (int) ((diff % DAY) / HOUR);
+            int minutes = (int) ((diff % HOUR) / MINUTE);
+            int seconds = (int) ((diff % MINUTE) / SECOND);
             if (!r.getReserved()) {
                 System.out.println("Available:\t" + r);
-            } else if (days > 1 && days < 6) {
-                System.out.print("\nLimited available for: " + (days-1) + " days):\t\t" + r + "\n");
-            } else if (days >= 6 && days < 12) {
-                System.out.print("\nshort-Term bookable: (Available now for: " + (days-1) + " days):\t\t" + r + "\n");
-            } else if (days >= 12 && days < 18) {
-                System.out.print("\nMid-Term bookable: (Available now for: " + (days-1) + " days):\t\t" + r + "\n");
-            } else if (days >= 18 && days < 90) {
-                System.out.print("\nLong-Term bookable: (Available now for: " + (days-1) + " days):\t\t" + r + "\n");
+            } else if (days > 1 && days < 7 && weeks == 0) {
+                System.out.print("\nLimited (Available now for: " + (days) + " days):\t\t" + r + "\n");
+            } else if (weeks >= 1 && weeks < 2) {
+                System.out.print("\nshort-Term bookable: (Available now for: " + (weeks) + " week(s), " + (days) + " days):\t\t" + r + "\n");
+            } else if (days >= 2 && days < 3) {
+                System.out.print("\nMid-Term bookable: (Available now for: " + (weeks) + " week(s), " + (days) + " days):\t\t" + r + "\n");
+//            } else if (days >= 18 && days < 90) {
+            } else {
+                System.out.print("\nLong-Term bookable: (Available now for: " + (weeks) + " week(s), " + (days) + " days):\t\t" + r + "\n");
             }
         }
         System.out.println("----------------------------------------------------------------------------------------------------");
