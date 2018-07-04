@@ -29,23 +29,24 @@ function showOurRooms() {
 
 }
 
-$(document).ready(function() {
-     console.log("Ready ... page loaded"); // check if connection works (inspect html page)
+function createRoomString(room) {
+ result = "<table><tr><td>id"+room.roomID+"</td><td>number"+room.roomNumber+"</td><td>guests"+room.numberOfGuests+"</td><td>price"+room.price+"</td><td>reserved"+room.reserved+"</td></tr></table>";
 
+  return result;
+}
 
-
-// what is this doing now????
-     $("#addButton").click(function() {
+$("#addButton").click(function() {
 
             var jsonObject = {
-                firstName: $("#firstName").val(),
-                lastName: $("#lastName").val(),
-                yearOfBirth: Number($("#yearOfBirth").val())
+                roomNumber: $("#roomNumber").val(),
+                numberOfGuests: $("#numberOfGuests").val(),
+                price: Number($("#price").val())
+
             };
              $.ajax({
                     contentType : "application/json",
                      // waar moet hij de request op uitvoeren
-                     url : baseUrl+"persons",
+                     url : baseUrl+"/rooms",
                      // type actie
                      type : "post",
                      data: JSON.stringify(jsonObject),
@@ -53,8 +54,10 @@ $(document).ready(function() {
                      success: function(data){ // so the data is the bulb of the response of the Spring Boot REST controller
 
                             $("#newId").html(data.id);
-                            $("#newFirstName").html(data.firstName);
-                            $("#newLastName").html(data.lastName);
+                            $("#newFirstName").html(data.roomNumber);
+                            $("#newLastName").html(data.numberOfGuests);
+                            $("#newLastName").html(data.price);
+
 
                             $("#addedPerson").show(2000);
 
@@ -64,14 +67,8 @@ $(document).ready(function() {
                      }
                  });
           });
-});
 
 
-function createRoomString(room) {
- result = "<tr><td>"+room.roomID+"</td><td>"+room.roomNumber+"</td><td>"+room.price+"</td></tr>";
-
-  return result;
-}
 
 
 

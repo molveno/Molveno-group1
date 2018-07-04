@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 import java.util.Optional;
 
@@ -20,16 +19,16 @@ public class RoomController {
 
 
     @PostMapping
-    public Room create(@RequestBody Room newRoom) {
+    public ResponseEntity<Room> create(@RequestBody Room newRoom) {
 
         this.roomRepository.save(newRoom);
 
-        return newRoom;
+        return new ResponseEntity<Room>(newRoom, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public Iterable<Room> list() {
-        return this.roomRepository.findAll();
+    public ResponseEntity<Iterable<Room>> list() {
+        return new ResponseEntity<Iterable<Room>>( this.roomRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("{id}")
