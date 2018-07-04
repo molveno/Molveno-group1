@@ -18,7 +18,6 @@ public class ReservationRoom {
 
     public static Map<Integer, Integer> reservationRoomList = new HashMap<>();
 
-
     public static void setReservationRoomList(int roomID, int userID) {
         reservationRoomList.put(roomID, userID);
         App.setCounterReservation();
@@ -26,12 +25,14 @@ public class ReservationRoom {
     }
 
     public static void initiateTestReservations() {
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(0).getRoomID(), Guest.userListGuest.get(0).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(1).getRoomID(), Guest.userListGuest.get(1).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(2).getRoomID(), Guest.userListGuest.get(2).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(3).getRoomID(), Guest.userListGuest.get(3).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(4).getRoomID(), Guest.userListGuest.get(4).getGuestID());
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(5).getRoomID(), Guest.userListGuest.get(5).getGuestID());
+        Hotel Hotel = new Hotel();
+
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(0).getRoomID(), Guest.userListGuest.get(0).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(1).getRoomID(), Guest.userListGuest.get(1).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(2).getRoomID(), Guest.userListGuest.get(2).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(3).getRoomID(), Guest.userListGuest.get(3).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(4).getRoomID(), Guest.userListGuest.get(4).getGuestID());
+//        ReservationRoom.setReservationRoomList(Hotel.rooms.get(5).getRoomID(), Guest.userListGuest.get(5).getGuestID());
 //        ReservationRoom.setReservationRoomList(new Integer(Hotel.rooms.get(5).getRoomID()), new Integer(Guest.userListGuest.get(5).getGuestID()));            //CURRENTLY NOT USED AT ALL\\
 //        ReservationRoom.setReservationRoomList(new Integer(Hotel.rooms.get(0).getRoomID()), new Integer(Employee.userListEmployee.get(0).getEmployeeID()));
 //        ReservationRoom.setReservationRoomList(new Integer(Hotel.rooms.get(1).getRoomID()), new Integer(Employee.userListEmployee.get(1).getEmployeeID()));
@@ -49,10 +50,13 @@ public class ReservationRoom {
         System.out.print("enter guestID: ");
         int guestID = newUser.nextInt();
 
-        ReservationRoom.setReservationRoomList(Hotel.rooms.get(roomID).getRoomID(), Guest.userListGuest.get(guestID).getGuestID());
+        Hotel hotel = new Hotel();
+        ReservationRoom.setReservationRoomList(hotel.rooms.get(roomID).getRoomID(), Guest.userListGuest.get(guestID).getGuestID());
     }
 
     public void getReservationRoomList() {
+        Hotel Hotel = new Hotel();
+
         int c = 0, d = 0;
         System.out.println("");
         for (Map.Entry<Integer, Integer> entry : reservationRoomList.entrySet()) {                          //ITERATE THROUGH RESERVATION LIST
@@ -94,8 +98,9 @@ public class ReservationRoom {
             int key = (int) pair.getKey();                                                                      //SET KEY FROM RESERVATION LIST
             int value = (int) pair.getValue();                                                                   //SET VALUE FROM RESERVATION LIST
 
-            for (Room myRoomList : Hotel.rooms) {
-                if (key == Hotel.rooms.get(c).getRoomID()) {                                                    //CHECK IF KEY EXISTS IN ROOM ARRAY (roomID), IF SO, ROOM IS BOOKED
+            Hotel hotel = new Hotel();
+            for (Room myRoomList : hotel.rooms) {
+                if (key == hotel.rooms.get(c).getRoomID()) {                                                    //CHECK IF KEY EXISTS IN ROOM ARRAY (roomID), IF SO, ROOM IS BOOKED
 
                     for (User myGuestList : userListGuest) {                                                    //ITERATE THROUGH GUEST LIST
                         if (value == userListGuest.get(d).getGuestID()) {                                       //CHECK IF VALUE EXISTS IN GUEST ARRAY (guestID),  IF SO, PRINT GUEST NAME

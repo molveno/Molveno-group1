@@ -58,6 +58,6 @@ target/
 src/main/java/wrapper/
 src/main/java/com/hotelmolveno/user/TestApp.java
 
-
-# ignore in github!
+# ignore for the case!
 application.properties
+

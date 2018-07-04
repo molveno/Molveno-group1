@@ -5,9 +5,17 @@ import java.util.List;
 
 public class Hotel {
 
-    public static List<Room> rooms = new ArrayList<>(); // Right class <Hotel>???? NO!!!! <Room> for list of Rooms
+    public List<Room> rooms = new ArrayList<>(); // erooden = set to private, use rooms getter
 
-    public static void addRoomToList(Room room) {
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    public void addRoomToList(Room room) {
         rooms.add(room);
     }
     // public

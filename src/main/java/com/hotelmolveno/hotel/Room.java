@@ -1,14 +1,30 @@
 package com.hotelmolveno.hotel;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.List;
 
-public class Room {
+@Entity
+public class Room implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected int roomID; // this field is now the ID (key for DB)
+
     protected static int nextRoomID = 0;
-    protected int roomID;
+
     protected int roomNumber;
     protected boolean reserved;
     protected int numberOfGuests;
     protected double price;
+
+
+    public Room() {
+
+    }
 
     public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
         this.roomID = nextRoomID;
@@ -61,17 +77,12 @@ public class Room {
         System.out.println("Message from main room");
     }
 
-
-//    public void setGuests(List guests) {
-//        this.guests = guests;
-//    }
-//
-//    public int getNumberOfGuests() {
-//        return numberOfGuests;
-//    }
-
     public void setNumberOfGuests(int numberOfGuests) {
         this.numberOfGuests = numberOfGuests;
+    }
+
+    public int getNumberOfGuests() {
+        return this.numberOfGuests;
     }
 
     @Override

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- PUT ALL CSS IN THE HEADER -->
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <title>:: Molveno Restaurant ::</title>
+    <style>
+        pre{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+<h1>Welcome at Molveno Restaurant</h1>
+
+<table id="roomList"></table>
+
+<input type="button" value="get rooms" onclick="showOurRooms();" />
+
+
+
+<p id="bird">Hello, this is a basic get button, we need a create function as well</p>
+
+<p>Trying to create a room</p>
+
+RoomNumber: <input type="text" name="roomNumber" id="roomNumber" />
+NumberOfGuests:  <input type="text" name="numberOfGuests" id="numberOfGuests" />
+Price: <input type="text" name="price" id="price" />
+
+<button id="addButton">Add</button>
+
+
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" >
+</script><script src="assets/scripts/test.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+
+</html>
