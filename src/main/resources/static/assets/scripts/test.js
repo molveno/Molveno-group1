@@ -10,19 +10,19 @@ function showOurRooms() {
                     // waar moet hij de request op uitvoeren
                     url : baseUrl+"/rooms",
                     // type actie
-                    type : "get",
+                    type : "get", // zelfde commandos als in rest controller?
                     // als de actie lukt, voer deze functie uit
                     success: function(data){ // so the data is the bulb of the response of the Spring Boot REST controller
 
-                    	guestList = "";
+                    	roomList = "";
 
                     	$.each(data, function(index, current){ // index (the index starting from 0, current: the current object of the iterable
 
-                    		guestList += createGuestString(current);
+                    		roomList += createRoomString(current);
 
                     	});
 
-                    	$("#guestList").html(guestList);
+                    	$("#roomList").html(roomList);
                     }
                 });
 
@@ -30,38 +30,11 @@ function showOurRooms() {
 }
 
 $(document).ready(function() {
-     console.log("Ready ... page loaded");
+     console.log("Ready ... page loaded"); // check if connection works (inspect html page)
 
 
 
-     $("#testButton").click(function() { // register (more the jQuery way) the function (event handler) to the button
-        $("#test").hide();
-     });
-
-     $("#addedPerson").hide();
-
-     $("#updateButton").click(function() {
-        $.ajax({
-                // waar moet hij de request op uitvoeren
-                url : baseUrl+"persons",
-                // type actie
-                type : "get",
-                // als de actie lukt, voer deze functie uit
-                success: function(data){ // so the data is the bulb of the response of the Spring Boot REST controller
-
-                	guestList = "";
-
-                	$.each(data, function(index, current){ // index (the index starting from 0, current: the current object of the iterable
-
-                		guestList += createGuestString(current);
-
-                	});
-
-                	$("#guestList").html(guestList);
-                }
-            });
-     });
-
+// what is this doing now????
      $("#addButton").click(function() {
 
             var jsonObject = {
@@ -93,34 +66,14 @@ $(document).ready(function() {
           });
 });
 
-function started() {
-      console.log("Ready ... page loaded");
-}
 
-function hideSome() {
-
-$("p").hide();
-
-}
-
-function createGuestString(room) {
+function createRoomString(room) {
  result = "<tr><td>"+room.roomID+"</td><td>"+room.roomNumber+"</td><td>"+room.price+"</td></tr>";
 
   return result;
 }
 
-function hideAllParagraphsWithIntroOrSlot() {
 
-    $("p.intro").hide();
-    $("p.slot").hide();
 
-}
 
-function showAll() {
-    $("p").show();
-}
-
-function toggleEpilog() {
-    $("#epilog").toggle();
-}
 

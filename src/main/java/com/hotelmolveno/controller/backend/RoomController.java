@@ -4,9 +4,12 @@ import com.hotelmolveno.hotel.Room;
 import com.hotelmolveno.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/rooms")
@@ -30,11 +33,14 @@ public class RoomController {
     }
 
     @GetMapping("{id}")
-    public Room findById(@PathVariable int id) {
+    public ResponseEntity<Room> findById(@PathVariable int id) {
 
-        Room result = this.roomRepository.findById(id).get();
+        Optional<Room> possibleResult = this.roomRepository.findById(id);
 
-        return result;
+        if(possibleResult.isPresent()) {
+            Room result = possibleResult.get();
+            return new ResponseEntity<Room>(result,HttpStatus.OK);
+        } else { return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
     }
 
     @DeleteMapping("{id}")
@@ -43,18 +49,24 @@ public class RoomController {
     }
 
     @PutMapping(value = "{id}")
-    public Room update(@PathVariable int id, @RequestBody Room input) {
+    public ResponseEntity<Room> update(@PathVariable int id, @RequestBody Room input) {
 
-        Room output = this.roomRepository.findById(id).get();
+        Optional<Room> possibleOutput = this.roomRepository.findById(id);
 
-//        output.setRoomID(input.getRoomID());
-        output.setRoomNumber(input.getRoomNumber());
-        output.setNumberOfGuests(input.getNumberOfGuests());
-        output.setPrice(input.getPrice());
-        output.setReserved(input.getReserved());
+        if(possibleOutput.isPresent()) {
+            Room output = possibleOutput.get();
 
+            output.setRoomNumber(input.getRoomNumber());
+            output.setNumberOfGuests(input.getNumberOfGuests());
+            output.setPrice(input.getPrice());
+            output.setReserved(input.getReserved());
 
-        return this.roomRepository.save(output);
+            output = this.roomRepository.save(output);
+
+            return new ResponseEntity<Room>(this.roomRepository.save(output), HttpStatus.OK);
+
+        } else { return new ResponseEntity<Room>(HttpStatus.NOT_FOUND); }
+
 
     }
 
