@@ -44,6 +44,25 @@ function setData(data){
     $("#guestTable").DataTable().clear();
     $("#guestTable").DataTable().rows.add(data);
     $("#guestTable").DataTable().columns.adjust().draw();
+    $(document).ready(function() {
+        var t = $('#example').DataTable();
+        var counter = 1;
+
+        // $('#AddGuest').on( 'click', function () {
+        //     t.row.add( [
+        //         counter +'.1',
+        //         counter +'.2',
+        //         counter +'.3',
+        //         counter +'.4',
+        //         counter +'.5'
+        //     ] ).draw( false );
+        //
+        //     counter++;
+        // } );
+
+        // Automatically add a first row of data
+        $('#addRow').click();
+    } );
 }
 
 // Get the data of a guest using an id
