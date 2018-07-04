@@ -32,7 +32,7 @@ public class AppController {
         Calendar cal = Calendar.getInstance();
         System.out.println(cal.getTime());
         System.out.println("\n#######################################");
-        System.out.println("#  Welcome to RoomStore Molveno  v2.0 #");
+        System.out.println("#  Welcome to RoomStore Molveno  v2.2 #");
         System.out.println("#######################################\n");
     }
 
