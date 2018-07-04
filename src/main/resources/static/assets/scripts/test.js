@@ -41,6 +41,22 @@ $("#addButton").click(function() {
                 roomNumber: $("#roomNumber").val(),
                 numberOfGuests: $("#numberOfGuests").val(),
                 price: Number($("#price").val())
+//                reserved: $("#reserved").val(),
+//                reserved: $("#checkbox1").is(':checked', function(){
+//                            $("#checkbox1").prop('checked', true);
+//                          });
+                reserved: $('#checkbox-value').text($('#checkbox1').val());
+
+                          $("#checkbox1").on('change', function() {
+                            if ($(this).is(':checked')) {
+                              $(this).attr('value', 'true');
+                            } else {
+                              $(this).attr('value', 'false');
+                            }
+
+                            $('#checkbox-value').text($('#checkbox1').val());
+                          });
+
 
             };
              $.ajax({
@@ -57,6 +73,9 @@ $("#addButton").click(function() {
                             $("#newFirstName").html(data.roomNumber);
                             $("#newLastName").html(data.numberOfGuests);
                             $("#newLastName").html(data.price);
+//                            $("#newLastName").html(data.reserved);
+                            $("#newLastName").html(data.reserved);
+
 
 
                             $("#addedPerson").show(2000);
