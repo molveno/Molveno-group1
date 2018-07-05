@@ -10,7 +10,7 @@ $(document).ready(function() {
                         dataSrc: ''
                     },
                 "columns": [
-                    { "data": "roomID" },
+//                    { "data": "roomID" },
                     { "data": "roomNumber" },
                     { "data": "numberOfGuests" },
                     { "data": "price" }
@@ -114,9 +114,9 @@ function fillUpdateDiv(room){
     $("#btndelete").attr('onclick', 'submitDelete(' + room.roomID + ');');
     $("#btnsubmit").attr('onclick', 'submitEdit(' + room.roomID + ');');
     document.getElementById("modal-title").innerHTML="Edit Room";
-    $("#roomNumber").val(room.roomNumber);
-    $("#numberOfGuests").val(room.numberOfGuests);
-    $("#price").val(room.price);
+    $("#modalRoomNumber").val(room.roomNumber);
+    $("#modalNumberOfGuests").val(room.numberOfGuests);
+    $("#modalPrice").val(room.price);
      /*
     $("#postalCode").val(room.postalCode);
     $("#city").val(room.city);
