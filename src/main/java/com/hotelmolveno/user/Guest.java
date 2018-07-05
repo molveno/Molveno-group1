@@ -2,12 +2,120 @@ package com.hotelmolveno.user;
 
 import com.hotelmolveno.App;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.*;
 
 import static com.hotelmolveno.reservation.ReservationRoom.reservationRoomList;
 
-public class Guest extends User {
+@Entity
+public class Guest extends User implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int guestID;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String postalCode;
+    private String city;
+    private String country;
+    private String telephoneNumber;
+    private String emailAddress;
+
+    @Override
+    public int getGuestID() {
+        return guestID;
+    }
+
+    @Override
+    public void setGuestID(int guestID) {
+        this.guestID = guestID;
+    }
+
+    @Override
+    public String getFirstName() {
+        return firstName;
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Override
+    public String getLastName() {
+        return lastName;
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String getAddress() {
+        return address;
+    }
+
+    @Override
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    @Override
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    @Override
+    public String getCity() {
+        return city;
+    }
+
+    @Override
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Override
+    public String getCountry() {
+        return country;
+    }
+
+    @Override
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    @Override
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    @Override
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    @Override
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    @Override
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
 
     public static List<User> userListGuest = new ArrayList<>();    //initiate empty arrayList
 
@@ -174,3 +282,5 @@ public class Guest extends User {
         }
     }
 }
+
+

@@ -1,19 +1,24 @@
-var baseUrl = "http://localhost:8080/api/rooms"
+var baseUrl = "http://localhost:8080/api/guests"
 
 
 $(document).ready(function() {
 
-        $('#dataTable').DataTable( {
+        $('#guestTable').DataTable( {
                 "order": [[ 0, "asc" ]],
                 "ajax": {
                         url: baseUrl,
                         dataSrc: ''
                     },
                 "columns": [
-                    { "data": "roomID" },
-                    { "data": "roomNumber" },
-                    { "data": "numberOfGuests" },
-                    { "data": "price" }
+                    { "data": "guestID" },
+                    { "data": "firstName" },
+                    { "data": "lastName" },
+                    { "data": "address" },
+                    { "data": "postalCode" },
+                    { "data": "city" },
+                    { "data": "country" },
+                    { "data": "telephoneNumber" },
+                    { "data": "emailAddress" }
 
                 ]
          } );
@@ -36,12 +41,18 @@ $(document).ready(function() {
 
 } );
 
-$("#addButton").click(function() {
+$("#addGuestButton").click(function() {
 
             var jsonObject = {
-                roomNumber: $("#roomNumber").val(),
-                numberOfGuests: $("#numberOfGuests").val(),
-                price: Number($("#price").val())
+                guestID: $("#guestID").val(),
+                firstName: $("#firstName").val(),
+                lastName: $("#lastName").val(),
+                address: $("#address").val(),
+                postalCode: $("#postalCode").val(),
+                city: $("#city").val(),
+                country: $("#country").val(),
+                telephoneNumber: $("#telephoneNumber").val(),
+                emailAddress: $("#emailAddress").val()
 
             };
              $.ajax({
@@ -54,18 +65,17 @@ $("#addButton").click(function() {
                      // als de actie lukt, voer deze functie uit
 
                  });
-
                  location.reload();
           });
 
 
-          $("#deleteButton").click(function() {
-                      var roomID = Number($("#roomToDelete").val())
+          $("#deleteGuestButton").click(function() {
+                      var guestID = Number($("#guestToDelete").val())
 
                        $.ajax({
                               contentType : "application/json",
                                // waar moet hij de request op uitvoeren
-                               url : baseUrl+"/" + roomID,
+                               url : baseUrl+"/" + guestID,
                                // type actie
                                type : "delete",
 
@@ -76,14 +86,20 @@ $("#addButton").click(function() {
                     });
 
 
-                    $("#updateButton").click(function() {
+                    $("#updateGuestButton").click(function() {
 
-                                var roomID = Number($("#roomToUpdate").val())
+                                var roomID = Number($("#guestToUpdate").val())
 
                                 var jsonObject = {
-                                    roomNumber: $("#updateRoomNumber").val(),
-                                    numberOfGuests: $("#updateNumberOfGuests").val(),
-                                    price: Number($("#updatePrice").val())
+
+                                    firstName: $("#updateFirstName").val(),
+                                    lastName: $("#updateLastName").val(),
+                                    address: $("#updateAddress").val(),
+                                    postalCode: $("#updatePostalCode").val(),
+                                    city: $("#updateCity").val(),
+                                    country: $("#updateCountry").val(),
+                                    telephoneNumber: $("#updateTelephoneNumber").val(),
+                                    emailAddress: $("#updateEmailAddress").val()
 
                                 };
                                  $.ajax({

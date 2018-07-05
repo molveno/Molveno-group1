@@ -2,20 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- PUT ALL CSS IN THE HEADER -->
+  <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <title>:: Molveno Restaurant ::</title>
+  <style>
+        pre{
+            display: none;
+        }
+    </style>
+
+  <!--BOOTSTRAP STUFF FROM SJANNEKE-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Molveno</title>
+
   <!-- Bootstrap core CSS-->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="../css/sb-admin.css" rel="stylesheet">
+  <link href="css/sb-admin.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 </head>
@@ -105,52 +119,81 @@
     <div class="card mb-3">
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <table class="display table table-bordered" id="guestTable" width="100%" cellspacing="0">
             <thead>
             <tr>
-              <th>Name</th>
-              <th>Adress</th>
-              <th>e-mail</th>
+              <th>Guest ID</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Address</th>
+              <th>Postal code</th>
+              <th>City</th>
+              <th>Country</th>
               <th>Telephone number</th>
-              <th></th>
+              <th>Email</th>
+
+
 
             </tr>
             </thead>
-            <tfoot>
-            <tr>
-              <th>Name</th>
-              <th>Adress</th>
-              <th>e-mail</th>
-              <th>Telephone number</th>
-              <th></th>
+            <tbody></tbody>
 
-            </tr>
-            </tfoot>
-            <tbody>
-            <tr>
-              <td>Sjanneke Eggermont</td>
-              <td>Peppelweg 138C, 3053GV, Rotterdam</td>
-              <td>sjanneke.eggermont@capgemini.com</td>
-              <td>06-31764343</td>
-              <td>
-                <a class="btn btn-primary" href="#AddGuest">
-                  <i class="fas fa-plus-square"></i>
+            <!--<tbody>-->
+            <!--<tr>-->
+              <!--<td>Sjanneke Eggermont</td>-->
+              <!--<td>Peppelweg 138C, 3053GV, Rotterdam</td>-->
+              <!--<td>sjanneke.eggermont@capgemini.com</td>-->
+              <!--<td>06-31764343</td>-->
+              <!--<td>-->
+                <!--<a class="btn btn-primary" href="#AddGuest">-->
+                  <!--<i class="fas fa-plus-square"></i>-->
 
-                </a>
+                <!--</a>-->
 
-                <a class="btn btn-primary" href="#EditGuest">
-                <i class="far fa-edit"></i>
-                </a>
+                <!--<a class="btn btn-primary" href="#EditGuest">-->
+                <!--<i class="far fa-edit"></i>-->
+                <!--</a>-->
 
-                <a class="btn btn-primary" href="#DeleteGuest">
-                <i class="fas fa-trash-alt"></i>
-                </a>
+                <!--<a class="btn btn-primary" href="#DeleteGuest">-->
+                <!--<i class="fas fa-trash-alt"></i>-->
+                <!--</a>-->
 
 
-              </td>
-            </tr>
-            </tbody>
+              <!--</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
           </table>
+
+          First name: <input type="text" name="firstName" id="firstName" />
+          Last name:  <input type="text" name="lastName" id="lastName" />
+          Address: <input type="text" name="address" id="address" />
+          Postal code: <input type="text" name="postalCode" id="postalCode" />
+          City: <input type="text" name="city" id="city" />
+          Country: <input type="text" name="country" id="country" />
+          Telephone number: <input type="text" name="telephoneNumber" id="telephoneNumber" />
+          Email address: <input type="text" name="emailAddress" id="emailAddress" />
+
+          <button id="addGuestButton">Add</button>
+          <p></p>
+
+          Delete: <input type="text" name="delete" id="guestToDelete" />
+          <button id="deleteGuestButton">Delete</button>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+
+          Update ID: <input type="text" name="update" id="guestToUpdate" />
+          First name: <input type="text" name="firstName" id="updateFirstName" />
+          Last name:  <input type="text" name="lastName" id="updateLastName" />
+          Address: <input type="text" name="address" id="updateAddress" />
+          Postal code: <input type="text" name="postalCode" id="updatePostalCode" />
+          City: <input type="text" name="city" id="updateCity" />
+          Country: <input type="text" name="country" id="updateCountry" />
+          Telephone number: <input type="text" name="telephoneNumber" id="updateTelephoneNumber" />
+          Email address: <input type="text" name="emailAddress" id="updateEmailAddress" />
+          <button id="updateGuestButton">Update</button>
+
         </div>
       </div>
     </div>
@@ -186,19 +229,26 @@
       </div>
     </div>
   </div>
-  <!-- Bootstrap core JavaScript-->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- Core plugin JavaScript-->
-  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-  <!-- Page level plugin JavaScript-->
-  <script src="../vendor/datatables/jquery.dataTables.js"></script>
-  <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
-  <!-- Custom scripts for all pages-->
-  <script src="../js/sb-admin.min.js"></script>
-  <!-- Custom scripts for this page-->
-  <script src="../js/sb-admin-datatables.min.js"></script>
+  <!--&lt;!&ndash; Bootstrap core JavaScript&ndash;&gt;-->
+  <!--<script src="../vendor/jquery/jquery.min.js"></script>-->
+  <!--<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+  <!--&lt;!&ndash; Core plugin JavaScript&ndash;&gt;-->
+  <!--<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>-->
+  <!--&lt;!&ndash; Page level plugin JavaScript&ndash;&gt;-->
+  <!--<script src="../vendor/datatables/jquery.dataTables.js"></script>-->
+  <!--<script src="../vendor/datatables/dataTables.bootstrap4.js"></script>-->
+  <!--&lt;!&ndash; Custom scripts for all pages&ndash;&gt;-->
+  <!--<script src="../js/sb-admin.min.js"></script>-->
+  <!--&lt;!&ndash; Custom scripts for this page&ndash;&gt;-->
+  <!--<script src="../js/sb-admin-datatables.min.js"></script>-->
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+<script src="assets/scripts/guests.js"></script>
 </body>
 
 </html>
