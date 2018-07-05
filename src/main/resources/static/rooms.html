@@ -17,22 +17,26 @@
             display: none;
         }
     </style>
+
+<!--BOOTSTRAP STUFF FROM SJANNEKE-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
   </head>
-  <!--<meta charset="utf-8">-->
-  <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-  <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-  <!--<meta name="description" content="">-->
-  <!--<meta name="author" content="">-->
-  <!--<title>Molveno</title>-->
-  <!--&lt;!&ndash; Bootstrap core CSS&ndash;&gt;-->
-  <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-  <!--&lt;!&ndash; Custom fonts for this template&ndash;&gt;-->
-  <!--<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-  <!--&lt;!&ndash; Page level plugin CSS&ndash;&gt;-->
-  <!--<link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">-->
-  <!--&lt;!&ndash; Custom styles for this template&ndash;&gt;-->
-  <!--<link href="css/sb-admin.css" rel="stylesheet">-->
-  <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+
+
 
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -133,6 +137,8 @@
 
             </tr>
             </thead>
+
+
             <tfoot>
             <tr>
               <th>RoomID</th>
@@ -140,34 +146,55 @@
               <th>Number of guests</th>
               <th>Price</th>
 
-
             </tr>
             </tfoot>
-            <!--<tbody>-->
-            <!--<tr>-->
-              <!--&lt;!&ndash;<td>106</td>&ndash;&gt;-->
-              <!--&lt;!&ndash;<td>4</td>&ndash;&gt;-->
-              <!--&lt;!&ndash;<td>Luxury</td>&ndash;&gt;-->
-              <!--&lt;!&ndash;<td>120</td>&ndash;&gt;-->
-              <!--<td>-->
-                <!--<a class="btn btn-primary" href="#AddRoom">-->
-                  <!--<i class="fas fa-plus-square"></i>-->
 
-                <!--</a>-->
-
-                <!--<a class="btn btn-primary" href="#EditRoom">-->
-                  <!--<i class="far fa-edit"></i>-->
-                <!--</a>-->
-
-                <!--<a class="btn btn-primary" href="#DeleteRoom">-->
-                  <!--<i class="fas fa-trash-alt"></i>-->
-                <!--</a>-->
-
-
-              <!--</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
           </table>
+
+          <tbody>
+          <tr>
+
+
+
+
+
+
+
+            <td>
+
+              RoomNumber: <input type="text" name="roomNumber" id="roomNumber" />
+              NumberOfGuests:  <input type="text" name="numberOfGuests" id="numberOfGuests" />
+              Price: <input type="text" name="price" id="price" />
+              <button id="addButton">Add</button>
+
+              Delete: <input type="text" name="delete" id="roomToDelete" />
+              <button id="deleteButton">Delete</button>
+
+              Update ID: <input type="text" name="update" id="roomToUpdate" />
+              RoomNumber: <input type="text" name="roomNumber" id="updateRoomNumber" />
+              NumberOfGuests:  <input type="text" name="numberOfGuests" id="updateNumberOfGuests" />
+              Price: <input type="text" name="price" id="updatePrice" />
+              <button id="updateButton">Update</button>
+
+              <!--<a class="btn btn-primary" href="#AddRoom">-->
+                <!--<i class="fas fa-plus-square"></i>-->
+
+              <!--</a>-->
+
+              <!--<a class="btn btn-primary" href="#EditRoom">-->
+                <!--<i class="far fa-edit"></i>-->
+              <!--</a>-->
+
+              <!--<a class="btn btn-primary" href="#DeleteRoom">-->
+                <!--<i class="fas fa-trash-alt"></i>-->
+              <!--</a>-->
+
+
+            </td>
+          </tr>
+          </tbody>
+
+
         </div>
       </div>
     </div>
