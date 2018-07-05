@@ -65,7 +65,7 @@ $("#addGuestButton").click(function() {
                      // als de actie lukt, voer deze functie uit
 
                  });
-                 location.reload();
+//                 location.reload();
           });
 
 
