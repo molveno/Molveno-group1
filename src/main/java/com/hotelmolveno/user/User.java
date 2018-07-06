@@ -15,6 +15,16 @@ public abstract class User { // abstract class: there are no actual users, only 
     private String telephoneNumber;
     private String emailAddress;
 
+    public String getPassportNumber() {
+        return passportNumber;
+    }
+
+    public void setPassportNumber(String passportNumber) {
+        this.passportNumber = passportNumber;
+    }
+
+    private String passportNumber;
+
     public User(String firstName, String lastName, String address, String postalCode, String city, String country, String telephoneNumber, String emailAddress) {
         this.firstName = firstName;
         this.lastName = lastName;

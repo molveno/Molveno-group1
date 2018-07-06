@@ -29,6 +29,16 @@ public class Guest extends User implements Serializable {
     private String passportNumber;
 
     @Override
+    public String getPassportNumber() {
+        return passportNumber;
+    }
+
+    @Override
+    public void setPassportNumber(String passportNumber) {
+        this.passportNumber = passportNumber;
+    }
+
+    @Override
     public int getGuestID() {
         return guestID;
     }

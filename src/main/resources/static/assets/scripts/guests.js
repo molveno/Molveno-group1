@@ -10,7 +10,7 @@ $(document).ready(function() {
                         dataSrc: ''
                     },
                 "columns": [
-                    { "data": "guestID" },
+//                    { "data": "guestID" },
                     { "data": "firstName" },
                     { "data": "lastName" },
                     { "data": "address" },
@@ -18,7 +18,9 @@ $(document).ready(function() {
                     { "data": "city" },
                     { "data": "country" },
                     { "data": "telephoneNumber" },
-                    { "data": "emailAddress" }
+                    { "data": "emailAddress" },
+                    { "data": "passportNumber" }
+
 
                 ]
          } );
@@ -52,7 +54,9 @@ $("#addGuestButton").click(function() {
                 city: $("#city").val(),
                 country: $("#country").val(),
                 telephoneNumber: $("#telephoneNumber").val(),
-                emailAddress: $("#emailAddress").val()
+                emailAddress: $("#emailAddress").val(),
+                passportNumber: $("#passportNumber").val()
+
 
             };
              $.ajax({
@@ -99,7 +103,8 @@ $("#addGuestButton").click(function() {
                                     city: $("#updateCity").val(),
                                     country: $("#updateCountry").val(),
                                     telephoneNumber: $("#updateTelephoneNumber").val(),
-                                    emailAddress: $("#updateEmailAddress").val()
+                                    emailAddress: $("#updateEmailAddress").val(),
+                                    passportNumber: $("#updatePassportNumber").val()
 
                                 };
                                  $.ajax({
@@ -138,6 +143,7 @@ function fillUpdateDiv(guest){
     $("#modalCountry").val(guest.country);
     $("#modalTelephoneNumber").val(guest.telephoneNumber);
     $("#modalEmailAddress").val(guest.emailAddress);
+    $("#modalPassportNumber").val(guest.passportNumber);
 
 
     $("#confirmbutton").css('display', 'inline-block');

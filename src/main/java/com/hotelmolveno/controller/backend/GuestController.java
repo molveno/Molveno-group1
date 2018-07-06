@@ -65,6 +65,7 @@ public class GuestController {
             output.setLastName(input.getLastName());
             output.setPostalCode(input.getPostalCode());
             output.setTelephoneNumber(input.getTelephoneNumber());
+            output.setPassportNumber(input.getPassportNumber());
 
             output = this.guestRepository.save(output);
 

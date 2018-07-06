@@ -122,7 +122,7 @@
           <table class="display table table-bordered" id="guestTable" width="100%" cellspacing="0">
             <thead>
             <tr>
-              <th>Guest ID</th>
+              <!--<th>Guest ID</th>-->
               <th>First name</th>
               <th>Last name</th>
               <th>Address</th>
@@ -131,12 +131,23 @@
               <th>Country</th>
               <th>Telephone number</th>
               <th>Email</th>
+              <th>Passport number</th>
 
 
 
             </tr>
             </thead>
             <tbody></tbody>
+            <tfoot><th>
+              First name</th>
+              <th>Last name</th>
+              <th>Address</th>
+              <th>Postal code</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>Telephone number</th>
+              <th>Email</th>
+              <th>Passport number</th></tfoot>
 
             <!--<tbody>-->
             <!--<tr>-->
@@ -172,6 +183,7 @@
           Country: <input type="text" name="country" id="country" />
           Telephone number: <input type="text" name="telephoneNumber" id="telephoneNumber" />
           Email address: <input type="text" name="emailAddress" id="emailAddress" />
+          Passport number: <input type="text" name="passportNumber" id="passportNumber" />
 
           <!--<button id="addGuestButton">Add</button>-->
           <div><a class="btn btn-primary" id="addGuestButton" href = "">
@@ -179,10 +191,10 @@
 
           <p></p>
 
-          Delete: <input type="text" name="delete" id="guestToDelete" />
-          <!--<button id="deleteGuestButton">Delete</button>-->
-          <div><a class="btn btn-primary" id="deleteGuestButton" href = "">
-            <i class="fas fa-trash-alt"></i></a></div>
+          <!--Delete: <input type="text" name="delete" id="guestToDelete" />-->
+          <!--&lt;!&ndash;<button id="deleteGuestButton">Delete</button>&ndash;&gt;-->
+          <!--<div><a class="btn btn-primary" id="deleteGuestButton" href = "">-->
+            <!--<i class="fas fa-trash-alt"></i></a></div>-->
 
           <!--<a class="btn btn-primary" href="#DeleteGuest">-->
           <!--<i class="fas fa-trash-alt"></i>-->
@@ -193,18 +205,19 @@
           <p></p>
           <p></p>
 
-          Update ID: <input type="text" name="update" id="guestToUpdate" />
-          First name: <input type="text" name="firstName" id="updateFirstName" />
-          Last name:  <input type="text" name="lastName" id="updateLastName" />
-          Address: <input type="text" name="address" id="updateAddress" />
-          Postal code: <input type="text" name="postalCode" id="updatePostalCode" />
-          City: <input type="text" name="city" id="updateCity" />
-          Country: <input type="text" name="country" id="updateCountry" />
-          Telephone number: <input type="text" name="telephoneNumber" id="updateTelephoneNumber" />
-          Email address: <input type="text" name="emailAddress" id="updateEmailAddress" />
-          <!--<button id="updateGuestButton">Update</button>-->
-          <div><a class="btn btn-primary" id="updateGuestButton" href = "">
-            <i class="far fa-edit"></i></a></div>
+          <!--Update ID: <input type="text" name="update" id="guestToUpdate" />-->
+          <!--First name: <input type="text" name="firstName" id="updateFirstName" />-->
+          <!--Last name:  <input type="text" name="lastName" id="updateLastName" />-->
+          <!--Address: <input type="text" name="address" id="updateAddress" />-->
+          <!--Postal code: <input type="text" name="postalCode" id="updatePostalCode" />-->
+          <!--City: <input type="text" name="city" id="updateCity" />-->
+          <!--Country: <input type="text" name="country" id="updateCountry" />-->
+          <!--Telephone number: <input type="text" name="telephoneNumber" id="updateTelephoneNumber" />-->
+          <!--Email address: <input type="text" name="emailAddress" id="updateEmailAddress" />-->
+          <!--Passport number: <input type="text" name="passportNumber" id="updatePassportNumber" />-->
+          <!--&lt;!&ndash;<button id="updateGuestButton">Update</button>&ndash;&gt;-->
+          <!--<div><a class="btn btn-primary" id="updateGuestButton" href = "">-->
+            <!--<i class="far fa-edit"></i></a></div>-->
           <!--<a class="btn btn-primary" href="#EditGuest">-->
           <!--<i class="far fa-edit"></i>-->
           <!--</a>-->
@@ -288,6 +301,8 @@
           <input type="text" name="telephoneNumber" id="modalTelephoneNumber" /><br>
           Email address:<br>
           <input type="text" name="emailAddress" id="modalEmailAddress" /><br>
+          Passport number:<br>
+          <input type="text" name="passportNumber" id="modalPassportNumber" /><br>
         </form>
 
       </div>
