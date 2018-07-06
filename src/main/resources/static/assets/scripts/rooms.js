@@ -19,7 +19,7 @@ $(document).ready(function() {
          } );
 
 
-    // Functionality for interaction when clicking on rows of the table
+    // Functionality for interaction when clicking on rows of the table (MODAL in HTML)
         $('#dataTable tbody').on( 'click', 'tr', function () {
             if ( $(this).hasClass('selected') ) {
                 $(this).removeClass('selected');
