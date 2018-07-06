@@ -1,6 +1,9 @@
 package com.hotelmolveno.user;
 
+
+
 public abstract class User { // abstract class: there are no actual users, only guests and employees
+
     private int guestID;
     private int EmployeeID;
     private String firstName;
