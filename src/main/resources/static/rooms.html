@@ -107,6 +107,7 @@
               <th>Roomnumber</th>
               <th>Capacity</th>
               <th>Price</th>
+              <th>Room type</th>
             </tr>
             </thead>
             <tfoot>
@@ -115,6 +116,7 @@
               <th>Roomnumber</th>
               <th>Capacity</th>
               <th>Price</th>
+              <th>Room type</th>
 
             </tr>
             </tfoot>
@@ -128,8 +130,9 @@
             <td>
               <div>
               Room number: <input type="text" name="roomNumber" id="roomNumber" />
-              Capacity:  <input type="text" name="numberOfGuests" id="numberOfGuests" />
+              Capacity:  <input type="text" name="capacity" id="capacity" />
               Price: <input type="text" name="price" id="price" />
+              Room type: <input type="text" name="price" id="roomType" />
               <!--<button id="addButton">Add</button>-->
               <a class="btn btn-primary" id="addButton" href = "">
                 <i class="fas fa-plus-square"></i></a></div>
@@ -141,7 +144,7 @@
               <!--THIS WAS OUR WORKING UPDATE BUTTON BEFORE MODAL-->
               <!--Update ID: <input type="text" name="update" id="roomToUpdate" />-->
               <!--RoomNumber: <input type="text" name="roomNumber" id="updateRoomNumber" />-->
-              <!--NumberOfGuests:  <input type="text" name="numberOfGuests" id="updateNumberOfGuests" />-->
+              <!--Capacity:  <input type="text" name="capacity" id="updateCapacity" />-->
               <!--Price: <input type="text" name="price" id="updatePrice" />-->
               <!--<button id="updateButton">Update</button>-->
 
@@ -198,9 +201,11 @@
           Room number:<br>
           <input type="text" name="roomNumber" id="modalRoomNumber" /><br>
           Capacity:<br>
-          <input type="text" name="numberOfGuests" id="modalNumberOfGuests" /><br>
+          <input type="text" name="capacity" id="modalCapacity" /><br>
           Price:<br>
           <input type="text" name="price" id="modalPrice" /><br>
+          Room type:<br>
+          <input type="text" name="roomType" id="modalRoomType" /><br>
         </form>
 
       </div>

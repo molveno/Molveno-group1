@@ -1,6 +1,5 @@
 var baseUrl = "http://localhost:8080/api/rooms"
 
-
 $(document).ready(function() {
 
         $('#dataTable').DataTable( {
@@ -12,8 +11,9 @@ $(document).ready(function() {
                 "columns": [
 //                    { "data": "roomID" },
                     { "data": "roomNumber" },
-                    { "data": "numberOfGuests" },
-                    { "data": "price" }
+                    { "data": "capacity" },
+                    { "data": "price" },
+                    {"data": "roomType"}
 
                 ]
          } );
@@ -40,8 +40,9 @@ $("#addButton").click(function() {
 
             var jsonObject = {
                 roomNumber: $("#roomNumber").val(),
-                numberOfGuests: $("#numberOfGuests").val(),
-                price: Number($("#price").val())
+                capacity: $("#capacity").val(),
+                price: Number($("#price").val()),
+                roomType: $("#roomType").val()
 
             };
              $.ajax({
@@ -59,45 +60,7 @@ $("#addButton").click(function() {
           });
 
 
-          $("#deleteButton").click(function() {
-                      var roomID = Number($("#roomToDelete").val())
 
-                       $.ajax({
-                              contentType : "application/json",
-                               // waar moet hij de request op uitvoeren
-                               url : baseUrl+"/" + roomID,
-                               // type actie
-                               type : "delete",
-
-                               // als de actie lukt, voer deze functie uit
-
-                           });
-                           location.reload();
-                    });
-
-
-                    $("#updateButton").click(function() {
-
-                                var roomID = Number($("#roomToUpdate").val())
-
-                                var jsonObject = {
-                                    roomNumber: $("#updateRoomNumber").val(),
-                                    numberOfGuests: $("#updateNumberOfGuests").val(),
-                                    price: Number($("#updatePrice").val())
-
-                                };
-                                 $.ajax({
-                                        contentType : "application/json",
-                                         // waar moet hij de request op uitvoeren
-                                         url : baseUrl+"/" + roomID,
-                                         // type actie
-                                         type : "put",
-                                         data: JSON.stringify(jsonObject),
-                                         // als de actie lukt, voer deze functie uit
-
-                                     });
-                                     location.reload();
-                              });
 
      function apiGetSingleRoom(id){
          var api = baseUrl + "/" + id;
@@ -115,8 +78,9 @@ function fillUpdateDiv(room){
     $("#btnsubmit").attr('onclick', 'submitEdit(' + room.roomID + ');');
     document.getElementById("modal-title").innerHTML="Edit Room";
     $("#modalRoomNumber").val(room.roomNumber);
-    $("#modalNumberOfGuests").val(room.numberOfGuests);
+    $("#modalCapacity").val(room.capacity);
     $("#modalPrice").val(room.price);
+    $("#modalRoomType").val(room.roomType);
      /*
     $("#postalCode").val(room.postalCode);
     $("#city").val(room.city);
@@ -196,3 +160,46 @@ function submitDelete(){
     $('#myModal').modal('toggle');
     deselect();
 }
+
+
+
+//          $("#deleteButton").click(function() {
+//                      var roomID = Number($("#roomToDelete").val())
+//
+//                       $.ajax({
+//                              contentType : "application/json",
+//                               // waar moet hij de request op uitvoeren
+//                               url : baseUrl+"/" + roomID,
+//                               // type actie
+//                               type : "delete",
+//
+//                               // als de actie lukt, voer deze functie uit
+//
+//                           });
+//                           location.reload();
+//                    });
+
+
+//                    $("#updateButton").click(function() {
+//
+//                                var roomID = Number($("#roomToUpdate").val())
+//
+//                                var jsonObject = {
+//                                    roomNumber: $("#updateRoomNumber").val(),
+//                                    capacity: $("#updateCapacity").val(),
+//                                    price: $("#updatePrice").val(),
+//                                    roomType: $("#updateRoomType").val()
+//
+//                                };
+//                                 $.ajax({
+//                                        contentType : "application/json",
+//                                         // waar moet hij de request op uitvoeren
+//                                         url : baseUrl+"/" + roomID,
+//                                         // type actie
+//                                         type : "put",
+//                                         data: JSON.stringify(jsonObject),
+//                                         // als de actie lukt, voer deze functie uit
+//
+//                                     });
+//                                     location.reload();
+//                              });

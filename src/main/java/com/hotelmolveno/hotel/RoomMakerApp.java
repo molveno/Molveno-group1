@@ -188,7 +188,7 @@ public class RoomMakerApp {
 
         Room room = new Room(chosenRoomNumber, roomCapacity, roomPrice);
         room.setRoomNumber(chosenRoomNumber);
-        room.setNumberOfGuests(roomCapacity);
+        room.setCapacity(roomCapacity);
         room.setPrice(roomPrice);
         System.out.println(room);
 

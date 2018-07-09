@@ -3,11 +3,10 @@ package com.hotelmolveno.controller.backend;
 import com.hotelmolveno.hotel.Room;
 import com.hotelmolveno.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.Collection;
+
 import java.util.Optional;
 
 @RestController
@@ -56,9 +55,10 @@ public class RoomController {
             Room output = possibleOutput.get();
 
             output.setRoomNumber(input.getRoomNumber());
-            output.setNumberOfGuests(input.getNumberOfGuests());
+            output.setCapacity(input.getCapacity());
             output.setPrice(input.getPrice());
             output.setReserved(input.getReserved());
+            output.setRoomType(input.getRoomType());
 
             output = this.roomRepository.save(output);
 

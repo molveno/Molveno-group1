@@ -1,11 +1,7 @@
 package com.hotelmolveno.hotel;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 public class Room implements Serializable {
@@ -18,8 +14,11 @@ public class Room implements Serializable {
 
     protected int roomNumber;
     protected boolean reserved;
+    protected int capacity;
     protected int numberOfGuests;
     protected double price;
+
+    @Enumerated(EnumType.STRING)
     protected RoomType roomType;
 
     public RoomType getRoomType() {
@@ -39,11 +38,11 @@ public class Room implements Serializable {
 
     }
 
-    public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
+    public Room(int setRoomNumber, int setCapacity, double setPrice) {
         this.roomID = nextRoomID;
         nextRoomID++;
         this.roomNumber = setRoomNumber;
-        this.numberOfGuests = setNumberOfGuests;
+        this.capacity = setCapacity;
         this.price = setPrice;
         // this.reserved = setReserved; // add later
     }
@@ -90,12 +89,12 @@ public class Room implements Serializable {
         System.out.println("Message from main room");
     }
 
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
-    public int getNumberOfGuests() {
-        return this.numberOfGuests;
+    public int getCapacity() {
+        return this.capacity;
     }
 
     @Override
@@ -104,7 +103,7 @@ public class Room implements Serializable {
                 "roomID = " + roomID +
                 ", roomNumber = " + roomNumber +
                 ", reserved = " + reserved +
-                ", numberOfGuests = " + numberOfGuests +
+                ", capacity = " + capacity +
                 ", price = " + price +
                 '}';
     }
