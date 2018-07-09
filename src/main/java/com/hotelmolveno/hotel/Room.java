@@ -1,11 +1,12 @@
 package com.hotelmolveno.hotel;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.hotelmolveno.reservation.Reservation;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Room implements Serializable {
@@ -20,6 +21,14 @@ public class Room implements Serializable {
     protected boolean reserved;
     protected int numberOfGuests;
     protected double price;
+
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    @ManyToMany(mappedBy="rooms", cascade=CascadeType.ALL)
+    private Set<Reservation> reservations = new HashSet<>();
 
 
     public Room() {
