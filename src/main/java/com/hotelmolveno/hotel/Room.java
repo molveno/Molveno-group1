@@ -20,6 +20,19 @@ public class Room implements Serializable {
     protected boolean reserved;
     protected int numberOfGuests;
     protected double price;
+    protected RoomType roomType;
+
+    public RoomType getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(RoomType roomType) {
+        this.roomType = roomType;
+    }
+
+    public enum UserType{
+        ADMIN, EDITOR, USER;
+    }
 
 
     public Room() {
