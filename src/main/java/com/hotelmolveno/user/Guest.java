@@ -1,11 +1,10 @@
 package com.hotelmolveno.user;
 
 import com.hotelmolveno.App;
+import com.hotelmolveno.finance.Bill;
+import com.hotelmolveno.reservation.Reservation;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.*;
@@ -26,6 +25,26 @@ public class Guest extends User implements Serializable {
     private String country;
     private String telephoneNumber;
     private String emailAddress;
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    @ManyToMany(mappedBy = "guests", cascade = CascadeType.ALL)
+    private Set<Reservation> reservations = new HashSet<>();
+
+    @OneToMany(mappedBy = "guests") // person is the private Person instance var in the phone class
+    private Set<Bill> bills = new HashSet<>();
+
+    public Set<Bill> getBills() {
+        return this.bills;
+    }
+
+    public void addBill(Bill bill) {
+        this.bills.add(bill);
+    }
+
+
 
     @Override
     public int getGuestID() {
@@ -200,7 +219,7 @@ public class Guest extends User implements Serializable {
         System.out.println("Enter firstname: ");
         String firstName = input.nextLine();
 
-            for(User userRecord : userListGuest) {
+        for (User userRecord : userListGuest) {
             if (userRecord.getFirstName().equals(firstName)) {
                 System.out.print(userRecord.getFirstName() + "\t Found! ");
                 break;
@@ -216,7 +235,7 @@ public class Guest extends User implements Serializable {
         System.out.println("Enter firstname: ");
         String firstName = input.nextLine();
 
-        for(User userRecord : userListGuest) {
+        for (User userRecord : userListGuest) {
             if (userRecord.getFirstName().equals(firstName) == true) {
                 User newUser = userRecord;
                 System.out.print("\n" + userRecord.getFirstName() + "\t Found! \n");
@@ -263,7 +282,6 @@ public class Guest extends User implements Serializable {
     }
 
 
-
     public static void searchGuests(String firstName) {
 
         for (User myList : userListGuest) {                                                  //ITERATE THROUGH GUEST LIST
@@ -280,6 +298,10 @@ public class Guest extends User implements Serializable {
                 }
             }
         }
+    }
+
+    public Reservation getReservation() {
+        return getReservation();
     }
 }
 
