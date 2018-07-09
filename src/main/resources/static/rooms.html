@@ -131,10 +131,20 @@
 
             <td>
               <div>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p><b>Add a room:</b></p>
               Room number: <input type="text" name="roomNumber" id="roomNumber" />
               Capacity:  <input type="text" name="capacity" id="capacity" />
               Price: <input type="text" name="price" id="price" />
-              Room type: <input type="text" name="price" id="roomType" />
+              <!--BUDGET, STANDARD or LUXURY?: <input type="text" name="price" id="roomType" />-->
+                <select name = "roomType" id = "roomType">
+                  <option value = "BUDGET">BUDGET</option>
+                  <option value = "STANDARD">STANDARD</option>
+                  <option value = "LUXURY">LUXURY</option>
+
+                </select>
               Description: <input type="text" name="description" id="description" />
               <!--<button id="addButton">Add</button>-->
               <a class="btn btn-primary" id="addButton" href = "">
