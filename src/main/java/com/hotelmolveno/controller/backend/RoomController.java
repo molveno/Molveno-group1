@@ -59,6 +59,7 @@ public class RoomController {
             output.setPrice(input.getPrice());
             output.setReserved(input.getReserved());
             output.setRoomType(input.getRoomType());
+            output.setDescription(input.getDescription());
 
             output = this.roomRepository.save(output);
 

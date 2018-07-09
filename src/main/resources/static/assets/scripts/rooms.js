@@ -13,7 +13,8 @@ $(document).ready(function() {
                     { "data": "roomNumber" },
                     { "data": "capacity" },
                     { "data": "price" },
-                    {"data": "roomType"}
+                    {"data": "roomType"},
+                    {"data": "description"}
 
                 ]
          } );
@@ -42,7 +43,8 @@ $("#addButton").click(function() {
                 roomNumber: $("#roomNumber").val(),
                 capacity: $("#capacity").val(),
                 price: Number($("#price").val()),
-                roomType: $("#roomType").val()
+                roomType: $("#roomType").val(),
+                description: $("#description").val(),
 
             };
              $.ajax({
@@ -81,6 +83,7 @@ function fillUpdateDiv(room){
     $("#modalCapacity").val(room.capacity);
     $("#modalPrice").val(room.price);
     $("#modalRoomType").val(room.roomType);
+    $("#modalDescription").val(room.description);
      /*
     $("#postalCode").val(room.postalCode);
     $("#city").val(room.city);

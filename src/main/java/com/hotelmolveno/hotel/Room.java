@@ -17,9 +17,18 @@ public class Room implements Serializable {
     protected int capacity;
     protected int numberOfGuests;
     protected double price;
+    protected String description;
 
     @Enumerated(EnumType.STRING)
     protected RoomType roomType;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public RoomType getRoomType() {
         return roomType;
