@@ -66,13 +66,14 @@ public class ReservationController {
         if (possibleOutput.isPresent()) {
             Reservation output = possibleOutput.get();
 
-            for (Guest guest : input.getGuests())
-            if (guest.getGuestID() == 0) {
-                    this.guestRepository.save(guest);
-                output.add(guest);
-                }
 
-//            output.add(input.getGuests());
+            for (Guest guest : input.getGuests()){
+
+                if(!output.getGuests().contains(guest)) {
+                    output.add(guest);
+                }
+            }
+
             output.setCheckInDate(input.getCheckInDate());
             output.setCheckOutDate(input.getCheckOutDate());
             output.setComments(input.getComments());
