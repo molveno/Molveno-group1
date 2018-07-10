@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- PUT ALL CSS IN THE HEADER -->
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <title>:: Molveno Restaurant ::</title>
+    <style>
+        pre{
+            display: none;
+        }
+    </style>
+
+    <!--BOOTSTRAP STUFF FROM SJANNEKE-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
+</head>
+
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">Molveno Employee Application</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-link-text">Start</span>
+                </a>
+            </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Rooms">
+                <a class="nav-link" href="rooms.html">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">Rooms</span>
+                </a>
+            </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reservations">
+                <a class="nav-link" href="reservations.html">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">Reservations</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Guests">
+                <a class="nav-link" href="guests.html">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">Guests</span>
+                </a>
+            </li>
+
+
+
+
+
+
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+</nav>
+<div class="content-wrapper">
+    <div class="container-fluid">
+
+
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+
+                            <th>Guests</th>
+                            <th>Rooms</th>
+                            <th>Check in date</th>
+                            <th>Check out date</th>
+                            <th>Comments</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+
+                            <th>Guests</th>
+                            <th>Rooms</th>
+                            <th>Check in date</th>
+                            <th>Check out date</th>
+                            <th>Comments</th>
+
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+
+                    <tr>
+
+                        <td>
+                            <div>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p><b>Add a reservation:</b></p>
+                                Guests: <input type="text" name="guests" id="guests" />
+                                Rooms:  <input type="text" name="rooms" id="rooms" />
+                                Check in date: <input type="text" name="checkInDate" id="checkInDate" />
+                                Check out date: <input type="text" name="checkOutDate" id="checkOutDate" />
+                                Comments: <input type="text" name="comments" id="comments" />
+
+                                <a class="btn btn-primary" id="#addReservation" href = "">
+                                    <i class="fas fa-plus-square"></i></a></div>
+
+
+                        </td>
+                    </tr>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<footer class="sticky-footer">
+    <div class="container">
+        <div class="text-center">
+            <small>Copyright © Molveno</small>
+        </div>
+    </div>
+</footer>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+</a>
+
+</div>
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="deselect()" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title" id="modal-title">Edit reservation</h3>
+            </div>
+            <div class="modal-body">
+
+
+                <form id="reservationForm" enctype='text/plain'>
+                    Guests:<br>
+                    <input type="text" name="modalGuests" id="modalGuests" /><br>
+                    Rooms:<br>
+                    <input type="text" name="modalRooms" id="modalRooms" /><br>
+                    Check in date:<br>
+                    <input type="text" name="modalCheckInDate" id="modalCheckInDate" /><br>
+                    Check out date:<br>
+                    <input type="text" name="modalCheckOutDate" id="modalCheckOutDate" /><br>
+
+                    Comments:<br>
+                    <input type="text" name="modalComments" id="modalComments" /><br>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
+                <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover"
+                   data-placement="top" class="btn btn-danger">Delete</a>
+                <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+<script src="assets/scripts/reservations.js"></script>
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+
+
+</body>
+
+
+
+</html>

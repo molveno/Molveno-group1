@@ -78,6 +78,16 @@ $("#modalCapacity").focusout(function(){
 });
 
 
+$("#bedType").focusout(function(){
+
+//                        $("#twin").hide();
+                        document.getElementById("twin").disabled = true;
+                        document.getElementById("double").disabled = true;
+
+
+});
+
+
 $("#addButton").click(function() {
 
             if(!validateInput($("#roomNumber").val())){
