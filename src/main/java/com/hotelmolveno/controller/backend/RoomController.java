@@ -60,6 +60,7 @@ public class RoomController {
             output.setReserved(input.getReserved());
             output.setRoomType(input.getRoomType());
             output.setDescription(input.getDescription());
+            output.setBedType(input.getBedType());
 
             output = this.roomRepository.save(output);
 

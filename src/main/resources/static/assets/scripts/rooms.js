@@ -14,6 +14,7 @@ $(document).ready(function() {
                     { "data": "capacity" },
                     { "data": "price" },
                     {"data": "roomType"},
+                    {"data": "bedType"},
                     {"data": "description"}
 
                 ]
@@ -47,6 +48,36 @@ function validateInput(contents) {
  }
 
 
+
+document.getElementById("twin").disabled = true;
+document.getElementById("double").disabled = true;
+
+document.getElementById("modalTwin").disabled = true;
+document.getElementById("modalDouble").disabled = true;
+
+
+
+$("#capacity").focusout(function(){
+        if(Number($("#capacity").val()) == 2) {
+
+//                        $("#twin").hide();
+                        document.getElementById("twin").disabled = false;
+                        document.getElementById("double").disabled = false;
+
+                    }
+});
+
+$("#modalCapacity").focusout(function(){
+        if(Number($("#modalCapacity").val()) == 2) {
+
+//                        $("#twin").hide();
+                        document.getElementById("modalTwin").disabled = false;
+                        document.getElementById("modalDouble").disabled = false;
+
+                    }
+});
+
+
 $("#addButton").click(function() {
 
             if(!validateInput($("#roomNumber").val())){
@@ -60,9 +91,15 @@ $("#addButton").click(function() {
                 capacity: $("#capacity").val(),
                 price: Number($("#price").val()),
                 roomType: $("#roomType").val(),
-                description: $("#description").val(),
+                bedType: $("#bedType").val(),
+                description: $("#description").val()
+
 
             };
+
+
+
+
              $.ajax({
                     contentType : "application/json",
                      // waar moet hij de request op uitvoeren
@@ -99,6 +136,7 @@ function fillUpdateDiv(room){
     $("#modalCapacity").val(room.capacity);
     $("#modalPrice").val(room.price);
     $("#modalRoomType").val(room.roomType);
+    $("#modalBedType").val(room.bedType);
     $("#modalDescription").val(room.description);
      /*
     $("#postalCode").val(room.postalCode);

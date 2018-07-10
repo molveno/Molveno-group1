@@ -108,6 +108,7 @@
               <th>Capacity</th>
               <th>Price</th>
               <th>Room type</th>
+              <th>Bed type</th>
               <th>Description</th>
             </tr>
             </thead>
@@ -118,6 +119,7 @@
               <th>Capacity</th>
               <th>Price</th>
               <th>Room type</th>
+              <th>Bed type</th>
               <th>Description</th>
 
             </tr>
@@ -139,12 +141,20 @@
               Capacity:  <input type="text" name="capacity" id="capacity" />
               Price: <input type="text" name="price" id="price" />
               <!--BUDGET, STANDARD or LUXURY?: <input type="text" name="price" id="roomType" />-->
-                <select name = "roomType" id = "roomType">
+                Room type: <select name = "roomType" id = "roomType">
                   <option value = "BUDGET">BUDGET</option>
                   <option value = "STANDARD">STANDARD</option>
                   <option value = "LUXURY">LUXURY</option>
 
                 </select>
+                Bed type:
+                <select name = "bedType" id = "bedType">
+                  <option id="single"value = "SINGLE">SINGLE</option>
+                  <option id="twin" value = "TWIN">TWIN</option>
+                  <option id="double" value = "DOUBLE">DOUBLE</option>
+
+                </select>
+<p></p>
               Description: <input type="text" name="description" id="description" />
               <!--<button id="addButton">Add</button>-->
               <a class="btn btn-primary" id="addButton" href = "">
@@ -217,8 +227,26 @@
           <input type="text" name="capacity" id="modalCapacity" /><br>
           Price:<br>
           <input type="text" name="price" id="modalPrice" /><br>
-          Room type:<br>
-          <input type="text" name="roomType" id="modalRoomType" /><br>
+          <!--Room type:<br>-->
+          <!--<input type="text" name="roomType" id="modalRoomType" /><br>-->
+          <!--Bed type:<br>-->
+          <!--<input type="text" name="bedType" id="modalBedType" /><br>-->
+          <br>
+          Room type:
+          <select name = "roomType" id = "modalRoomType">
+            <option value = "BUDGET">BUDGET</option>
+            <option value = "STANDARD">STANDARD</option>
+            <option value = "LUXURY">LUXURY</option>
+
+          </select>
+          Bed type:
+          <select name = "bedType" id = "modalBedType">
+            <option value = "SINGLE">SINGLE</option>
+            <option id = "modalTwin"value = "TWIN">TWIN</option>
+            <option id = "modalDouble" value = "DOUBLE">DOUBLE</option>
+
+          </select>
+        </br>
           Description:<br>
           <input type="text" name="description" id="modalDescription" /><br>
         </form>

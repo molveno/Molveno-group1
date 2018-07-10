@@ -23,6 +23,11 @@ public class Room implements Serializable {
     @Enumerated(EnumType.STRING)
     protected RoomType roomType;
 
+
+
+    @Enumerated(EnumType.STRING)
+    protected TypeOfBeds bedType;
+
     public String getDescription() {
         return description;
     }
@@ -105,6 +110,14 @@ public class Room implements Serializable {
 
     public int getCapacity() {
         return this.capacity;
+    }
+
+    public TypeOfBeds getBedType() {
+        return bedType;
+    }
+
+    public void setBedType(TypeOfBeds bedType) {
+        this.bedType = bedType;
     }
 
     @Override
