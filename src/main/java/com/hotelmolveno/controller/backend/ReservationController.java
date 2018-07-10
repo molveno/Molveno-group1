@@ -2,6 +2,7 @@ package com.hotelmolveno.controller.backend;
 
 import com.hotelmolveno.repository.GuestRepository;
 import com.hotelmolveno.repository.ReservationRepository;
+import com.hotelmolveno.repository.RoomRepository;
 import com.hotelmolveno.reservation.Reservation;
 import com.hotelmolveno.user.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,13 @@ public class ReservationController {
     @Autowired
     private GuestRepository guestRepository;
 
+    @Autowired
+    private RoomRepository roomRepository;
 
     @PostMapping
     public ResponseEntity<Reservation> create(@RequestBody Reservation newReservation) {
 
+        // first ... add logic to find the eventually existing Guests in the reservation by the id of guest
         this.reservationRepository.save(newReservation);
 
         return new ResponseEntity<Reservation>(newReservation, HttpStatus.CREATED);
@@ -57,17 +61,18 @@ public class ReservationController {
     @PutMapping(value = "{id}")
     public ResponseEntity<Reservation> update(@PathVariable long id, @RequestBody Reservation input) {
 
-
         Optional<Reservation> possibleOutput = this.reservationRepository.findById(id);
 
         if (possibleOutput.isPresent()) {
             Reservation output = possibleOutput.get();
 
             for (Guest guest : input.getGuests())
-                if (guest.getGuestID() == 0) {
+            if (guest.getGuestID() == 0) {
                     this.guestRepository.save(guest);
+                output.add(guest);
                 }
-            output.add(input.getGuests();
+
+//            output.add(input.getGuests());
             output.setCheckInDate(input.getCheckInDate());
             output.setCheckOutDate(input.getCheckOutDate());
             output.setComments(input.getComments());
@@ -80,8 +85,6 @@ public class ReservationController {
         } else {
             return new ResponseEntity<Reservation>(HttpStatus.NOT_FOUND);
         }
-
-
     }
 }
 

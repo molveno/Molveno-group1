@@ -1,5 +1,6 @@
 package com.hotelmolveno.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hotelmolveno.App;
 import com.hotelmolveno.finance.Bill;
 import com.hotelmolveno.reservation.Reservation;
@@ -30,10 +31,11 @@ public class Guest extends User implements Serializable {
         return reservations;
     }
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "guests", cascade = CascadeType.ALL)
     private Set<Reservation> reservations = new HashSet<>();
 
-    @OneToMany(mappedBy = "guests") // person is the private Person instance var in the phone class
+    @OneToMany(mappedBy="guest") // person is the private Person instance var in the phone class
     private Set<Bill> bills = new HashSet<>();
 
     public Set<Bill> getBills() {
@@ -300,9 +302,9 @@ public class Guest extends User implements Serializable {
         }
     }
 
-    public Reservation getReservation() {
-        return getReservation();
-    }
+//    public Reservation getReservation() {
+//        return getReservation();
+//    }
 }
 
 
