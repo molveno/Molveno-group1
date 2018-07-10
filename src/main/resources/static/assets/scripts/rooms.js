@@ -87,6 +87,15 @@ $("#bedType").focusout(function(){
 
 });
 
+$("#ModalBedType").focusout(function(){
+
+//                        $("#twin").hide();
+                        document.getElementById("twin").disabled = true;
+                        document.getElementById("double").disabled = true;
+
+
+});
+
 
 $("#addButton").click(function() {
 
@@ -174,6 +183,11 @@ function deselect(){
 
 
 function submitEdit(id){
+
+    if(!validateInput($("#modalRoomNumber").val())){
+                  fourAlert();
+                    return;
+                }
 // shortcut for filling the formData as a JavaScript object with the fields in the form
     console.log("Formdata");
     var formData = $("#roomForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
