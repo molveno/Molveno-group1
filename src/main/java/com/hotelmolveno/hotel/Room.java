@@ -1,7 +1,12 @@
 package com.hotelmolveno.hotel;
 
+import com.hotelmolveno.reservation.Reservation;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Room implements Serializable {
@@ -18,6 +23,14 @@ public class Room implements Serializable {
     protected int numberOfGuests;
     protected double price;
     protected String description;
+
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    @ManyToMany(mappedBy="rooms", cascade=CascadeType.ALL)
+    private Set<Reservation> reservations = new HashSet<>();
 
 
     @Enumerated(EnumType.STRING)

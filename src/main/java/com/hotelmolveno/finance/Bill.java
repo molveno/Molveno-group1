@@ -1,66 +1,62 @@
 package com.hotelmolveno.finance;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.hotelmolveno.user.Guest;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
 public class Bill {
 
-    private static int nextBillNumber = 1;
-    private int BillNumber;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private double roomCost;
     private double restaurantCost;
     private double barCost;
     private double otherCost;
     private double totalCost;
     private double remainingAmount;
-    private Payment paymentDone;
 
+    @ManyToOne
+    private Guest guest;
 
+    @OneToMany // person is the private Person instance var in the phone class
+    private Set<Payment> payments = new HashSet<>();
+
+    public Set<Payment> getPayment() {
+        return this.payments;
+    }
+
+    public void addPayment(Payment payment) {
+        this.payments.add(payment);
+
+    }
 
     public Bill() {
-        this.BillNumber = nextBillNumber;
-        nextBillNumber++;
-            }
+    }
 
-    public double calculateTotalCost(){
-       totalCost = roomCost + restaurantCost + barCost + otherCost;
+
+    public double calculateTotalCost() {
+        totalCost = roomCost + restaurantCost + barCost + otherCost;
         System.out.println("The total cost is " + totalCost);
         return totalCost;
     }
 
-    public double calculateRemainingAmount(){
-        remainingAmount = totalCost - paymentDone.getPaymentAmount();
-        return remainingAmount;
-}
+//    public double calculateRemainingAmount() {
+//        remainingAmount = totalCost - paymentDone.getPaymentAmount();
+//        return remainingAmount;
+//    }
 
 
-    public static List<Bill> bills = new ArrayList<>();
-
-    public static void addBillToList(Bill bill) {
-        bills.add(bill);
+    public long getId() {
+        return id;
     }
 
-
-
-
-
-
-
-
-    public static int getNextBillNumber() {
-        return nextBillNumber;
-    }
-
-    public static void setNextBillNumber(int nextBillNumber) {
-        Bill.nextBillNumber = nextBillNumber;
-    }
-
-    public int getBillNumber() {
-        return BillNumber;
-    }
-
-    public void setBillNumber(int billNumber) {
-        BillNumber = billNumber;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public double getRoomCost() {
@@ -111,12 +107,5 @@ public class Bill {
         this.remainingAmount = remainingAmount;
     }
 
-    public Payment getPaymentDone() {
-        return paymentDone;
-    }
-
-    public void setPaymentDone(Payment paymentDone) {
-        this.paymentDone = paymentDone;
-    }
 
 }
