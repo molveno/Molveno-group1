@@ -19,6 +19,7 @@ public class Room implements Serializable {
     protected double price;
     protected String description;
 
+
     @Enumerated(EnumType.STRING)
     protected RoomType roomType;
 

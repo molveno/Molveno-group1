@@ -37,7 +37,23 @@ $(document).ready(function() {
 
 } );
 
+function validateInput(contents) {
+                    var rgx = /[0-35-9]+/;
+                    return rgx.test(contents);
+                };
+
+ function fourAlert() {
+     alert("Room numbers cannot contain the number 4!");
+ }
+
+
 $("#addButton").click(function() {
+
+            if(!validateInput($("#roomNumber").val())){
+              fourAlert();
+                return;
+            }
+
 
             var jsonObject = {
                 roomNumber: $("#roomNumber").val(),
