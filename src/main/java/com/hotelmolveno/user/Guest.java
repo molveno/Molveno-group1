@@ -18,6 +18,7 @@ public class Guest extends User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int guestID;
+
     private String firstName;
     private String lastName;
     private String address;
@@ -240,6 +241,20 @@ public class Guest extends User implements Serializable {
             i++;
         }
         userListGuest.remove(i);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Guest guest = (Guest) o;
+        return guestID == guest.guestID;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(guestID);
     }
 
     public static void changeGuestFromList() {
