@@ -95,7 +95,7 @@ public class Room {
         diff = ChronoUnit.MILLIS.between(x.toInstant(), y.toInstant());
         int days = (int) ((diff % WEEK) / DAY);
 
-        if (reserved != true) {
+        if (!reserved) {
             return "Room {" +
                     "id:" + roomID +
                     ", NR: " + roomNumber +
@@ -116,12 +116,12 @@ public class Room {
     }
 
     public String getCalcTime() {
-        double remaining;
+        long remaining;
         Calendar cal = Calendar.getInstance();
         Date newDate = cal.getTime();
         Date resDate = reservationEndDate;
 
-        remaining = ChronoUnit.MILLIS.between(newDate.toInstant(), resDate.toInstant());
+        remaining = ChronoUnit.MILLIS.between(newDate.toInstant(), resDate.toInstant());//chronoUnit.days
 
         final int SECOND = 1000;        // no. of ms in a second
         final int MINUTE = SECOND * 60; // no. of ms in a minute

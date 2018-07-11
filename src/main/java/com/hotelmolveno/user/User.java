@@ -1,8 +1,17 @@
 package com.hotelmolveno.user;
 
-public class User { // abstract class: there are no actual users, only guests and employees
-    private int guestID;
-    private int employeeID;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+//@Entity
+public abstract class User implements Serializable { // abstract class: make new object guestStore or Employee store, not user. (interface is sort of contract, belastingdienst.
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private Long employeeID;
     private String firstName;
     private String lastName;
     private String address;
@@ -26,15 +35,15 @@ public class User { // abstract class: there are no actual users, only guests an
     public User() {
     }
 
-    public int getGuestID() {
-        return guestID;
+    public int getId() {
+        return id;
     }
 
-    public void setGuestID(int guestID) {
-        this.guestID = guestID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getEmployeeID() {
+    public long getEmployeeID() {
         return employeeID;
     }
 
@@ -106,14 +115,14 @@ public class User { // abstract class: there are no actual users, only guests an
         this.emailAddress = emailAddress;
     }
 
-    public void setEmployeeID(int employeeID) {
+    public void setEmployeeID(long employeeID) {
         this.employeeID = employeeID;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "GuestID=" + guestID + '\'' +
+                "GuestID=" + id + '\'' +
                 ", employeeID=" + employeeID + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

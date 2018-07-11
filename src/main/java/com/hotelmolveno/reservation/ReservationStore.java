@@ -46,7 +46,7 @@ public class ReservationStore {
         rooms.get(0).setReservationStartDate(x);
         rooms.get(0).setReservationEndDate(y);
         rooms.get(0).setReserved(true);
-        setReservationRoomList(rooms.get(0).getRoomID(), users.get(0).getGuestID());
+        setReservationRoomList(rooms.get(0).getRoomID(), users.get(0).getId());
 
         Calendar cal3 = Calendar.getInstance();
         cal3.getTime();
@@ -62,7 +62,7 @@ public class ReservationStore {
         rooms.get(5).setReservationStartDate(x2);
         rooms.get(5).setReservationEndDate(y2);
         rooms.get(5).setReserved(true);
-        setReservationRoomList(rooms.get(5).getRoomID(), users.get(5).getGuestID());
+        setReservationRoomList(rooms.get(5).getRoomID(), users.get(5).getId());
 
 
 //NEED-FIX
@@ -145,7 +145,7 @@ public class ReservationStore {
                     }
 
                     for (User myList : users) { //CHECK IF GUEST ALREADY HAS CURRENTLY A RESERVATION
-                        if (myList.getGuestID() == guestID) {
+                        if (myList.getId() == guestID) {
                             for (Map.Entry<Integer, Integer> entry : reservations.entrySet()) {                          //ITERATE THROUGH RESERVATION LIST key=room value=guest
                                 if (entry.getValue() == guestID) {
                                     System.out.print("Warning, this user already has a reservation. ");
@@ -186,7 +186,7 @@ public class ReservationStore {
                     Date startDate2 = cal.getTime();
                     rooms.get(roomID).setReservationEndDate(startDate2);        //SET END DATE
 
-                    setReservationRoomList(rooms.get(roomID).getRoomID(), users.get(guestID).getGuestID());   //CREATE RESERVATION
+                    setReservationRoomList(rooms.get(roomID).getRoomID(), users.get(guestID).getId());   //CREATE RESERVATION
 
                     rooms.get(roomID).setReservationPeriodHr(bookingPeriod);    //SET PERIOD
 
@@ -208,7 +208,7 @@ public class ReservationStore {
     //    public void getReservationRoomList(List<Room> room, List<User> user) {
     public void getReservationRoomList(RoomStore roomStore, GuestStore guestStore) {
         List<Room> rooms = roomStore.getRooms();
-        List<User> users = guestStore.getGuests();
+        List<User> users = guestStore.getGuestList();
         int c = 0, d = 0;
         System.out.println("\n----------------------------------------------------------------------------------------------------");
         for (Map.Entry<Integer, Integer> entry : reservations.entrySet()) {                          //ITERATE THROUGH RESERVATION LIST key=room value=guest
@@ -220,7 +220,7 @@ public class ReservationStore {
                     System.out.print("Room Number: " + String.valueOf(rooms.get(c).getRoomNumber() + " (" + rooms.get(c).getRoomID() + ")"));
 
                     for (User myGuestList : users) {                                                    //ITERATE THROUGH GUEST LIST
-                        if (value == users.get(d).getGuestID()) {                                       //CHECK IF VALUE EXISTS IN GUEST ARRAY (guestID),  IF SO, PRINT GUEST NAME
+                        if (value == users.get(d).getId()) {                                       //CHECK IF VALUE EXISTS IN GUEST ARRAY (guestID),  IF SO, PRINT GUEST NAME
                             System.out.println(" reserved by: " + myGuestList.getFirstName());
                             break;
                         }
@@ -255,7 +255,7 @@ public class ReservationStore {
                     rooms.get(c).setReserved(false);
                     rooms.get(c).setReservationPeriodHr(0);
                     for (User myGuestList : users) {                                                     //ITERATE THROUGH GUEST LIST
-                        if (value == users.get(d).getGuestID()) {                                        //CHECK IF VALUE EXISTS IN GUEST ARRAY (guestID),  IF SO, PRINT GUEST NAME
+                        if (value == users.get(d).getId()) {                                        //CHECK IF VALUE EXISTS IN GUEST ARRAY (guestID),  IF SO, PRINT GUEST NAME
                             System.out.println(" reserved by: " + myGuestList.getFirstName());
                             if (users.get(d).getFirstName().equals(firstName)) {
                                 System.out.println(firstName + " found, continue altering record... \n");
@@ -300,7 +300,7 @@ public class ReservationStore {
             for (Room myRoomList : rooms) {     //ITERATE ROOM\\
                 if (key == myRoomList.getRoomID()) {    ////|FIND OLD ROOM|\\\\                               //CHECK IF ROOM-KEY EXISTS IN ROOM ARRAY
                     for (User myGuestList : users)      //ITERATE GUEST\\
-                        if (value == myGuestList.getGuestID()) {////FIND OLD-GUEST\\\\                 //CHECK IF GUEST-VALUE EXISTS IN GUEST ARRAY
+                        if (value == myGuestList.getId()) {////FIND OLD-GUEST\\\\                 //CHECK IF GUEST-VALUE EXISTS IN GUEST ARRAY
 //CHECK IF RESERVATION EXISTS\\
                             if (users.get(value).getFirstName().equals(firstName)) {
                                 System.out.println("Reservation nr: " + value + " found for guest: " + firstName + "\n");
@@ -336,7 +336,7 @@ public class ReservationStore {
                                                 if (true) {
                                                     guestStore.getGuests();
                                                     for (User myList : users) {//ITERATE GUEST\\                                                        //CHECK IF GUEST ALREADY HAS A RESERVATION
-                                                        if (myList.getGuestID() == value) {                                                                     ///FIND OLD ROOM\\\
+                                                        if (myList.getId() == value) {                                                                     ///FIND OLD ROOM\\\
                                                             for (Map.Entry<Integer, Integer> entry : reservations.entrySet()) {//ITERATE THROUGH RESERVATION LIST (key=room value=guest)
 //CHECK IF USER ALREADY HAS A RESERVATION
                                                                 if (entry.getValue() == value) {
@@ -355,7 +355,7 @@ public class ReservationStore {
                                                     rooms.get(roomIDNew).setReservationPeriodHr(datePeriod);
                                                     rooms.get(roomIDNew).setReserved(true);
 
-                                                    setReservationRoomList(rooms.get(roomIDNew).getRoomID(), users.get(value).getGuestID());
+                                                    setReservationRoomList(rooms.get(roomIDNew).getRoomID(), users.get(value).getId());
                                                     this.setRoomToDefault(key, rooms);
 
                                                     a = key;

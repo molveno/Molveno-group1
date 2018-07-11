@@ -1,10 +1,28 @@
 package com.hotelmolveno.user;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
-public class GuestStore extends User {
+@Entity
+public class GuestStore extends User implements Serializable {
     private int CounterGuest = 0;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
+    private int employeeID = 0;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String postalCode;
+    private String city;
+    private String country;
+    private String telephoneNumber;
+    private String emailAddress;
+
+    @Column
+    @ElementCollection(targetClass=Integer.class)
     private List<User> guests = new ArrayList<>();    //initiate empty arrayList
 
     public GuestStore(String firstName, String lastName, String address, String postalCode, String city, String country, String telephoneNumber, String emailAddress) {
@@ -39,7 +57,7 @@ public class GuestStore extends User {
         System.out.print("Lastely, enter an e-mail address: ");
         String emailAddress = addGuest.nextLine();
 
-        user.setGuestID(getCounterGuestIncrement());
+        user.setId(getCounterGuestIncrement());
         setCounterGuestIncrement();
         user.setFirstName(firstName);
         user.setLastName(lastName);
@@ -54,7 +72,7 @@ public class GuestStore extends User {
 
     private void addNewGuestInitiate(String firstName, String lastName, String address, String postalCode, String city, String country, String telephoneNumber, String emailAddress) {
         User user = new GuestStore();
-        user.setGuestID(getCounterGuestIncrement());
+        user.setId(getCounterGuestIncrement());
         setCounterGuestIncrement();
         user.setFirstName(firstName);
         user.setLastName(lastName);
@@ -159,7 +177,7 @@ public class GuestStore extends User {
 //            if (listUsers.getFirstName().equals(firstName)) {
 //                System.out.print(listUsers.getFirstName() + "\t User exists. ");
 //                for (Map.Entry<Integer, Integer> entry : reservationStore.reservations.entrySet()) {    //ITERATE THROUGH RESERVATION LIST
-//                    if (entry.getKey() == listUsers.getGuestID()) {
+//                    if (entry.getKey() == listUsers.getId()) {
 //                        System.out.println("With reservations id: " + entry.getKey());
 //                    } else {
 //                        System.out.println("");
@@ -177,7 +195,7 @@ public class GuestStore extends User {
         int x = reader.nextInt();
         System.out.println("You entered guest ID number " + Integer.toString(x));
         for (User newUser : guests) {
-            if (newUser.getGuestID() == x) {
+            if (newUser.getId() == x) {
                 System.out.println("A guest with ID number " + x + " exists. Adujsting user, please provide");
                 System.out.print("Firstname: ");
                 String firstName = reader.next();
@@ -227,4 +245,115 @@ public class GuestStore extends User {
     }
 
 
+    public int getCounterGuest() {
+        return CounterGuest;
+    }
+
+    public void setCounterGuest(int counterGuest) {
+        CounterGuest = counterGuest;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public long getEmployeeID() {
+        return employeeID;
+    }
+
+//    @Override
+    public void setEmployeeID(Integer employeeID) {
+        this.employeeID = employeeID;
+    }
+
+    @Override
+    public String getFirstName() {
+        return firstName;
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Override
+    public String getLastName() {
+        return lastName;
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String getAddress() {
+        return address;
+    }
+
+    @Override
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    @Override
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    @Override
+    public String getCity() {
+        return city;
+    }
+
+    @Override
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Override
+    public String getCountry() {
+        return country;
+    }
+
+    @Override
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    @Override
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    @Override
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    @Override
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    @Override
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public void setGuests(List<User> guests) {
+        this.guests = guests;
+    }
 }
