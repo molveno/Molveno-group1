@@ -1,5 +1,6 @@
 package com.hotelmolveno.controller.backend;
 
+import com.hotelmolveno.hotel.Room;
 import com.hotelmolveno.repository.GuestRepository;
 import com.hotelmolveno.repository.ReservationRepository;
 import com.hotelmolveno.repository.RoomRepository;
@@ -31,22 +32,37 @@ public class ReservationController {
 
         // first ... add logic to find the eventually existing Guests in the reservation by the id of guest
 
-        boolean oneFound = false;
-        for(Guest guest: newReservation.getGuests()){
+        boolean oneGuestFound = false;
+        for (Guest guest : newReservation.getGuests()) {
             Optional<Guest> g = this.guestRepository.findById(guest.getGuestID());
 
-            if (g.isPresent()){
-                oneFound = true;
+            if (g.isPresent()) {
+                oneGuestFound = true;
             }
 
             // should exist
 
         }
 
-        if(!oneFound) {
+        if (!oneGuestFound) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
+        boolean oneRoomFound = false;
+        for (Room room : newReservation.getRooms()) {
+            Optional<Room> r = this.roomRepository.findById(room.getRoomID());
+
+            if (r.isPresent()) {
+                oneRoomFound = true;
+            }
+
+            // should exist
+
+        }
+
+        if (!oneRoomFound) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
 
         Reservation reservation = new Reservation();
@@ -57,21 +73,27 @@ public class ReservationController {
         this.reservationRepository.save(reservation);
 
 
-        for(Guest guest: newReservation.getGuests()){
-           Guest g = this.guestRepository.findById(guest.getGuestID()).get();
+        for (Guest guest : newReservation.getGuests()) {
+            Optional<Guest> optionalGuest = this.guestRepository.findById(guest.getGuestID());
 
-           reservation.add(g);
-           g.getReservations().add(reservation);
+            if (optionalGuest.isPresent()) {
+                Guest foundGuest = optionalGuest.get();
+                reservation.add(foundGuest);
+                foundGuest.getReservations().add(reservation);
 
-           this.guestRepository.save(g);
+                this.guestRepository.save(foundGuest);
 
-           // should exist
+                // should exist
+
+            }
+            this.reservationRepository.save(reservation);
+
 
         }
-        this.reservationRepository.save(reservation);
 
         return new ResponseEntity<Reservation>(reservation, HttpStatus.CREATED);
     }
+
 
     @GetMapping
     public ResponseEntity<Iterable<Reservation>> list() {
@@ -105,9 +127,9 @@ public class ReservationController {
             Reservation output = possibleOutput.get();
 
 
-            for (Guest guest : input.getGuests()){
+            for (Guest guest : input.getGuests()) {
 
-                if(!output.getGuests().contains(guest)) {
+                if (!output.getGuests().contains(guest)) {
                     output.add(guest);
                 }
             }
@@ -126,5 +148,6 @@ public class ReservationController {
         }
     }
 }
+
 
 
