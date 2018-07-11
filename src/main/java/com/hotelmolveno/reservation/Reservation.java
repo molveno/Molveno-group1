@@ -5,6 +5,7 @@ import com.hotelmolveno.user.Guest;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,6 +29,7 @@ public class Reservation implements Serializable {
     public String getComments() {
         return comments;
     }
+
 
 
     public void setComments(String comments) {
