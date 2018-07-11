@@ -98,7 +98,7 @@ public class Room implements Serializable {
         this.reservations = reservations;
     }
 
-    public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
+    public Room(int setRoomNumber, int setCapacity, double setPrice) {
 //        this.roomID = nextRoomID;
 //        nextRoomID++;
         this.roomNumber = setRoomNumber;
