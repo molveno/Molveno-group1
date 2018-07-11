@@ -9,7 +9,11 @@ $(document).ready(function() {
                         dataSrc: ''
                     },
                 "columns": [
-                    { "data": "guests" },
+
+                    
+
+
+                    { "data": "guests[0].guestFirstAndLastName" },
                     { "data": "rooms" },
                     { "data": "checkInDate" },
                     {"data": "checkOutDate"},

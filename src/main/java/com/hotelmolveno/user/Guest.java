@@ -29,6 +29,9 @@ public class Guest extends User implements Serializable {
     private String emailAddress;
     private String passportNumber;
 
+
+
+
     @Override
     public String getPassportNumber() {
         return passportNumber;
@@ -63,6 +66,10 @@ public class Guest extends User implements Serializable {
     @Override
     public int getGuestID() {
         return guestID;
+    }
+
+    public String getGuestFirstAndLastName() {
+        return firstName + " " + lastName;
     }
 
     @Override
