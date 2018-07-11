@@ -10,10 +10,10 @@ $(document).ready(function() {
                     },
                 "columns": [
 
-                    
 
 
-                    { "data": "guests[0].guestFirstAndLastName" },
+
+                    { "data": "allGuestsByFirstNameAndLastName" },
                     { "data": "rooms" },
                     { "data": "checkInDate" },
                     {"data": "checkOutDate"},

@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Entity
@@ -36,6 +37,15 @@ public class Reservation implements Serializable {
 
     public Set<Guest> getGuests() {
         return guests;
+    }
+
+    public String getAllGuestsByFirstNameAndLastName() {
+
+       Set<String> almostDone = this.getGuests().stream()
+               .map(g -> g.getGuestFirstAndLastName())
+               .collect(Collectors.toSet());
+
+       return String.join(", ", almostDone);
     }
 
     public Set<Room> getRooms() {
