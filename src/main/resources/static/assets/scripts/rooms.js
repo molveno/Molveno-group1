@@ -87,11 +87,11 @@ $("#bedType").focusout(function(){
 
 });
 
-$("#ModalBedType").focusout(function(){
+$("#modalBedType").focusout(function(){
 
 //                        $("#twin").hide();
-                        document.getElementById("twin").disabled = true;
-                        document.getElementById("double").disabled = true;
+                        document.getElementById("modalTwin").disabled = true;
+                        document.getElementById("modalDouble").disabled = true;
 
 
 });
