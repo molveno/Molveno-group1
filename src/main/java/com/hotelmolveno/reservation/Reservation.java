@@ -38,6 +38,10 @@ public class Reservation implements Serializable {
         return guests;
     }
 
+    public Set<Room> getRooms() {
+        return rooms;
+    }
+
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Guest> guests = new HashSet<>();
 

@@ -30,9 +30,47 @@ public class ReservationController {
     public ResponseEntity<Reservation> create(@RequestBody Reservation newReservation) {
 
         // first ... add logic to find the eventually existing Guests in the reservation by the id of guest
-        this.reservationRepository.save(newReservation);
 
-        return new ResponseEntity<Reservation>(newReservation, HttpStatus.CREATED);
+        boolean oneFound = false;
+        for(Guest guest: newReservation.getGuests()){
+            Optional<Guest> g = this.guestRepository.findById(guest.getGuestID());
+
+            if (g.isPresent()){
+                oneFound = true;
+            }
+
+            // should exist
+
+        }
+
+        if(!oneFound) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+
+
+        Reservation reservation = new Reservation();
+        reservation.setCheckInDate(newReservation.getCheckInDate());
+        reservation.setCheckOutDate(newReservation.getCheckOutDate());
+        reservation.setComments(newReservation.getComments());
+
+        this.reservationRepository.save(reservation);
+
+
+        for(Guest guest: newReservation.getGuests()){
+           Guest g = this.guestRepository.findById(guest.getGuestID()).get();
+
+           reservation.add(g);
+           g.getReservations().add(reservation);
+
+           this.guestRepository.save(g);
+
+           // should exist
+
+        }
+        this.reservationRepository.save(reservation);
+
+        return new ResponseEntity<Reservation>(reservation, HttpStatus.CREATED);
     }
 
     @GetMapping

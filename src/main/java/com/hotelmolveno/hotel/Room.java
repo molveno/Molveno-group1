@@ -1,32 +1,49 @@
 package com.hotelmolveno.hotel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hotelmolveno.reservation.Reservation;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 public class Room implements Serializable {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int roomID; // this field is now the ID (key for DB)
 
-    protected static int nextRoomID = 0;
+//    protected static int nextRoomID = 0;
 
     protected int roomNumber;
     protected boolean reserved;
     protected int numberOfGuests;
     protected double price;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Room room = (Room) o;
+        return roomID == room.roomID;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(roomID);
+    }
 
     public Set<Reservation> getReservations() {
         return reservations;
     }
 
+    @JsonIgnore
     @ManyToMany(mappedBy="rooms", cascade=CascadeType.ALL)
     private Set<Reservation> reservations = new HashSet<>();
 
@@ -34,10 +51,25 @@ public class Room implements Serializable {
     public Room() {
 
     }
+//    public static int getNextRoomID() {
+//        return nextRoomID;
+//    }
+//
+//    public static void setNextRoomID(int nextRoomID) {
+//        Room.nextRoomID = nextRoomID;
+//    }
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
-        this.roomID = nextRoomID;
-        nextRoomID++;
+//        this.roomID = nextRoomID;
+//        nextRoomID++;
         this.roomNumber = setRoomNumber;
         this.numberOfGuests = setNumberOfGuests;
         this.price = setPrice;
