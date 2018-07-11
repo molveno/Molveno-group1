@@ -91,6 +91,24 @@ public class ReservationController {
 
         }
 
+        for (Room room : newReservation.getRooms()) {
+            Optional<Room> optionalRoom = this.roomRepository.findById(room.getRoomID());
+
+            if (optionalRoom.isPresent()) {
+                Room foundRoom = optionalRoom.get();
+                reservation.add(foundRoom);
+                foundRoom.getReservations().add(reservation);
+
+                this.roomRepository.save(foundRoom);
+
+                // should exist
+
+            }
+            this.reservationRepository.save(reservation);
+
+
+        }
+
         return new ResponseEntity<Reservation>(reservation, HttpStatus.CREATED);
     }
 
@@ -133,6 +151,16 @@ public class ReservationController {
                     output.add(guest);
                 }
             }
+
+            for (Room room : input.getRooms()) {
+
+                if (!output.getRooms().contains(room)) {
+                    output.add(room);
+                }
+            }
+
+            //op deze manier, als je een roomID invult die niet bestaat, dan pakt hij zelf een nieuwe roomID! je meot dus alleen
+            //roomID's gebruiken die bestaan
 
             output.setCheckInDate(input.getCheckInDate());
             output.setCheckOutDate(input.getCheckOutDate());
