@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>{{title}}</h2>
+<small>Created on {{createdOn}}</small>
+<p>{{text}}</p>
+<p>Hello {{name}}
+    You have just won {{value}} dollars!
+    {{#in_ca}}
+        Well, {{taxed_value}} dollars, after taxes.
+    {{/in_ca}}</p>
+
+{
+"name": "Chris",
+"value": 10000,
+"taxed_value": 10000 - (10000 * 0.4),
+"in_ca": true
+}
+
+</body>
+</html>

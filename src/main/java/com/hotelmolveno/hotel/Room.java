@@ -22,8 +22,10 @@ public class Room implements Serializable {
 
     protected int roomNumber;
     protected boolean reserved;
+    protected int capacity;
     protected int numberOfGuests;
     protected double price;
+    protected String description;
 
     @Override
     public boolean equals(Object o) {
@@ -48,6 +50,35 @@ public class Room implements Serializable {
     private Set<Reservation> reservations = new HashSet<>();
 
 
+    @Enumerated(EnumType.STRING)
+    protected RoomType roomType;
+
+
+
+    @Enumerated(EnumType.STRING)
+    protected TypeOfBeds bedType;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public RoomType getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(RoomType roomType) {
+        this.roomType = roomType;
+    }
+
+    public enum UserType{
+        ADMIN, EDITOR, USER;
+    }
+
+
     public Room() {
 
     }
@@ -67,11 +98,11 @@ public class Room implements Serializable {
         this.reservations = reservations;
     }
 
-    public Room(int setRoomNumber, int setNumberOfGuests, double setPrice) {
+    public Room(int setRoomNumber, int setCapacity, double setPrice) {
 //        this.roomID = nextRoomID;
 //        nextRoomID++;
         this.roomNumber = setRoomNumber;
-        this.numberOfGuests = setNumberOfGuests;
+        this.capacity = setCapacity;
         this.price = setPrice;
         // this.reserved = setReserved; // add later
     }
@@ -118,12 +149,20 @@ public class Room implements Serializable {
         System.out.println("Message from main room");
     }
 
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
-    public int getNumberOfGuests() {
-        return this.numberOfGuests;
+    public int getCapacity() {
+        return this.capacity;
+    }
+
+    public TypeOfBeds getBedType() {
+        return bedType;
+    }
+
+    public void setBedType(TypeOfBeds bedType) {
+        this.bedType = bedType;
     }
 
     @Override
@@ -132,7 +171,7 @@ public class Room implements Serializable {
                 "roomID = " + roomID +
                 ", roomNumber = " + roomNumber +
                 ", reserved = " + reserved +
-                ", numberOfGuests = " + numberOfGuests +
+                ", capacity = " + capacity +
                 ", price = " + price +
                 '}';
     }

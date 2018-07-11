@@ -11,7 +11,7 @@
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-    <title>:: Molveno Restaurant ::</title>
+    <title>:: Molveno Hotel ::</title>
     <style>
         pre{
             display: none;
@@ -105,16 +105,22 @@
             <tr>
               <!--<th>RoomID</th>-->
               <th>Roomnumber</th>
-              <th>Number of guests</th>
+              <th>Capacity</th>
               <th>Price</th>
+              <th>Room type</th>
+              <th>Bed type</th>
+              <th>Description</th>
             </tr>
             </thead>
             <tfoot>
             <tr>
               <!--<th>RoomID</th>-->
               <th>Roomnumber</th>
-              <th>Number of guests</th>
+              <th>Capacity</th>
               <th>Price</th>
+              <th>Room type</th>
+              <th>Bed type</th>
+              <th>Description</th>
 
             </tr>
             </tfoot>
@@ -127,36 +133,34 @@
 
             <td>
               <div>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p><b>Add a room:</b></p>
               Room number: <input type="text" name="roomNumber" id="roomNumber" />
-              Number of guests:  <input type="text" name="numberOfGuests" id="numberOfGuests" />
+              Capacity:  <input type="text" name="capacity" id="capacity" />
               Price: <input type="text" name="price" id="price" />
+              <!--BUDGET, STANDARD or LUXURY?: <input type="text" name="price" id="roomType" />-->
+                Room type: <select name = "roomType" id = "roomType">
+                  <option value = "BUDGET">BUDGET</option>
+                  <option value = "STANDARD">STANDARD</option>
+                  <option value = "LUXURY">LUXURY</option>
+
+                </select>
+                Bed type:
+                <select name = "bedType" id = "bedType">
+                  <option id="single"value = "SINGLE">SINGLE</option>
+                  <option id="twin" value = "TWIN">TWIN</option>
+                  <option id="double" value = "DOUBLE">DOUBLE</option>
+
+                </select>
+<p></p>
+              Description: <input type="text" name="description" id="description" />
               <!--<button id="addButton">Add</button>-->
               <a class="btn btn-primary" id="addButton" href = "">
                 <i class="fas fa-plus-square"></i></a></div>
 
-              <!--Delete: <input type="text" name="delete" id="roomToDelete" />-->
-              <!--<button id="deleteButton">Delete</button>-->
 
-
-              <!--THIS WAS OUR WORKING UPDATE BUTTON BEFORE MODAL-->
-              <!--Update ID: <input type="text" name="update" id="roomToUpdate" />-->
-              <!--RoomNumber: <input type="text" name="roomNumber" id="updateRoomNumber" />-->
-              <!--NumberOfGuests:  <input type="text" name="numberOfGuests" id="updateNumberOfGuests" />-->
-              <!--Price: <input type="text" name="price" id="updatePrice" />-->
-              <!--<button id="updateButton">Update</button>-->
-
-              <!--<a class="btn btn-primary" href="#AddRoom">-->
-                <!--<i class="fas fa-plus-square"></i>-->
-
-              <!--</a>-->
-
-              <!--<a class="btn btn-primary" href="#EditRoom">-->
-                <!--<i class="far fa-edit"></i>-->
-              <!--</a>-->
-
-              <!--<a class="btn btn-primary" href="#DeleteRoom">-->
-                <!--<i class="fas fa-trash-alt"></i>-->
-              <!--</a>-->
 
 
             </td>
@@ -197,10 +201,32 @@
         <form id="roomForm" enctype='text/plain'>
           Room number:<br>
           <input type="text" name="roomNumber" id="modalRoomNumber" /><br>
-          Number of guests:<br>
-          <input type="text" name="numberOfGuests" id="modalNumberOfGuests" /><br>
+          Capacity:<br>
+          <input type="text" name="capacity" id="modalCapacity" /><br>
           Price:<br>
           <input type="text" name="price" id="modalPrice" /><br>
+          <!--Room type:<br>-->
+          <!--<input type="text" name="roomType" id="modalRoomType" /><br>-->
+          <!--Bed type:<br>-->
+          <!--<input type="text" name="bedType" id="modalBedType" /><br>-->
+          <br>
+          Room type:
+          <select name = "roomType" id = "modalRoomType">
+            <option value = "BUDGET">BUDGET</option>
+            <option value = "STANDARD">STANDARD</option>
+            <option value = "LUXURY">LUXURY</option>
+
+          </select>
+          Bed type:
+          <select name = "bedType" id = "modalBedType">
+            <option value = "SINGLE">SINGLE</option>
+            <option id = "modalTwin"value = "TWIN">TWIN</option>
+            <option id = "modalDouble" value = "DOUBLE">DOUBLE</option>
+
+          </select>
+        </br>
+          Description:<br>
+          <input type="text" name="description" id="modalDescription" /><br>
         </form>
 
       </div>

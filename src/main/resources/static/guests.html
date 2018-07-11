@@ -10,7 +10,7 @@
   <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-  <title>:: Molveno Restaurant ::</title>
+  <title>:: Molveno Hotel ::</title>
   <style>
         pre{
             display: none;
@@ -72,11 +72,6 @@
         </a>
       </li>
 
-
-
-
-
-
     </ul>
     <ul class="navbar-nav sidenav-toggler">
       <li class="nav-item">
@@ -122,7 +117,7 @@
           <table class="display table table-bordered" id="guestTable" width="100%" cellspacing="0">
             <thead>
             <tr>
-              <th>Guest ID</th>
+              <!--<th>Guest ID</th>-->
               <th>First name</th>
               <th>Last name</th>
               <th>Address</th>
@@ -131,12 +126,17 @@
               <th>Country</th>
               <th>Telephone number</th>
               <th>Email</th>
+              <th>Passport number</th>
 
 
 
             </tr>
             </thead>
             <tbody></tbody>
+            <tfoot>
+
+
+            </tfoot>
 
             <!--<tbody>-->
             <!--<tr>-->
@@ -164,6 +164,11 @@
             <!--</tbody>-->
           </table>
 
+          <p></p>
+          <p></p>
+          <p></p>
+          <p><b>Add a guest:</b></p>
+
           First name: <input type="text" name="firstName" id="firstName" />
           Last name:  <input type="text" name="lastName" id="lastName" />
           Address: <input type="text" name="address" id="address" />
@@ -172,6 +177,7 @@
           Country: <input type="text" name="country" id="country" />
           Telephone number: <input type="text" name="telephoneNumber" id="telephoneNumber" />
           Email address: <input type="text" name="emailAddress" id="emailAddress" />
+          Passport number: <input type="text" name="passportNumber" id="passportNumber" />
 
           <!--<button id="addGuestButton">Add</button>-->
           <div><a class="btn btn-primary" id="addGuestButton" href = "">
@@ -179,10 +185,10 @@
 
           <p></p>
 
-          Delete: <input type="text" name="delete" id="guestToDelete" />
-          <!--<button id="deleteGuestButton">Delete</button>-->
-          <div><a class="btn btn-primary" id="deleteGuestButton" href = "">
-            <i class="fas fa-trash-alt"></i></a></div>
+          <!--Delete: <input type="text" name="delete" id="guestToDelete" />-->
+          <!--&lt;!&ndash;<button id="deleteGuestButton">Delete</button>&ndash;&gt;-->
+          <!--<div><a class="btn btn-primary" id="deleteGuestButton" href = "">-->
+            <!--<i class="fas fa-trash-alt"></i></a></div>-->
 
           <!--<a class="btn btn-primary" href="#DeleteGuest">-->
           <!--<i class="fas fa-trash-alt"></i>-->
@@ -193,18 +199,19 @@
           <p></p>
           <p></p>
 
-          Update ID: <input type="text" name="update" id="guestToUpdate" />
-          First name: <input type="text" name="firstName" id="updateFirstName" />
-          Last name:  <input type="text" name="lastName" id="updateLastName" />
-          Address: <input type="text" name="address" id="updateAddress" />
-          Postal code: <input type="text" name="postalCode" id="updatePostalCode" />
-          City: <input type="text" name="city" id="updateCity" />
-          Country: <input type="text" name="country" id="updateCountry" />
-          Telephone number: <input type="text" name="telephoneNumber" id="updateTelephoneNumber" />
-          Email address: <input type="text" name="emailAddress" id="updateEmailAddress" />
-          <!--<button id="updateGuestButton">Update</button>-->
-          <div><a class="btn btn-primary" id="updateGuestButton" href = "">
-            <i class="far fa-edit"></i></a></div>
+          <!--Update ID: <input type="text" name="update" id="guestToUpdate" />-->
+          <!--First name: <input type="text" name="firstName" id="updateFirstName" />-->
+          <!--Last name:  <input type="text" name="lastName" id="updateLastName" />-->
+          <!--Address: <input type="text" name="address" id="updateAddress" />-->
+          <!--Postal code: <input type="text" name="postalCode" id="updatePostalCode" />-->
+          <!--City: <input type="text" name="city" id="updateCity" />-->
+          <!--Country: <input type="text" name="country" id="updateCountry" />-->
+          <!--Telephone number: <input type="text" name="telephoneNumber" id="updateTelephoneNumber" />-->
+          <!--Email address: <input type="text" name="emailAddress" id="updateEmailAddress" />-->
+          <!--Passport number: <input type="text" name="passportNumber" id="updatePassportNumber" />-->
+          <!--&lt;!&ndash;<button id="updateGuestButton">Update</button>&ndash;&gt;-->
+          <!--<div><a class="btn btn-primary" id="updateGuestButton" href = "">-->
+            <!--<i class="far fa-edit"></i></a></div>-->
           <!--<a class="btn btn-primary" href="#EditGuest">-->
           <!--<i class="far fa-edit"></i>-->
           <!--</a>-->
@@ -258,12 +265,60 @@
   <!--<script src="../js/sb-admin-datatables.min.js"></script>-->
 </div>
 
+<div class="modal fade" id="guestModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" onclick="deselect()" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title" id="modal-title">Edit guest</h3>
+      </div>
+      <div class="modal-body">
+
+
+
+
+
+        <form id="guestForm" enctype='text/plain'>
+          First name:<br>
+          <input type="text" name="firstName" id="modalFirstName" /><br>
+          Last name:<br>
+          <input type="text" name="lastName" id="modalLastName" /><br>
+          Address:<br>
+          <input type="text" name="address" id="modalAddress" /><br>
+          Postal code:<br>
+          <input type="text" name="postalCode" id="modalPostalCode" /><br>
+          City:<br>
+          <input type="text" name="city" id="modalCity" /><br>
+          Country:<br>
+          <input type="text" name="country" id="modalCountry" /><br>
+          Telephone number:<br>
+          <input type="text" name="telephoneNumber" id="modalTelephoneNumber" /><br>
+          Email address:<br>
+          <input type="text" name="emailAddress" id="modalEmailAddress" /><br>
+          Passport number:<br>
+          <input type="text" name="passportNumber" id="modalPassportNumber" /><br>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
+        <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover"
+           data-placement="top" class="btn btn-danger">Delete</a>
+        <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
 <script src="assets/scripts/guests.js"></script>
+<script src="vendor/datatables/jquery.dataTables.js"></script>
 </body>
 
 </html>

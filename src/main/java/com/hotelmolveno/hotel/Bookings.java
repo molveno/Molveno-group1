@@ -17,7 +17,7 @@ public class Booking {
 
     private boolean isPaid;
 
-    private int numberOfGuests;
+    private int capacity;
 
     public int getID() {
         return ID;
@@ -59,18 +59,18 @@ public class Booking {
         isPaid = paid;
     }
 
-    public int getNumberOfGuests() {
-        return numberOfGuests;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
-    public Booking(LocalDateTime checkInDate, LocalDateTime checkOutDate, int numberOfGuests){
+    public Booking(LocalDateTime checkInDate, LocalDateTime checkOutDate, int capacity){
         this.setCheckInDate(checkInDate);
         this.setCheckOutDate(checkOutDate);
-        this.setNumberOfGuests(numberOfGuests);
+        this.setCapacity(capacity);
     }
 
 

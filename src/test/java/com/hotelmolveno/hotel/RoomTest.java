@@ -3,15 +3,13 @@ package com.hotelmolveno.hotel;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class RoomTest {
 
     @Test
     public void testRoomConstructor() {
         Room testRoom = new Room(1, 2, 3);
         Assert.assertEquals(1, testRoom.getRoomNumber());
-        Assert.assertEquals(2, testRoom.getNumberOfGuests());
+        Assert.assertEquals(2, testRoom.getCapacity());
         Assert.assertEquals(3, testRoom.getPrice(), 0.001); // to compare floating point numbers, need delta param
     }
 
