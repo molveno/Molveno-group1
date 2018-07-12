@@ -9,20 +9,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/guests")
 public class GuestController {
-//
-//    @Autowired
-//    private GuestRepository guestRepository; //link to repository
 
     @Autowired
     private GuestService guestService;  //link to Service
 
     @PostMapping
     public GuestStore create(@RequestBody GuestStore newGuest) {
+
         return this.guestService.create(newGuest);
     }
 
     @GetMapping
     public Iterable<GuestStore> list() {
+
         return this.guestService.list();
     }
 
