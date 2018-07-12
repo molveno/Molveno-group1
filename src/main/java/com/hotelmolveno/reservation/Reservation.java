@@ -24,7 +24,13 @@ public class Reservation implements Serializable {
     private Date checkOutDate;
     private String comments;
 
+    public long getReservationID() {
+        return ReservationID;
+    }
 
+    public void setReservationID(long reservationID) {
+        ReservationID = reservationID;
+    }
 
     public String getComments() {
         return comments;

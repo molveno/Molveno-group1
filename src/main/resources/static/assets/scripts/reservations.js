@@ -10,9 +10,6 @@ $(document).ready(function() {
                     },
                 "columns": [
 
-
-
-
                     { "data": "allGuestsByFirstNameAndLastName" },
                     { "data": "rooms" },
                     { "data": "checkInDate" },
