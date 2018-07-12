@@ -56,7 +56,7 @@ $("#addReservation").click(function() {
             var jsonObject = {
                 guests: [{"guestID": $("#guest").val()}],
                 rooms: [{"roomID": $("#room").val()}],
-                checkInDate: Number($("#checkInDate").val()), // TODO
+                checkInDate: $("#checkInDate").val(),
                 checkOutDate: $("#checkOutDate").val(),
                 comments: $("#comments").val(),
                 checkInStatus: $("#checkInStatus").val()

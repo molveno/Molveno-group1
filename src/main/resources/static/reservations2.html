@@ -148,10 +148,16 @@
 
                                 <!--Guests: <input type="text" name="guests" id="guests"/>-->
                                 <!--Rooms: <input type="text" name="rooms" id="rooms"/>-->
-                                Check-in date: <input type="text" name="checkInDate" id="checkInDate"/>
-                                Check-out date: <input type="text" name="checkOutDate" id="checkOutDate"/>
-                                Comments: <input type="text" name="comments" id="comments"/>
-                                Check-in status: <input type="text" name="checkInStatus" id="checkInStatus"/>
+                                Check-in date: <input type="date" name="checkInDate" id="checkInDate"/>
+                                Check-out date: <input type="date" name="checkOutDate" id="checkOutDate"/>
+                                Comments: <input type="text" name="comments" id="comments"/><br>
+                                <!--Check-in status: <input type="text" name="checkInStatus" id="checkInStatus"/>-->
+                                Check-in status:
+                                <select name = "checkInStatus" id = "checkInStatus">
+                                    <option value = "true">check-in guest</option>
+                                    <option value = "false">check-out guest</option>
+
+                                </select>
 
                                 <a class="btn btn-primary" id="addReservation" href="">
                                     <i class="fas fa-plus-square"></i></a></div>
@@ -205,8 +211,15 @@
 
                     Comments:<br>
                     <input type="text" name="comments" id="modalComments"/><br>
-                    Check-in status:<br>
-                    <input type="checkbox" checked="checked" value = "true"  name="checkInStatus" id="modalCheckInStatus"/><br>
+
+                    Check-in status:
+                    <select name = "checkInStatus" id = "modalCheckInStatus">
+                        <option value = "true">check-in guest</option>
+                        <option value = "false">check-out guest</option>
+
+                    </select>
+                    <!--Check-in status:<br>-->
+                    <!--<input type="checkbox" checked="checked" value = "true"  name="checkInStatus" id="modalCheckInStatus"/><br>-->
                 </form>
 
             </div>
