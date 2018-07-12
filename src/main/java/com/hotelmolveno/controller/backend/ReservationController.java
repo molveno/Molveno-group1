@@ -5,6 +5,7 @@ import com.hotelmolveno.repository.GuestRepository;
 import com.hotelmolveno.repository.ReservationRepository;
 import com.hotelmolveno.repository.RoomRepository;
 import com.hotelmolveno.reservation.Reservation;
+import com.hotelmolveno.reservation.ReservationModel;
 import com.hotelmolveno.user.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -69,6 +70,7 @@ public class ReservationController {
         reservation.setCheckInDate(newReservation.getCheckInDate());
         reservation.setCheckOutDate(newReservation.getCheckOutDate());
         reservation.setComments(newReservation.getComments());
+        reservation.setCheckInStatus(newReservation.isCheckInStatus());
 
         this.reservationRepository.save(reservation);
 
@@ -114,8 +116,18 @@ public class ReservationController {
 
 
     @GetMapping
-    public ResponseEntity<Iterable<Reservation>> list() {
-        return new ResponseEntity<Iterable<Reservation>>(this.reservationRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity<ReservationModel> list() {
+        Iterable<Reservation> reservations = this.reservationRepository.findAll();
+        Iterable<Guest> guests = this.guestRepository.findAll();
+        Iterable<Room> rooms = this.roomRepository.findAll();
+
+        ReservationModel result = new ReservationModel();
+
+        result.setReservations(reservations);
+        result.setGuests(guests);
+        result.setRooms(rooms);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("{id}")
@@ -165,6 +177,7 @@ public class ReservationController {
             output.setCheckInDate(input.getCheckInDate());
             output.setCheckOutDate(input.getCheckOutDate());
             output.setComments(input.getComments());
+            output.setCheckInStatus(input.isCheckInStatus());
 
 
             output = this.reservationRepository.save(output);

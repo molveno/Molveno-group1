@@ -16,6 +16,8 @@
         pre{
             display: none;
         }
+
+
     </style>
 
     <!--BOOTSTRAP STUFF FROM SJANNEKE-->
@@ -31,7 +33,8 @@
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 
 </head>
@@ -41,7 +44,9 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.html">Molveno Employee Application</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -76,10 +81,6 @@
             </li>
 
 
-
-
-
-
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
@@ -106,9 +107,10 @@
 
                             <th>Guests</th>
                             <th>Rooms</th>
-                            <th>Check in date</th>
-                            <th>Check out date</th>
+                            <th>Check-in date</th>
+                            <th>Check-out date</th>
                             <th>Comments</th>
+                            <th>Check-in status</th>
                         </tr>
                         </thead>
                         <tfoot>
@@ -116,9 +118,10 @@
 
                             <th>Guests</th>
                             <th>Rooms</th>
-                            <th>Check in date</th>
-                            <th>Check out date</th>
+                            <th>Check-in date</th>
+                            <th>Check-out date</th>
                             <th>Comments</th>
+                            <th>Check-in status</th>
 
                         </tr>
                         </tfoot>
@@ -135,13 +138,22 @@
                                 <p></p>
                                 <p></p>
                                 <p><b>Add a reservation:</b></p>
-                                Guests: <input type="text" name="guests" id="guests" />
-                                Rooms:  <input type="text" name="rooms" id="rooms" />
-                                Check in date: <input type="text" name="checkInDate" id="checkInDate" />
-                                Check out date: <input type="text" name="checkOutDate" id="checkOutDate" />
-                                Comments: <input type="text" name="comments" id="comments" />
+                                Guest name: <select name="guest" id="guest"></select>
+                                Room number: <select name="room" id="room">
+                                <!--<option value = "BUDGET">BUDGET</option>-->
 
-                                <a class="btn btn-primary" id="#addReservation" href = "">
+
+                            </select>
+
+
+                                <!--Guests: <input type="text" name="guests" id="guests"/>-->
+                                <!--Rooms: <input type="text" name="rooms" id="rooms"/>-->
+                                Check-in date: <input type="text" name="checkInDate" id="checkInDate"/>
+                                Check-out date: <input type="text" name="checkOutDate" id="checkOutDate"/>
+                                Comments: <input type="text" name="comments" id="comments"/>
+                                Check-in status: <input type="text" name="checkInStatus" id="checkInStatus"/>
+
+                                <a class="btn btn-primary" id="addReservation" href="">
                                     <i class="fas fa-plus-square"></i></a></div>
 
 
@@ -181,17 +193,20 @@
 
 
                 <form id="reservationForm" enctype='text/plain'>
-                    Guests:<br>
-                    <input type="text" name="modalGuests" id="modalGuests" /><br>
-                    Rooms:<br>
-                    <input type="text" name="modalRooms" id="modalRooms" /><br>
-                    Check in date:<br>
-                    <input type="text" name="modalCheckInDate" id="modalCheckInDate" /><br>
-                    Check out date:<br>
-                    <input type="text" name="modalCheckOutDate" id="modalCheckOutDate" /><br>
+
+                    Guest name:<br>
+                    <select name="guest" id="modalGuest"></select><br>
+                    Room number:<br>
+                    <select name="room" id="modalRoom"></select><br>
+                    Check-in date:<br>
+                    <input type="text" name="modalCheckInDate" id="modalCheckInDate"/><br>
+                    Check-out date:<br>
+                    <input type="text" name="modalCheckOutDate" id="modalCheckOutDate"/><br>
 
                     Comments:<br>
-                    <input type="text" name="modalComments" id="modalComments" /><br>
+                    <input type="text" name="modalComments" id="modalComments"/><br>
+                    Check-in status:<br>
+                    <input type="text" name="modalCheckInStatus" id="modalCheckInStatus"/><br>
                 </form>
 
             </div>
@@ -207,16 +222,15 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
 <script src="assets/scripts/reservations.js"></script>
 <script src="vendor/datatables/jquery.dataTables.js"></script>
 
 
 </body>
-
 
 
 </html>

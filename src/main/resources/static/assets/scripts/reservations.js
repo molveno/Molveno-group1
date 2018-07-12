@@ -6,15 +6,17 @@ $(document).ready(function() {
                 "order": [[ 0, "asc" ]],
                 "ajax": {
                         url: baseUrl,
-                        dataSrc: ''
+                        dataSrc: 'reservations'
                     },
                 "columns": [
 
                     { "data": "allGuestsByFirstNameAndLastName" },
-                    { "data": "rooms" },
+                    { "data": "allRoomsByRoomNumber" },
                     { "data": "checkInDate" },
                     {"data": "checkOutDate"},
-                    {"data": "comments"}
+                    {"data": "comments"},
+                    {"data": "checkInStatus"}
+
 
                 ]
          } );
@@ -30,10 +32,13 @@ $(document).ready(function() {
                 $(this).addClass('selected');
                 var table = $('#dataTable').DataTable();
                 var data = table.row(this).data();
-                apiGetSingleReservation(data.ReservationID);
+                apiGetSingleReservation(data.reservationID); // NOOIT VARIABLEN MET HOOFDLETTERS!!!!!!
                 $('#myModal').modal('toggle');
             }
         });
+
+
+        getData();
 
 } );
 
@@ -42,11 +47,12 @@ $(document).ready(function() {
 $("#addReservation").click(function() {
 
             var jsonObject = {
-                guests: $("#guests").val(),
-                rooms: $("#rooms").val(),
-                checkInDate: Number($("#checkInDate").val()),
+                guests: [{"guestID": $("#guest").val()}],
+                rooms: [{"roomID": $("#room").val()}],
+                checkInDate: Number($("#checkInDate").val()), // TODO
                 checkOutDate: $("#checkOutDate").val(),
-                comments: $("#comments").val()
+                comments: $("#comments").val(),
+                checkInStatus: $("#checkInStatus").val()
 
 
             };
@@ -62,10 +68,13 @@ $("#addReservation").click(function() {
                      type : "post",
                      data: JSON.stringify(jsonObject),
                      // als de actie lukt, voer deze functie uit
+                     success: function(data) {
+                        console.log(data);
+                     }
 
                  });
 
-                 location.reload();
+//                 location.reload();
           });
 
 
@@ -80,18 +89,26 @@ $("#addReservation").click(function() {
 
 function fillUpdateDiv(reservation){
 
+    console.log("Hallo?")
+
     console.log(reservation);
-    $("#btndelete").attr('onclick', 'submitDelete(' + reservation.ReservationID + ');');
-    $("#btnsubmit").attr('onclick', 'submitEdit(' + reservation.ReservationID + ');');
+    $("#btndelete").attr('onclick', 'submitDelete(' + reservation.reservationID + ');');
+    $("#btnsubmit").attr('onclick', 'submitEdit(' + reservation.reservationID + ');');
     document.getElementById("modal-title").innerHTML="Edit Reservation";
-    $("#modalGuests").val(reservation.guests);
-    $("#modalRooms").val(reservation.rooms);
+
+
+//    $("#modalGuest").val({"guestID": $("#guest")}]);
+//    $("#modalRoom").val([{"roomID": $("#room")}]);
+    fillGuestsInModal(reservation.guests);
+//    $("#modalGuest").val(reservation.guests[0].guestFirstAndLastName);
+    $("#modalRoom").val(reservation.rooms[0].roomNumber);
     $("#modalCheckInDate").val(reservation.checkInDate);
     $("#modalCheckOutDate").val(reservation.checkOutDate);
     $("#modalComments").val(reservation.comments);
+    $("#modalCheckInStatus").val(reservation.checkInStatus);
 
     $("#confirmbutton").css('display', 'inline-block');
-    deleteID = reservation.ReservationID;
+    deleteID = reservation.reservationID;
     var elem = '<button type="button" class="btn btn-danger" onclick="submitDelete();">Confirm delete</button>';
     $('#confirmbutton').popover({
         animation:true,
@@ -119,6 +136,7 @@ function submitEdit(id){
     }
     $.ajax({
         url:baseUrl +"/" + id,
+//        dataSrc: 'reservations',
         type:"put",
         data: JSON.stringify(formData),
         contentType: "application/json; charset=utf-8",
@@ -136,10 +154,72 @@ function getData() {
       var api = baseUrl;
         $.get(api, function(data){
             if (data){
-                setData(data);
+                // setData(data.reservations);
+                $("#dataTable").dataTable().api().ajax.reload();
+                fillGuests(data.guests);
+                fillRooms(data.rooms);
             }
         });
 }
+
+function fillGuestsInModal(guests) {
+
+//    for(var guest in guests){
+//        console.log(guest);
+//    }
+
+    var r = "";
+
+
+
+    guests.forEach(function(guest){
+        console.log(guest)
+        r+= "<option value='"+guest.guestID+"'>"+guest.guestFirstAndLastName+"</option>";
+    });
+
+    console.log(r);
+
+    $("#modalGuest").html(r);
+
+}
+
+function fillGuests(guests) {
+
+//    for(var guest in guests){
+//        console.log(guest);
+//    }
+
+    var r = "";
+
+
+
+    guests.forEach(function(guest){
+        console.log(guest)
+        r+= "<option value='"+guest.guestID+"'>"+guest.guestFirstAndLastName+"</option>";
+    });
+
+    console.log(r);
+
+    $("#guest").html(r);
+
+}
+
+function fillRooms(rooms) {
+
+    var r = "";
+
+    rooms.forEach(function(room){
+        console.log(room)
+        r+= "<option value='"+room.roomID+"'>"+room.roomNumber+"</option>";
+    });
+
+    console.log(r);
+
+    $("#room").html(r);
+
+}
+
+
 
 function setData(data){
     $("#dataTable").DataTable().clear();
@@ -150,9 +230,8 @@ function setData(data){
 function submitDelete(){
     console.log("Deleting");
     var formData = $("#reservationForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
-    var reservationNumber = deleteID;
     $.ajax({
-        url:baseUrl + "/" + reservationNumber,
+        url:baseUrl + "/" + deleteID,
         type:"delete",
         data: JSON.stringify(formData),
         success: getData,

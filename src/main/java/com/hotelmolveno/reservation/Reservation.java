@@ -17,11 +17,20 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ReservationID;
+    private boolean checkInStatus;
 
 
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private String comments;
+
+    public boolean isCheckInStatus() {
+        return checkInStatus;
+    }
+
+    public void setCheckInStatus(boolean checkInStatus) {
+        this.checkInStatus = checkInStatus;
+    }
 
     public long getReservationID() {
         return ReservationID;
@@ -57,6 +66,15 @@ public class Reservation implements Serializable {
 
     public Set<Room> getRooms() {
         return rooms;
+    }
+
+    public String getAllRoomsByRoomNumber() {
+
+        Set<String> almostDone = this.getRooms().stream()
+                .map(r -> String.valueOf(r.getRoomNumber()))
+                .collect(Collectors.toSet());
+
+        return String.join(", ", almostDone);
     }
 
     @ManyToMany(cascade = CascadeType.ALL)
