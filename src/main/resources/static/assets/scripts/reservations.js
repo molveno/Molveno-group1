@@ -144,7 +144,6 @@ function submitEdit(id){
     }
     $.ajax({
         url:baseUrl +"/" + id,
-//        dataSrc: 'reservations',
         type:"put",
         data: JSON.stringify(formData),
         contentType: "application/json; charset=utf-8",
