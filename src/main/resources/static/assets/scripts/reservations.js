@@ -1,5 +1,12 @@
 var baseUrl = "http://localhost:8080/api/reservations"
 
+guests = {
+
+
+};
+
+rooms = {};
+
 $(document).ready(function() {
 
         $('#dataTable').DataTable( {
@@ -99,9 +106,10 @@ function fillUpdateDiv(reservation){
 
 //    $("#modalGuest").val({"guestID": $("#guest")}]);
 //    $("#modalRoom").val([{"roomID": $("#room")}]);
-    fillGuestsInModal(reservation.guests);
+    fillGuestsInModal(guests);
+    fillRoomsInModal(rooms);
 //    $("#modalGuest").val(reservation.guests[0].guestFirstAndLastName);
-    $("#modalRoom").val(reservation.rooms[0].roomNumber);
+//    $("#modalRoom").val(reservation.rooms[0].roomNumber);
     $("#modalCheckInDate").val(reservation.checkInDate);
     $("#modalCheckOutDate").val(reservation.checkOutDate);
     $("#modalComments").val(reservation.comments);
@@ -156,6 +164,10 @@ function getData() {
             if (data){
                 // setData(data.reservations);
                 $("#dataTable").dataTable().api().ajax.reload();
+
+                guests = data.guests;
+                rooms = data.rooms;
+
                 fillGuests(data.guests);
                 fillRooms(data.rooms);
             }
@@ -164,13 +176,7 @@ function getData() {
 
 function fillGuestsInModal(guests) {
 
-//    for(var guest in guests){
-//        console.log(guest);
-//    }
-
     var r = "";
-
-
 
     guests.forEach(function(guest){
         console.log(guest)
@@ -183,6 +189,21 @@ function fillGuestsInModal(guests) {
 
 }
 
+function fillRoomsInModal(rooms) {
+
+    var r = "";
+
+   rooms.forEach(function(room){
+        console.log(room)
+        r+= "<option value='"+room.roomID+"'>"+room.roomNumber+"</option>";
+    });
+
+    console.log(r);
+
+    $("#modalRoom").html(r);
+
+}
+
 function fillGuests(guests) {
 
 //    for(var guest in guests){
@@ -190,8 +211,6 @@ function fillGuests(guests) {
 //    }
 
     var r = "";
-
-
 
     guests.forEach(function(guest){
         console.log(guest)
