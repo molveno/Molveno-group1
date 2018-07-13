@@ -6,6 +6,7 @@ guests = {
 };
 
 rooms = {};
+reservations = {};
 
 $(document).ready(function() {
 
@@ -235,6 +236,7 @@ function getData() {
 
                 fillGuests(data.guests);
                 fillRooms(data.rooms);
+                reservations = data.reservations;
             }
         });
 }
@@ -325,4 +327,56 @@ function submitDelete(){
     $('#myModal').modal('toggle');
     deselect();
 }
+
+$("#police").click(function() {
+
+//    alert(getPoliceInfo(guests));
+        alert(getGuestByReservation(reservations));
+
+}
+)
+
+function getPoliceInfo(guests) {
+
+//    for(var guest in guests){
+//        console.log(guest);
+//    }
+
+    var r = "";
+
+    guests.forEach(function(guest){
+        console.log(guest)
+        r+= "Name: "+guest.guestFirstAndLastName+", Passport number: "+guest.passportNumber+"\n";
+    });
+
+    console.log(r);
+
+//    $("#guestsForPolice").html(r);
+    return r;
+}
+
+function getGuestByReservation(reservations) {
+
+        var checkInGuests = "";
+
+        reservations.forEach(function(reservation){
+
+            if(reservation.checkInStatus == true) {
+                reservation.guests.forEach(function(guest) {
+                    checkInGuests+= "Name: "+guest.guestFirstAndLastName+", Passport number: "+guest.passportNumber+"\n";
+
+                })
+
+
+            }
+        });
+
+
+
+    //    $("#guestsForPolice").html(r);
+        return checkInGuests;
+
+
+}
+
 
