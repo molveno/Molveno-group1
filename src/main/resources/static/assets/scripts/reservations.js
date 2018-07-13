@@ -49,12 +49,56 @@ $(document).ready(function() {
 
 } );
 
+//function fillGuests(guests) {
+//
+////    for(var guest in guests){
+////        console.log(guest);
+////    }
+//
+//    var r = "";
+//
+//    guests.forEach(function(guest){
+//        console.log(guest)
+//        r+= "<option value='"+guest.guestID+"'>"+guest.guestFirstAndLastName+"</option>";
+//    });
+//
+//    console.log(r);
+//
+//    $("#guest").html(r);
+//
+//}
 
+
+
+
+function getMultipleGuests(guests) {
+
+alert(guests);
+
+    var r = [];
+
+    guests.forEach(function(guest) {
+        console.log(guest)
+        r.push({"guestID": guest});
+
+    });
+
+//    for(var guest in guests){
+//        r.push({"guestID": guest});
+//    }
+
+    alert(r)
+    return r;
+
+}
 
 $("#addReservation").click(function() {
 
+//var guestSelection = $('#guest').val(); // method to provide an array
+
             var jsonObject = {
-                guests: [{"guestID": $("#guest").val()}],
+
+                guests:   getMultipleGuests($("#guest").val()), // worked for one guest, does not work with multiple
                 rooms: [{"roomID": $("#room").val()}],
                 checkInDate: $("#checkInDate").val(),
                 checkOutDate: $("#checkOutDate").val(),

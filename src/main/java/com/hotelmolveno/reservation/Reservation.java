@@ -77,7 +77,7 @@ public class Reservation implements Serializable {
         return String.join(", ", almostDone);
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<Guest> guests = new HashSet<>();
 
     public void add(Guest g) {
@@ -85,7 +85,7 @@ public class Reservation implements Serializable {
         g.getReservations().add(this);
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<Room> rooms = new HashSet<>();
 
     public void add(Room r) {
