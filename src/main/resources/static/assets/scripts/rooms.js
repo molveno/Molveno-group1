@@ -39,7 +39,7 @@ $(document).ready(function() {
 } );
 
 function validateInput(contents) {
-                    var rgx = /[0-35-9]+/;
+                    var rgx = /[4]+/;
                     return rgx.test(contents);
                 };
 
@@ -99,7 +99,7 @@ function validateInput(contents) {
 
 $("#addButton").click(function() {
 
-            if(!validateInput($("#roomNumber").val())){
+            if(validateInput($("#roomNumber").val())){
               fourAlert();
                 return;
             }
@@ -184,7 +184,7 @@ function deselect(){
 
 function submitEdit(id){
 
-    if(!validateInput($("#modalRoomNumber").val())){
+    if(validateInput($("#modalRoomNumber").val())){
                   fourAlert();
                     return;
                 }
