@@ -73,7 +73,7 @@ $(document).ready(function() {
 
 function getMultipleGuests(guests) {
 
-alert(guests);
+//alert(guests);
 
     var r = [];
 
@@ -87,7 +87,29 @@ alert(guests);
 //        r.push({"guestID": guest});
 //    }
 
-    alert(r)
+//    alert(r)
+    return r;
+
+}
+
+
+function getMultipleRooms(rooms) {
+
+//alert(guests);
+
+    var r = [];
+
+    rooms.forEach(function(room) {
+        console.log(room)
+        r.push({"roomID": room});
+
+    });
+
+//    for(var guest in guests){
+//        r.push({"guestID": guest});
+//    }
+
+//    alert(r)
     return r;
 
 }
@@ -99,7 +121,7 @@ $("#addReservation").click(function() {
             var jsonObject = {
 
                 guests:   getMultipleGuests($("#guest").val()), // worked for one guest, does not work with multiple
-                rooms: [{"roomID": $("#room").val()}],
+                rooms: getMultipleRooms($("#room").val()),
                 checkInDate: $("#checkInDate").val(),
                 checkOutDate: $("#checkOutDate").val(),
                 comments: $("#comments").val(),

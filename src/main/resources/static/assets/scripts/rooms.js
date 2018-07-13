@@ -49,52 +49,52 @@ function validateInput(contents) {
 
 
 
-document.getElementById("twin").disabled = true;
-document.getElementById("double").disabled = true;
-
-document.getElementById("modalTwin").disabled = true;
-document.getElementById("modalDouble").disabled = true;
-
-
-
-$("#capacity").focusout(function(){
-        if(Number($("#capacity").val()) == 2) {
-
-//                        $("#twin").hide();
-                        document.getElementById("twin").disabled = false;
-                        document.getElementById("double").disabled = false;
-
-                    }
-});
-
-$("#modalCapacity").focusout(function(){
-        if(Number($("#modalCapacity").val()) == 2) {
-
-//                        $("#twin").hide();
-                        document.getElementById("modalTwin").disabled = false;
-                        document.getElementById("modalDouble").disabled = false;
-
-                    }
-});
+//document.getElementById("twin").disabled = true;
+//document.getElementById("double").disabled = true;
+//
+//document.getElementById("modalTwin").disabled = true;
+//document.getElementById("modalDouble").disabled = true;
 
 
-$("#bedType").focusout(function(){
 
-//                        $("#twin").hide();
-                        document.getElementById("twin").disabled = true;
-                        document.getElementById("double").disabled = true;
+//$("#capacity").focusout(function(){
+//        if(Number($("#capacity").val()) == 2) {
+//
+////                        $("#twin").hide();
+//                        document.getElementById("twin").disabled = false;
+//                        document.getElementById("double").disabled = false;
+//
+//                    }
+//});
+//
+//$("#modalCapacity").focusout(function(){
+//        if(Number($("#modalCapacity").val()) == 2) {
+//
+////                        $("#twin").hide();
+//                        document.getElementById("modalTwin").disabled = false;
+//                        document.getElementById("modalDouble").disabled = false;
+//
+//                    }
+//});
+//
+//
+//$("#bedType").focusout(function(){
+//
+////                        $("#twin").hide();
+//                        document.getElementById("twin").disabled = true;
+//                        document.getElementById("double").disabled = true;
+//
+//
+//});
 
-
-});
-
-$("#modalBedType").focusout(function(){
-
-//                        $("#twin").hide();
-                        document.getElementById("modalTwin").disabled = true;
-                        document.getElementById("modalDouble").disabled = true;
-
-
-});
+//$("#modalBedType").focusout(function(){
+//
+////                        $("#twin").hide();
+//                        document.getElementById("modalTwin").disabled = true;
+//                        document.getElementById("modalDouble").disabled = true;
+//
+//
+//});
 
 
 $("#addButton").click(function() {
